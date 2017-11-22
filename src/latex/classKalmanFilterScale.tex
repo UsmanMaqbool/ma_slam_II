@@ -1,0 +1,246 @@
+\hypertarget{classKalmanFilterScale}{\section{\-Kalman\-Filter\-Scale \-Class \-Reference}
+\label{classKalmanFilterScale}\index{\-Kalman\-Filter\-Scale@{\-Kalman\-Filter\-Scale}}
+}
+
+
+{\ttfamily \#include $<$\-Kalman\-Filter\-Scale.\-h$>$}
+
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classKalmanFilterScale_a2ddb2f510c2103920578bc51eb68574a}{\-Kalman\-Filter\-Scale} ()
+\item 
+\hyperlink{classKalmanFilterScale_a8ef5be565bd60a2027281473aecb7165}{$\sim$\-Kalman\-Filter\-Scale} ()
+\end{DoxyCompactItemize}
+\subsection*{\-Protected \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classKalmanFilterScale_a2f543d979f7bedf714a4c6c6d0415a80}{make\-A} ()
+\item 
+void \hyperlink{classKalmanFilterScale_a9886fe7b723b1fe52a1b2fb09173cd6a}{make\-H} ()
+\item 
+void \hyperlink{classKalmanFilterScale_a5a305054267cfa4fb024551fe7bee7cc}{make\-V} ()
+\item 
+void \hyperlink{classKalmanFilterScale_aeb8f6250967beb55f4866e52fc6fe23d}{make\-R} ()
+\item 
+void \hyperlink{classKalmanFilterScale_a4f39209d09cada363a3848b3692eb0a1}{make\-W} ()
+\item 
+void \hyperlink{classKalmanFilterScale_a63d9966037b59c269bf86cf7254d4cb3}{make\-Q} ()
+\item 
+void \hyperlink{classKalmanFilterScale_a374bdda07afcf771760e0c4eda59de36}{make\-Process} ()
+\item 
+void \hyperlink{classKalmanFilterScale_aa34bc5ba7de5485d08583df61a057878}{make\-Measure} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+
+
+\-Definition at line 8 of file \-Kalman\-Filter\-Scale.\-h.
+
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classKalmanFilterScale_a2ddb2f510c2103920578bc51eb68574a}{\index{\-Kalman\-Filter\-Scale@{\-Kalman\-Filter\-Scale}!\-Kalman\-Filter\-Scale@{\-Kalman\-Filter\-Scale}}
+\index{\-Kalman\-Filter\-Scale@{\-Kalman\-Filter\-Scale}!KalmanFilterScale@{\-Kalman\-Filter\-Scale}}
+\subsubsection[{\-Kalman\-Filter\-Scale}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Kalman\-Filter\-Scale\-::\-Kalman\-Filter\-Scale} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classKalmanFilterScale_a2ddb2f510c2103920578bc51eb68574a}
+
+
+\-Definition at line 3 of file \-Kalman\-Filter\-Scale.\-cpp.
+
+
+\begin{DoxyCode}
+                                     {
+        setDim(1, 0, 1, 3, 3); // dim states n, dim inputs nu, dim process
+       noise nw, dim measurements m, dim measurement noise nv
+}
+\end{DoxyCode}
+\hypertarget{classKalmanFilterScale_a8ef5be565bd60a2027281473aecb7165}{\index{\-Kalman\-Filter\-Scale@{\-Kalman\-Filter\-Scale}!$\sim$\-Kalman\-Filter\-Scale@{$\sim$\-Kalman\-Filter\-Scale}}
+\index{$\sim$\-Kalman\-Filter\-Scale@{$\sim$\-Kalman\-Filter\-Scale}!KalmanFilterScale@{\-Kalman\-Filter\-Scale}}
+\subsubsection[{$\sim$\-Kalman\-Filter\-Scale}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Kalman\-Filter\-Scale\-::$\sim$\-Kalman\-Filter\-Scale} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classKalmanFilterScale_a8ef5be565bd60a2027281473aecb7165}
+
+
+\-Definition at line 7 of file \-Kalman\-Filter\-Scale.\-cpp.
+
+
+\begin{DoxyCode}
+{}
+\end{DoxyCode}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classKalmanFilterScale_a2f543d979f7bedf714a4c6c6d0415a80}{\index{\-Kalman\-Filter\-Scale@{\-Kalman\-Filter\-Scale}!make\-A@{make\-A}}
+\index{make\-A@{make\-A}!KalmanFilterScale@{\-Kalman\-Filter\-Scale}}
+\subsubsection[{make\-A}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Kalman\-Filter\-Scale\-::make\-A} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classKalmanFilterScale_a2f543d979f7bedf714a4c6c6d0415a80}
+
+
+\-Definition at line 23 of file \-Kalman\-Filter\-Scale.\-cpp.
+
+
+\begin{DoxyCode}
+                              {
+        // Jacobian of process model
+        A(1,1) = 1.0;
+}
+\end{DoxyCode}
+\hypertarget{classKalmanFilterScale_a9886fe7b723b1fe52a1b2fb09173cd6a}{\index{\-Kalman\-Filter\-Scale@{\-Kalman\-Filter\-Scale}!make\-H@{make\-H}}
+\index{make\-H@{make\-H}!KalmanFilterScale@{\-Kalman\-Filter\-Scale}}
+\subsubsection[{make\-H}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Kalman\-Filter\-Scale\-::make\-H} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classKalmanFilterScale_a9886fe7b723b1fe52a1b2fb09173cd6a}
+
+
+\-Definition at line 28 of file \-Kalman\-Filter\-Scale.\-cpp.
+
+
+\begin{DoxyCode}
+                              {
+        // Jacobian of measurement model
+        H(1,1) = 1.0;
+        H(2,1) = 1.0;
+        H(3,1) = 1.0;
+}
+\end{DoxyCode}
+\hypertarget{classKalmanFilterScale_aa34bc5ba7de5485d08583df61a057878}{\index{\-Kalman\-Filter\-Scale@{\-Kalman\-Filter\-Scale}!make\-Measure@{make\-Measure}}
+\index{make\-Measure@{make\-Measure}!KalmanFilterScale@{\-Kalman\-Filter\-Scale}}
+\subsubsection[{make\-Measure}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Kalman\-Filter\-Scale\-::make\-Measure} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classKalmanFilterScale_aa34bc5ba7de5485d08583df61a057878}
+
+
+\-Definition at line 16 of file \-Kalman\-Filter\-Scale.\-cpp.
+
+
+\begin{DoxyCode}
+                                    {
+        // Measurement model
+        z(1) = x(1);
+        z(2) = x(1);
+        z(3) = x(1);
+}
+\end{DoxyCode}
+\hypertarget{classKalmanFilterScale_a374bdda07afcf771760e0c4eda59de36}{\index{\-Kalman\-Filter\-Scale@{\-Kalman\-Filter\-Scale}!make\-Process@{make\-Process}}
+\index{make\-Process@{make\-Process}!KalmanFilterScale@{\-Kalman\-Filter\-Scale}}
+\subsubsection[{make\-Process}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Kalman\-Filter\-Scale\-::make\-Process} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classKalmanFilterScale_a374bdda07afcf771760e0c4eda59de36}
+
+
+\-Definition at line 9 of file \-Kalman\-Filter\-Scale.\-cpp.
+
+
+\begin{DoxyCode}
+                                    {
+        // Process model
+        Vector x_(x.size());
+        x_(1) = x(1);
+        x.swap(x_);
+}
+\end{DoxyCode}
+\hypertarget{classKalmanFilterScale_a63d9966037b59c269bf86cf7254d4cb3}{\index{\-Kalman\-Filter\-Scale@{\-Kalman\-Filter\-Scale}!make\-Q@{make\-Q}}
+\index{make\-Q@{make\-Q}!KalmanFilterScale@{\-Kalman\-Filter\-Scale}}
+\subsubsection[{make\-Q}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Kalman\-Filter\-Scale\-::make\-Q} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classKalmanFilterScale_a63d9966037b59c269bf86cf7254d4cb3}
+
+
+\-Definition at line 50 of file \-Kalman\-Filter\-Scale.\-cpp.
+
+
+\begin{DoxyCode}
+                              {
+        // Covaricane of process noise
+        Q(1,1) = 1.0;
+}
+\end{DoxyCode}
+\hypertarget{classKalmanFilterScale_aeb8f6250967beb55f4866e52fc6fe23d}{\index{\-Kalman\-Filter\-Scale@{\-Kalman\-Filter\-Scale}!make\-R@{make\-R}}
+\index{make\-R@{make\-R}!KalmanFilterScale@{\-Kalman\-Filter\-Scale}}
+\subsubsection[{make\-R}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Kalman\-Filter\-Scale\-::make\-R} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classKalmanFilterScale_aeb8f6250967beb55f4866e52fc6fe23d}
+
+
+\-Definition at line 55 of file \-Kalman\-Filter\-Scale.\-cpp.
+
+
+\begin{DoxyCode}
+                              {
+        // Covaricane of measurement noise
+        R(1,1) = 1.0;
+        R(2,2) = 1.0;
+        R(3,3) = 1.0;
+
+        R(2,1) = R(3,1) =
+                        R(1,2) = R(3,2) =
+                        R(1,3) = R(2,3) = 0.0;
+}
+\end{DoxyCode}
+\hypertarget{classKalmanFilterScale_a5a305054267cfa4fb024551fe7bee7cc}{\index{\-Kalman\-Filter\-Scale@{\-Kalman\-Filter\-Scale}!make\-V@{make\-V}}
+\index{make\-V@{make\-V}!KalmanFilterScale@{\-Kalman\-Filter\-Scale}}
+\subsubsection[{make\-V}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Kalman\-Filter\-Scale\-::make\-V} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classKalmanFilterScale_a5a305054267cfa4fb024551fe7bee7cc}
+
+
+\-Definition at line 40 of file \-Kalman\-Filter\-Scale.\-cpp.
+
+
+\begin{DoxyCode}
+                              {
+        // Jacobian of Measurement noise
+        V(1,1) = 1.0;
+        V(2,2) = 1.0;
+        V(3,3) = 1.0;
+        V(2,1) = V(3,1) =
+                        V(1,2) = V(3,2) =
+                        V(1,3) = V(2,3) = 0.0;
+}
+\end{DoxyCode}
+\hypertarget{classKalmanFilterScale_a4f39209d09cada363a3848b3692eb0a1}{\index{\-Kalman\-Filter\-Scale@{\-Kalman\-Filter\-Scale}!make\-W@{make\-W}}
+\index{make\-W@{make\-W}!KalmanFilterScale@{\-Kalman\-Filter\-Scale}}
+\subsubsection[{make\-W}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Kalman\-Filter\-Scale\-::make\-W} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classKalmanFilterScale_a4f39209d09cada363a3848b3692eb0a1}
+
+
+\-Definition at line 35 of file \-Kalman\-Filter\-Scale.\-cpp.
+
+
+\begin{DoxyCode}
+                              {
+        // Jacobian of process noise
+        W(1,1) = 1.0;
+}
+\end{DoxyCode}
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{KalmanFilterScale_8h}{\-Kalman\-Filter\-Scale.\-h}\item 
+\hyperlink{KalmanFilterScale_8cpp}{\-Kalman\-Filter\-Scale.\-cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,339 @@
+\hypertarget{classKeyFrameListenerTraining}{\section{\-Key\-Frame\-Listener\-Training \-Class \-Reference}
+\label{classKeyFrameListenerTraining}\index{\-Key\-Frame\-Listener\-Training@{\-Key\-Frame\-Listener\-Training}}
+}
+
+
+\-Class listening to incoming images, each instance of the class listens to one robot -\/$>$ do training.  
+
+
+
+
+{\ttfamily \#include $<$\-Key\-Frame\-Listener\-Training.\-h$>$}
+
+
+
+\-Collaboration diagram for \-Key\-Frame\-Listener\-Training\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classKeyFrameListenerTraining__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classKeyFrameListenerTraining_a79991f22508bb1680c0913cb6003abb6}{\-Key\-Frame\-Listener\-Training} (int r\-I\-D, int nbr\-Train\-Imgs, string topic\-Name, ros\-::\-Node\-Handle nh, \hyperlink{classCentralStorage}{\-Central\-Storage} $\ast$storage)
+\item 
+\hyperlink{classKeyFrameListenerTraining_a18c4d5ed913633aafb8ab8173aaf3431}{$\sim$\-Key\-Frame\-Listener\-Training} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
+void \hyperlink{classKeyFrameListenerTraining_a437c11f515c20b51d30ef40d637a25ba}{callback\-\_\-collect\-Train\-Img\-Descriptors} (const sensor\-\_\-msgs\-::\-Image\-Const\-Ptr \&msg, \hyperlink{classCentralStorage}{\-Central\-Storage} $\ast$storage)
+\begin{DoxyCompactList}\small\item\em \-Member function extracting (\-S\-U\-R\-F) descriptors from training \-Data s.\-t. vocabulary can be created. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classKeyFrameListenerTraining_ac4bc91c462f7cbf1364087c8c7177ee5}{m\-\_\-robot\-I\-D}
+\item 
+string \hyperlink{classKeyFrameListenerTraining_aa6e0e60a43e678d54a90201c9ec34deb}{m\-\_\-topic\-Name}
+\item 
+image\-\_\-transport\-::\-Image\-Transport \hyperlink{classKeyFrameListenerTraining_a5063e03ecd884134bbffc0e32dfa71e2}{m\-\_\-it}
+\item 
+image\-\_\-transport\-::\-Subscriber \hyperlink{classKeyFrameListenerTraining_a3b368cdbbe4bbb92bf47a35d01d55644}{m\-\_\-sub}
+\item 
+bool \hyperlink{classKeyFrameListenerTraining_a32ea513679de826627bc20c3598bab1b}{m\-\_\-training\-Data\-Collection}
+\item 
+bool \hyperlink{classKeyFrameListenerTraining_ab9a3dd6c3e61b1ac6271d891bddbd037}{m\-\_\-vocabulary\-Gen}
+\item 
+int \hyperlink{classKeyFrameListenerTraining_aff6e3d535158a78b464c731d22af308e}{m\-\_\-nbr\-Train\-Imgs}
+\begin{DoxyCompactList}\small\item\em nbr of images on which prior should be trained for fabmap = 100 \end{DoxyCompactList}\item 
+int \hyperlink{classKeyFrameListenerTraining_a527a1a7e1b02deacba5b417fa61fc367}{m\-\_\-train\-Img\-Ctr}
+\begin{DoxyCompactList}\small\item\em counts current nbr of train imgs = 0 \end{DoxyCompactList}\item 
+\hyperlink{structkeyFrame}{key\-Frame} \hyperlink{classKeyFrameListenerTraining_af9f9545cdabdc24d58237de03234c10f}{m\-\_\-k\-Frame}
+\begin{DoxyCompactList}\small\item\em stores necessary information about one keyframe \end{DoxyCompactList}\item 
+cv\-\_\-bridge\-::\-Cv\-Image\-Ptr \hyperlink{classKeyFrameListenerTraining_a6ae5ff8937a42f0d70404b7b8cd572c2}{m\-\_\-train\-Cv\-Ptr}
+\begin{DoxyCompactList}\small\item\em save ros sensor img to opencv img \end{DoxyCompactList}\item 
+\-Mat \hyperlink{classKeyFrameListenerTraining_a2db812cb925b74093ef76bc16306d9d7}{m\-\_\-train\-Img\-Descr}
+\begin{DoxyCompactList}\small\item\em all \-S\-I\-F\-T/\-S\-U\-R\-F descrs. of all train\-Imgs of 1 robot \end{DoxyCompactList}\item 
+vector$<$ vector$<$ \-Key\-Point $>$ $>$ \hyperlink{classKeyFrameListenerTraining_a315dd8f41de6cf586c90f600650a908d}{m\-\_\-train\-K\-Pts}
+\begin{DoxyCompactList}\small\item\em vec$<$\-K\-Pts$>$\-: all kpts from 1 train\-Img of 1 robot, vec$<$vec$<$\-K\-Pt$>$$>$\-: all \-K\-Pts from all train\-Imgs from 1 robot \end{DoxyCompactList}\item 
+vector$<$ \-Mat $>$ \hyperlink{classKeyFrameListenerTraining_a48bd94c8aaabd896a16fd7bb1557e0e7}{m\-\_\-train\-Imgs}
+\begin{DoxyCompactList}\small\item\em \-Mat\-: train\-Img, vec$<$\-Mat$>$\-: all train\-Imgs of 1robot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Class listening to incoming images, each instance of the class listens to one robot -\/$>$ do training. 
+
+\-Definition at line 23 of file \-Key\-Frame\-Listener\-Training.\-h.
+
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classKeyFrameListenerTraining_a79991f22508bb1680c0913cb6003abb6}{\index{\-Key\-Frame\-Listener\-Training@{\-Key\-Frame\-Listener\-Training}!\-Key\-Frame\-Listener\-Training@{\-Key\-Frame\-Listener\-Training}}
+\index{\-Key\-Frame\-Listener\-Training@{\-Key\-Frame\-Listener\-Training}!KeyFrameListenerTraining@{\-Key\-Frame\-Listener\-Training}}
+\subsubsection[{\-Key\-Frame\-Listener\-Training}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Key\-Frame\-Listener\-Training\-::\-Key\-Frame\-Listener\-Training} (
+\begin{DoxyParamCaption}
+\item[{int}]{r\-I\-D, }
+\item[{int}]{nbr\-Train\-Imgs, }
+\item[{string}]{topic\-Name, }
+\item[{ros\-::\-Node\-Handle}]{nh, }
+\item[{{\bf \-Central\-Storage} $\ast$}]{storage}
+\end{DoxyParamCaption}
+)}}\label{classKeyFrameListenerTraining_a79991f22508bb1680c0913cb6003abb6}
+
+
+\-Definition at line 9 of file \-Key\-Frame\-Listener\-Training.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                               
+                                                                :
+                m_robotID(rID),
+                m_nbrTrainImgs(nbrTrainImgs),
+                m_it(nh),
+                m_trainImgCtr(0)
+{
+        m_trainingDataCollection = true;
+        m_vocabularyGen = false;
+
+        m_sub = m_it.subscribe(topicName, 10, boost::bind(&
+      KeyFrameListenerTraining::callback_collectTrainImgDescriptors, this, _1, 
+      storage) );
+}
+\end{DoxyCode}
+\hypertarget{classKeyFrameListenerTraining_a18c4d5ed913633aafb8ab8173aaf3431}{\index{\-Key\-Frame\-Listener\-Training@{\-Key\-Frame\-Listener\-Training}!$\sim$\-Key\-Frame\-Listener\-Training@{$\sim$\-Key\-Frame\-Listener\-Training}}
+\index{$\sim$\-Key\-Frame\-Listener\-Training@{$\sim$\-Key\-Frame\-Listener\-Training}!KeyFrameListenerTraining@{\-Key\-Frame\-Listener\-Training}}
+\subsubsection[{$\sim$\-Key\-Frame\-Listener\-Training}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Key\-Frame\-Listener\-Training\-::$\sim$\-Key\-Frame\-Listener\-Training} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classKeyFrameListenerTraining_a18c4d5ed913633aafb8ab8173aaf3431}
+
+
+destructor 
+
+
+
+\-Definition at line 21 of file \-Key\-Frame\-Listener\-Training.\-cpp.
+
+
+\begin{DoxyCode}
+{}
+\end{DoxyCode}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classKeyFrameListenerTraining_a437c11f515c20b51d30ef40d637a25ba}{\index{\-Key\-Frame\-Listener\-Training@{\-Key\-Frame\-Listener\-Training}!callback\-\_\-collect\-Train\-Img\-Descriptors@{callback\-\_\-collect\-Train\-Img\-Descriptors}}
+\index{callback\-\_\-collect\-Train\-Img\-Descriptors@{callback\-\_\-collect\-Train\-Img\-Descriptors}!KeyFrameListenerTraining@{\-Key\-Frame\-Listener\-Training}}
+\subsubsection[{callback\-\_\-collect\-Train\-Img\-Descriptors}]{\setlength{\rightskip}{0pt plus 5cm}const char {\bf \-Key\-Frame\-Listener\-Training\-::callback\-\_\-collect\-Train\-Img\-Descriptors} (
+\begin{DoxyParamCaption}
+\item[{const sensor\-\_\-msgs\-::\-Image\-Const\-Ptr \&}]{msg, }
+\item[{{\bf \-Central\-Storage} $\ast$}]{storage}
+\end{DoxyParamCaption}
+)}}\label{classKeyFrameListenerTraining_a437c11f515c20b51d30ef40d637a25ba}
+
+
+\-Member function extracting (\-S\-U\-R\-F) descriptors from training \-Data s.\-t. vocabulary can be created. 
+
+
+
+\-Definition at line 23 of file \-Key\-Frame\-Listener\-Training.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                               
+                                                         {
+
+        int skip = 20; // skip (skip) imgs
+        try     {
+                this->m_trainCvPtr = cv_bridge::toCvCopy(imgMsg, 
+      sensor_msgs::image_encodings::BGR8);
+        }
+        catch (cv_bridge::Exception& e) {
+                ROS_ERROR("cv_bridge exception: %s", e.what());
+                return;
+        }
+
+        
+        // ---- START Collect descriptors of all Images (for generating visual
+       words later on) ---------------------------------------------------------                
+        if(m_trainingDataCollection==true && storage->stopDataCollection == 
+      false)
+        {
+
+                if((m_trainImgCtr % skip) == 0) // pick every (skip) img of
+       video stream
+                {
+        
+                        cout << "Detecting keypoints, computing descriptors of
+       training image " << m_trainImgs.size() << endl;
+
+                        // Collect descriptors of all Images
+                        Mat trainDescriptorsTmp; // to save descriptors of
+       current training Image
+                        vector<KeyPoint> trainKPtsTmp; // detected keypoints to
+       save keypoints of current training Image
+                        (storage->detector)->detect(this->m_trainCvPtr->image,
+      trainKPtsTmp);
+
+                        if(trainKPtsTmp.size()>20) {
+
+                                (storage->extractor)->compute(this->m_trainCvPtr
+      ->image,trainKPtsTmp,trainDescriptorsTmp);
+
+                                m_trainKPts.push_back(trainKPtsTmp);
+                                m_trainImgDescr.push_back(trainDescriptorsTmp);
+                                m_trainImgs.push_back(m_trainCvPtr->image);
+
+
+                                HelperFcts::displayImageKPts("
+      currentTrainingImage", m_trainCvPtr->image, trainKPtsTmp);
+                                ostringstream convImgName;
+                                convImgName << "trainImgs/robot" << m_robotID <
+      < "TrainImg" << m_trainImgCtr << ".jpg";
+                                string imgName = convImgName.str();
+                                HelperFcts::saveImage(m_trainCvPtr->image, 
+      imgName);
+                        }
+                }
+                m_trainImgCtr = m_trainImgCtr+1;
+        }
+
+        if((m_trainImgs.size() >= m_nbrTrainImgs && m_trainingDataCollection ==
+       true) || (storage->stopDataCollection == true && m_trainingDataCollection == 
+      true))
+        {
+                m_trainingDataCollection = false;
+                m_vocabularyGen = true;
+                storage->stopDataCollection = true;
+        }
+        // ---- END Collect descriptors of all Images (for generating visual
+       words later on) ---------------------------------------------------------
+}
+\end{DoxyCode}
+
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{classKeyFrameListenerTraining_a5063e03ecd884134bbffc0e32dfa71e2}{\index{\-Key\-Frame\-Listener\-Training@{\-Key\-Frame\-Listener\-Training}!m\-\_\-it@{m\-\_\-it}}
+\index{m\-\_\-it@{m\-\_\-it}!KeyFrameListenerTraining@{\-Key\-Frame\-Listener\-Training}}
+\subsubsection[{m\-\_\-it}]{\setlength{\rightskip}{0pt plus 5cm}image\-\_\-transport\-::\-Image\-Transport {\bf \-Key\-Frame\-Listener\-Training\-::m\-\_\-it}}}\label{classKeyFrameListenerTraining_a5063e03ecd884134bbffc0e32dfa71e2}
+
+
+\-Definition at line 30 of file \-Key\-Frame\-Listener\-Training.\-h.
+
+\hypertarget{classKeyFrameListenerTraining_af9f9545cdabdc24d58237de03234c10f}{\index{\-Key\-Frame\-Listener\-Training@{\-Key\-Frame\-Listener\-Training}!m\-\_\-k\-Frame@{m\-\_\-k\-Frame}}
+\index{m\-\_\-k\-Frame@{m\-\_\-k\-Frame}!KeyFrameListenerTraining@{\-Key\-Frame\-Listener\-Training}}
+\subsubsection[{m\-\_\-k\-Frame}]{\setlength{\rightskip}{0pt plus 5cm}{\bf key\-Frame} {\bf \-Key\-Frame\-Listener\-Training\-::m\-\_\-k\-Frame}}}\label{classKeyFrameListenerTraining_af9f9545cdabdc24d58237de03234c10f}
+
+
+stores necessary information about one keyframe 
+
+
+
+\-Definition at line 39 of file \-Key\-Frame\-Listener\-Training.\-h.
+
+\hypertarget{classKeyFrameListenerTraining_aff6e3d535158a78b464c731d22af308e}{\index{\-Key\-Frame\-Listener\-Training@{\-Key\-Frame\-Listener\-Training}!m\-\_\-nbr\-Train\-Imgs@{m\-\_\-nbr\-Train\-Imgs}}
+\index{m\-\_\-nbr\-Train\-Imgs@{m\-\_\-nbr\-Train\-Imgs}!KeyFrameListenerTraining@{\-Key\-Frame\-Listener\-Training}}
+\subsubsection[{m\-\_\-nbr\-Train\-Imgs}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Key\-Frame\-Listener\-Training\-::m\-\_\-nbr\-Train\-Imgs}}}\label{classKeyFrameListenerTraining_aff6e3d535158a78b464c731d22af308e}
+
+
+nbr of images on which prior should be trained for fabmap = 100 
+
+
+
+\-Definition at line 36 of file \-Key\-Frame\-Listener\-Training.\-h.
+
+\hypertarget{classKeyFrameListenerTraining_ac4bc91c462f7cbf1364087c8c7177ee5}{\index{\-Key\-Frame\-Listener\-Training@{\-Key\-Frame\-Listener\-Training}!m\-\_\-robot\-I\-D@{m\-\_\-robot\-I\-D}}
+\index{m\-\_\-robot\-I\-D@{m\-\_\-robot\-I\-D}!KeyFrameListenerTraining@{\-Key\-Frame\-Listener\-Training}}
+\subsubsection[{m\-\_\-robot\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Key\-Frame\-Listener\-Training\-::m\-\_\-robot\-I\-D}}}\label{classKeyFrameListenerTraining_ac4bc91c462f7cbf1364087c8c7177ee5}
+
+
+\-Definition at line 27 of file \-Key\-Frame\-Listener\-Training.\-h.
+
+\hypertarget{classKeyFrameListenerTraining_a3b368cdbbe4bbb92bf47a35d01d55644}{\index{\-Key\-Frame\-Listener\-Training@{\-Key\-Frame\-Listener\-Training}!m\-\_\-sub@{m\-\_\-sub}}
+\index{m\-\_\-sub@{m\-\_\-sub}!KeyFrameListenerTraining@{\-Key\-Frame\-Listener\-Training}}
+\subsubsection[{m\-\_\-sub}]{\setlength{\rightskip}{0pt plus 5cm}image\-\_\-transport\-::\-Subscriber {\bf \-Key\-Frame\-Listener\-Training\-::m\-\_\-sub}}}\label{classKeyFrameListenerTraining_a3b368cdbbe4bbb92bf47a35d01d55644}
+
+
+\-Definition at line 31 of file \-Key\-Frame\-Listener\-Training.\-h.
+
+\hypertarget{classKeyFrameListenerTraining_aa6e0e60a43e678d54a90201c9ec34deb}{\index{\-Key\-Frame\-Listener\-Training@{\-Key\-Frame\-Listener\-Training}!m\-\_\-topic\-Name@{m\-\_\-topic\-Name}}
+\index{m\-\_\-topic\-Name@{m\-\_\-topic\-Name}!KeyFrameListenerTraining@{\-Key\-Frame\-Listener\-Training}}
+\subsubsection[{m\-\_\-topic\-Name}]{\setlength{\rightskip}{0pt plus 5cm}string {\bf \-Key\-Frame\-Listener\-Training\-::m\-\_\-topic\-Name}}}\label{classKeyFrameListenerTraining_aa6e0e60a43e678d54a90201c9ec34deb}
+
+
+\-Definition at line 29 of file \-Key\-Frame\-Listener\-Training.\-h.
+
+\hypertarget{classKeyFrameListenerTraining_a6ae5ff8937a42f0d70404b7b8cd572c2}{\index{\-Key\-Frame\-Listener\-Training@{\-Key\-Frame\-Listener\-Training}!m\-\_\-train\-Cv\-Ptr@{m\-\_\-train\-Cv\-Ptr}}
+\index{m\-\_\-train\-Cv\-Ptr@{m\-\_\-train\-Cv\-Ptr}!KeyFrameListenerTraining@{\-Key\-Frame\-Listener\-Training}}
+\subsubsection[{m\-\_\-train\-Cv\-Ptr}]{\setlength{\rightskip}{0pt plus 5cm}cv\-\_\-bridge\-::\-Cv\-Image\-Ptr {\bf \-Key\-Frame\-Listener\-Training\-::m\-\_\-train\-Cv\-Ptr}}}\label{classKeyFrameListenerTraining_a6ae5ff8937a42f0d70404b7b8cd572c2}
+
+
+save ros sensor img to opencv img 
+
+
+
+\-Definition at line 40 of file \-Key\-Frame\-Listener\-Training.\-h.
+
+\hypertarget{classKeyFrameListenerTraining_a527a1a7e1b02deacba5b417fa61fc367}{\index{\-Key\-Frame\-Listener\-Training@{\-Key\-Frame\-Listener\-Training}!m\-\_\-train\-Img\-Ctr@{m\-\_\-train\-Img\-Ctr}}
+\index{m\-\_\-train\-Img\-Ctr@{m\-\_\-train\-Img\-Ctr}!KeyFrameListenerTraining@{\-Key\-Frame\-Listener\-Training}}
+\subsubsection[{m\-\_\-train\-Img\-Ctr}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Key\-Frame\-Listener\-Training\-::m\-\_\-train\-Img\-Ctr}}}\label{classKeyFrameListenerTraining_a527a1a7e1b02deacba5b417fa61fc367}
+
+
+counts current nbr of train imgs = 0 
+
+
+
+\-Definition at line 37 of file \-Key\-Frame\-Listener\-Training.\-h.
+
+\hypertarget{classKeyFrameListenerTraining_a2db812cb925b74093ef76bc16306d9d7}{\index{\-Key\-Frame\-Listener\-Training@{\-Key\-Frame\-Listener\-Training}!m\-\_\-train\-Img\-Descr@{m\-\_\-train\-Img\-Descr}}
+\index{m\-\_\-train\-Img\-Descr@{m\-\_\-train\-Img\-Descr}!KeyFrameListenerTraining@{\-Key\-Frame\-Listener\-Training}}
+\subsubsection[{m\-\_\-train\-Img\-Descr}]{\setlength{\rightskip}{0pt plus 5cm}\-Mat {\bf \-Key\-Frame\-Listener\-Training\-::m\-\_\-train\-Img\-Descr}}}\label{classKeyFrameListenerTraining_a2db812cb925b74093ef76bc16306d9d7}
+
+
+all \-S\-I\-F\-T/\-S\-U\-R\-F descrs. of all train\-Imgs of 1 robot 
+
+
+
+\-Definition at line 42 of file \-Key\-Frame\-Listener\-Training.\-h.
+
+\hypertarget{classKeyFrameListenerTraining_a48bd94c8aaabd896a16fd7bb1557e0e7}{\index{\-Key\-Frame\-Listener\-Training@{\-Key\-Frame\-Listener\-Training}!m\-\_\-train\-Imgs@{m\-\_\-train\-Imgs}}
+\index{m\-\_\-train\-Imgs@{m\-\_\-train\-Imgs}!KeyFrameListenerTraining@{\-Key\-Frame\-Listener\-Training}}
+\subsubsection[{m\-\_\-train\-Imgs}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$\-Mat$>$ {\bf \-Key\-Frame\-Listener\-Training\-::m\-\_\-train\-Imgs}}}\label{classKeyFrameListenerTraining_a48bd94c8aaabd896a16fd7bb1557e0e7}
+
+
+\-Mat\-: train\-Img, vec$<$\-Mat$>$\-: all train\-Imgs of 1robot. 
+
+
+
+\-Definition at line 44 of file \-Key\-Frame\-Listener\-Training.\-h.
+
+\hypertarget{classKeyFrameListenerTraining_a32ea513679de826627bc20c3598bab1b}{\index{\-Key\-Frame\-Listener\-Training@{\-Key\-Frame\-Listener\-Training}!m\-\_\-training\-Data\-Collection@{m\-\_\-training\-Data\-Collection}}
+\index{m\-\_\-training\-Data\-Collection@{m\-\_\-training\-Data\-Collection}!KeyFrameListenerTraining@{\-Key\-Frame\-Listener\-Training}}
+\subsubsection[{m\-\_\-training\-Data\-Collection}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Key\-Frame\-Listener\-Training\-::m\-\_\-training\-Data\-Collection}}}\label{classKeyFrameListenerTraining_a32ea513679de826627bc20c3598bab1b}
+
+
+\-Definition at line 33 of file \-Key\-Frame\-Listener\-Training.\-h.
+
+\hypertarget{classKeyFrameListenerTraining_a315dd8f41de6cf586c90f600650a908d}{\index{\-Key\-Frame\-Listener\-Training@{\-Key\-Frame\-Listener\-Training}!m\-\_\-train\-K\-Pts@{m\-\_\-train\-K\-Pts}}
+\index{m\-\_\-train\-K\-Pts@{m\-\_\-train\-K\-Pts}!KeyFrameListenerTraining@{\-Key\-Frame\-Listener\-Training}}
+\subsubsection[{m\-\_\-train\-K\-Pts}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$vector$<$\-Key\-Point$>$ $>$ {\bf \-Key\-Frame\-Listener\-Training\-::m\-\_\-train\-K\-Pts}}}\label{classKeyFrameListenerTraining_a315dd8f41de6cf586c90f600650a908d}
+
+
+vec$<$\-K\-Pts$>$\-: all kpts from 1 train\-Img of 1 robot, vec$<$vec$<$\-K\-Pt$>$$>$\-: all \-K\-Pts from all train\-Imgs from 1 robot 
+
+
+
+\-Definition at line 43 of file \-Key\-Frame\-Listener\-Training.\-h.
+
+\hypertarget{classKeyFrameListenerTraining_ab9a3dd6c3e61b1ac6271d891bddbd037}{\index{\-Key\-Frame\-Listener\-Training@{\-Key\-Frame\-Listener\-Training}!m\-\_\-vocabulary\-Gen@{m\-\_\-vocabulary\-Gen}}
+\index{m\-\_\-vocabulary\-Gen@{m\-\_\-vocabulary\-Gen}!KeyFrameListenerTraining@{\-Key\-Frame\-Listener\-Training}}
+\subsubsection[{m\-\_\-vocabulary\-Gen}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Key\-Frame\-Listener\-Training\-::m\-\_\-vocabulary\-Gen}}}\label{classKeyFrameListenerTraining_ab9a3dd6c3e61b1ac6271d891bddbd037}
+
+
+\-Definition at line 34 of file \-Key\-Frame\-Listener\-Training.\-h.
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{KeyFrameListenerTraining_8h}{\-Key\-Frame\-Listener\-Training.\-h}\item 
+\hyperlink{KeyFrameListenerTraining_8cpp}{\-Key\-Frame\-Listener\-Training.\-cpp}\end{DoxyCompactItemize}

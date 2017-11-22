@@ -1,0 +1,205 @@
+\hypertarget{classNode}{\section{\-Node \-Class \-Reference}
+\label{classNode}\index{\-Node@{\-Node}}
+}
+
+
+{\ttfamily \#include $<$\-Pose\-Graph.\-h$>$}
+
+
+
+\-Collaboration diagram for \-Node\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{classNode__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classNode_ad7a34779cad45d997bfd6d3d8043c75f}{\-Node} ()
+\item 
+\hyperlink{classNode_aa0840c3cb5c7159be6d992adecd2097c}{$\sim$\-Node} ()
+\item 
+\hyperlink{classNode}{\-Node} $\ast$ \hyperlink{classNode_a9e417fbf8c05319b464890592e384e42}{root} ()
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{classNode_a090a2028b74112aba3eb2126d99028aa}{cam\-To\-Origin} \mbox{[}7\mbox{]}
+\item 
+\-Eigen\-::\-Matrix4f \hyperlink{classNode_a440bd555088974667fa25d81788e5d7b}{p\-Node\-Origin}
+\item 
+float \hyperlink{classNode_a60234c70b368f633adc297393a429269}{scale}
+\item 
+float \hyperlink{classNode_a3a6b88b82c51d21305656d01e3c53039}{x}
+\item 
+float \hyperlink{classNode_a0658e9aa67d95daa5da3cca23b13f6de}{y}
+\item 
+float \hyperlink{classNode_ab0676d1ca50996c875aad2e6773d758c}{z}
+\item 
+float \hyperlink{classNode_a8b0379c6d5f819d6f840d2e623c20f5d}{ax}
+\item 
+float \hyperlink{classNode_a1815f050e4c4d0864255d33f05e992ea}{ay}
+\item 
+float \hyperlink{classNode_a55bba6ef3a51e6ab04e4e1612343335a}{az}
+\item 
+int \hyperlink{classNode_a7969f3edc8046afe7b7601d78e52c3c3}{assoc\-K\-F\-Nbr}
+\item 
+\hyperlink{classNode}{\-Node} $\ast$ \hyperlink{classNode_ad8184598cdea70e4bbdfd76f2b0f9e85}{parent}
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+
+
+\-Definition at line 12 of file \-Pose\-Graph.\-h.
+
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classNode_ad7a34779cad45d997bfd6d3d8043c75f}{\index{\-Node@{\-Node}!\-Node@{\-Node}}
+\index{\-Node@{\-Node}!Node@{\-Node}}
+\subsubsection[{\-Node}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Node\-::\-Node} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classNode_ad7a34779cad45d997bfd6d3d8043c75f}
+
+
+\-Definition at line 5 of file \-Pose\-Graph.\-cpp.
+
+
+\begin{DoxyCode}
+           : x(0.0), y(0.0), z(0.0),
+                ax(0.0), ay(0.0), az(0.0),
+                assocKFNbr(0) {
+        parent = NULL;
+}
+\end{DoxyCode}
+\hypertarget{classNode_aa0840c3cb5c7159be6d992adecd2097c}{\index{\-Node@{\-Node}!$\sim$\-Node@{$\sim$\-Node}}
+\index{$\sim$\-Node@{$\sim$\-Node}!Node@{\-Node}}
+\subsubsection[{$\sim$\-Node}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Node\-::$\sim$\-Node} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classNode_aa0840c3cb5c7159be6d992adecd2097c}
+
+
+\-Definition at line 11 of file \-Pose\-Graph.\-cpp.
+
+
+\begin{DoxyCode}
+{}
+\end{DoxyCode}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classNode_a9e417fbf8c05319b464890592e384e42}{\index{\-Node@{\-Node}!root@{root}}
+\index{root@{root}!Node@{\-Node}}
+\subsubsection[{root}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Node} $\ast$ {\bf \-Node\-::root} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classNode_a9e417fbf8c05319b464890592e384e42}
+
+
+\-Definition at line 13 of file \-Pose\-Graph.\-cpp.
+
+
+\begin{DoxyCode}
+                  {
+        Node *cur = this;
+        while(cur!=cur->parent) {
+                cur=cur->parent;
+        }
+        this->parent = cur; //do path compression
+        return cur;
+}
+\end{DoxyCode}
+
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{classNode_a7969f3edc8046afe7b7601d78e52c3c3}{\index{\-Node@{\-Node}!assoc\-K\-F\-Nbr@{assoc\-K\-F\-Nbr}}
+\index{assoc\-K\-F\-Nbr@{assoc\-K\-F\-Nbr}!Node@{\-Node}}
+\subsubsection[{assoc\-K\-F\-Nbr}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Node\-::assoc\-K\-F\-Nbr}}}\label{classNode_a7969f3edc8046afe7b7601d78e52c3c3}
+
+
+\-Definition at line 22 of file \-Pose\-Graph.\-h.
+
+\hypertarget{classNode_a8b0379c6d5f819d6f840d2e623c20f5d}{\index{\-Node@{\-Node}!ax@{ax}}
+\index{ax@{ax}!Node@{\-Node}}
+\subsubsection[{ax}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Node\-::ax}}}\label{classNode_a8b0379c6d5f819d6f840d2e623c20f5d}
+
+
+\-Definition at line 20 of file \-Pose\-Graph.\-h.
+
+\hypertarget{classNode_a1815f050e4c4d0864255d33f05e992ea}{\index{\-Node@{\-Node}!ay@{ay}}
+\index{ay@{ay}!Node@{\-Node}}
+\subsubsection[{ay}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Node\-::ay}}}\label{classNode_a1815f050e4c4d0864255d33f05e992ea}
+
+
+\-Definition at line 20 of file \-Pose\-Graph.\-h.
+
+\hypertarget{classNode_a55bba6ef3a51e6ab04e4e1612343335a}{\index{\-Node@{\-Node}!az@{az}}
+\index{az@{az}!Node@{\-Node}}
+\subsubsection[{az}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Node\-::az}}}\label{classNode_a55bba6ef3a51e6ab04e4e1612343335a}
+
+
+\-Definition at line 20 of file \-Pose\-Graph.\-h.
+
+\hypertarget{classNode_a090a2028b74112aba3eb2126d99028aa}{\index{\-Node@{\-Node}!cam\-To\-Origin@{cam\-To\-Origin}}
+\index{cam\-To\-Origin@{cam\-To\-Origin}!Node@{\-Node}}
+\subsubsection[{cam\-To\-Origin}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Node\-::cam\-To\-Origin}\mbox{[}7\mbox{]}}}\label{classNode_a090a2028b74112aba3eb2126d99028aa}
+
+
+\-Definition at line 16 of file \-Pose\-Graph.\-h.
+
+\hypertarget{classNode_ad8184598cdea70e4bbdfd76f2b0f9e85}{\index{\-Node@{\-Node}!parent@{parent}}
+\index{parent@{parent}!Node@{\-Node}}
+\subsubsection[{parent}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Node}$\ast$ {\bf \-Node\-::parent}}}\label{classNode_ad8184598cdea70e4bbdfd76f2b0f9e85}
+
+
+\-Definition at line 24 of file \-Pose\-Graph.\-h.
+
+\hypertarget{classNode_a440bd555088974667fa25d81788e5d7b}{\index{\-Node@{\-Node}!p\-Node\-Origin@{p\-Node\-Origin}}
+\index{p\-Node\-Origin@{p\-Node\-Origin}!Node@{\-Node}}
+\subsubsection[{p\-Node\-Origin}]{\setlength{\rightskip}{0pt plus 5cm}\-Eigen\-::\-Matrix4f {\bf \-Node\-::p\-Node\-Origin}}}\label{classNode_a440bd555088974667fa25d81788e5d7b}
+
+
+\-Definition at line 17 of file \-Pose\-Graph.\-h.
+
+\hypertarget{classNode_a60234c70b368f633adc297393a429269}{\index{\-Node@{\-Node}!scale@{scale}}
+\index{scale@{scale}!Node@{\-Node}}
+\subsubsection[{scale}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Node\-::scale}}}\label{classNode_a60234c70b368f633adc297393a429269}
+
+
+\-Definition at line 18 of file \-Pose\-Graph.\-h.
+
+\hypertarget{classNode_a3a6b88b82c51d21305656d01e3c53039}{\index{\-Node@{\-Node}!x@{x}}
+\index{x@{x}!Node@{\-Node}}
+\subsubsection[{x}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Node\-::x}}}\label{classNode_a3a6b88b82c51d21305656d01e3c53039}
+
+
+\-Definition at line 19 of file \-Pose\-Graph.\-h.
+
+\hypertarget{classNode_a0658e9aa67d95daa5da3cca23b13f6de}{\index{\-Node@{\-Node}!y@{y}}
+\index{y@{y}!Node@{\-Node}}
+\subsubsection[{y}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Node\-::y}}}\label{classNode_a0658e9aa67d95daa5da3cca23b13f6de}
+
+
+\-Definition at line 19 of file \-Pose\-Graph.\-h.
+
+\hypertarget{classNode_ab0676d1ca50996c875aad2e6773d758c}{\index{\-Node@{\-Node}!z@{z}}
+\index{z@{z}!Node@{\-Node}}
+\subsubsection[{z}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Node\-::z}}}\label{classNode_ab0676d1ca50996c875aad2e6773d758c}
+
+
+\-Definition at line 19 of file \-Pose\-Graph.\-h.
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{PoseGraph_8h}{\-Pose\-Graph.\-h}\item 
+\hyperlink{PoseGraph_8cpp}{\-Pose\-Graph.\-cpp}\end{DoxyCompactItemize}

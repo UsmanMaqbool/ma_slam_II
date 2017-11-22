@@ -1,0 +1,1008 @@
+\hypertarget{cc__fabmap__node_8cpp}{\section{cc\-\_\-fabmap\-\_\-node.\-cpp \-File \-Reference}
+\label{cc__fabmap__node_8cpp}\index{cc\-\_\-fabmap\-\_\-node.\-cpp@{cc\-\_\-fabmap\-\_\-node.\-cpp}}
+}
+{\ttfamily \#include $<$ros/ros.\-h$>$}\*
+{\ttfamily \#include $<$sensor\-\_\-msgs/image\-\_\-encodings.\-h$>$}\*
+{\ttfamily \#include $<$message\-\_\-filters/subscriber.\-h$>$}\*
+{\ttfamily \#include $<$sensor\-\_\-msgs/\-Image.\-h$>$}\*
+{\ttfamily \#include $<$message\-\_\-filters/time\-\_\-synchronizer.\-h$>$}\*
+{\ttfamily \#include $<$tf/transform\-\_\-broadcaster.\-h$>$}\*
+{\ttfamily \#include $<$image\-\_\-transport/image\-\_\-transport.\-h$>$}\*
+{\ttfamily \#include $<$cv\-\_\-bridge/cv\-\_\-bridge.\-h$>$}\*
+{\ttfamily \#include $<$opencv2/highgui/highgui.\-hpp$>$}\*
+{\ttfamily \#include $<$opencv2/imgproc/imgproc.\-hpp$>$}\*
+{\ttfamily \#include $<$opencv2/opencv.\-hpp$>$}\*
+{\ttfamily \#include \char`\"{}opencv2/nonfree/nonfree.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Key\-Frame\-Listener\-Training.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Sync\-Listener.\-h\char`\"{}}\*
+\-Include dependency graph for cc\-\_\-fabmap\-\_\-node.\-cpp\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cc__fabmap__node_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{cc__fabmap__node_8cpp_a99cb8485ba55364caae90a9d3d8d6609}{helper\-Disp\-Output} (\hyperlink{classCentralStorage}{\-Central\-Storage} $\ast$storage, bool save\-Match\-Matrix=false, string match\-Matrix\-Name\-Img=\char`\"{}\char`\"{}, string match\-Matrix\-Name\-File=\char`\"{}\char`\"{})
+\item 
+void \hyperlink{cc__fabmap__node_8cpp_a959fee195cd952ecb7f06befa08f4024}{helper\-Get\-Test\-Data} (\hyperlink{classCentralStorage}{\-Central\-Storage} $\ast$storage)
+\item 
+void \hyperlink{cc__fabmap__node_8cpp_a9665aef254686f428f555d32c1b30fa8}{helper\-Publish\-Assembled\-Global\-Pt\-Cl} (\hyperlink{classCentralStorage}{\-Central\-Storage} $\ast$storage, ros\-::\-Publisher \&pub, int skip\-First\-N)
+\item 
+void \hyperlink{cc__fabmap__node_8cpp_a085df1b3fc0cf52d21284c92297e891c}{helper\-Publish\-Assembled\-Local\-Pt\-Cl} (\hyperlink{classCentralStorage}{\-Central\-Storage} $\ast$storage, int r\-I\-D, ros\-::\-Publisher \&pub, int skip\-First\-N)
+\item 
+void \hyperlink{cc__fabmap__node_8cpp_aa9b6e90f43cc74d5b9e6a0d4d4304eef}{helper\-Publish\-Pt\-Cl} (pcl\-::\-Point\-Cloud$<$ pcl\-::\-Point\-X\-Y\-Z $>$ pt\-Cl, ros\-::\-Publisher \&pub)
+\item 
+void \hyperlink{cc__fabmap__node_8cpp_a2a2548ab36e98be49fd91e373ee89684}{helper\-Read\-Train\-Data} (\hyperlink{classCentralStorage}{\-Central\-Storage} $\ast$storage)
+\item 
+void \hyperlink{cc__fabmap__node_8cpp_a8254506cb42ab9e85d3123dbbea7ce49}{helper\-Save\-Test\-Imgs} (\hyperlink{classCentralStorage}{\-Central\-Storage} $\ast$storage, \hyperlink{classSyncListener}{\-Sync\-Listener} \&listener\-\_\-r1, \hyperlink{classSyncListener}{\-Sync\-Listener} \&listener\-\_\-r2)
+\item 
+void \hyperlink{cc__fabmap__node_8cpp_a060e73dd74d1e5d07b42755cd9ffb1e2}{helper\-Save\-Train\-Data} (\hyperlink{classCentralStorage}{\-Central\-Storage} $\ast$storage)
+\item 
+void \hyperlink{cc__fabmap__node_8cpp_af41fb2ed487a54eae76961955d42190b}{helper\-Store\-Train\-Data} (\hyperlink{classCentralStorage}{\-Central\-Storage} $\ast$storage, \hyperlink{classKeyFrameListenerTraining}{\-Key\-Frame\-Listener\-Training} \&listener\-R1, \hyperlink{classKeyFrameListenerTraining}{\-Key\-Frame\-Listener\-Training} \&listener\-R2)
+\item 
+int \hyperlink{cc__fabmap__node_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\subsection*{\-Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{cc__fabmap__node_8cpp_a86ca509bae31acb2c5b5d1e0326cabe8}{skipmatch} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{cc__fabmap__node_8cpp_a99cb8485ba55364caae90a9d3d8d6609}{\index{cc\-\_\-fabmap\-\_\-node.\-cpp@{cc\-\_\-fabmap\-\_\-node.\-cpp}!helper\-Disp\-Output@{helper\-Disp\-Output}}
+\index{helper\-Disp\-Output@{helper\-Disp\-Output}!cc_fabmap_node.cpp@{cc\-\_\-fabmap\-\_\-node.\-cpp}}
+\subsubsection[{helper\-Disp\-Output}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf helper\-Disp\-Output} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Central\-Storage} $\ast$}]{storage, }
+\item[{bool}]{save\-Match\-Matrix = {\ttfamily false}, }
+\item[{string}]{match\-Matrix\-Name\-Img = {\ttfamily \char`\"{}\char`\"{}}, }
+\item[{string}]{match\-Matrix\-Name\-File = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{cc__fabmap__node_8cpp_a99cb8485ba55364caae90a9d3d8d6609}
+
+
+\-Definition at line 42 of file cc\-\_\-fabmap\-\_\-node.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                               
+                                                               {
+        int nbrImgs = storage->testBOWDescriptors_allRobots.size().height; //
+       query img + test imgs
+        int queryCtr = 0;
+
+        Mat match_small_f = Mat::zeros(nbrImgs, nbrImgs, CV_32FC1);
+        Mat matchMatrixRGB = Mat::zeros(nbrImgs,nbrImgs,CV_32FC3);
+
+        vector<of2::IMatch>::const_iterator l;
+        for(l = storage->matches.begin(); l != storage->matches.end(); l++) {
+// USEFUL FOR DEBUG:            cout << "queryIdx: " << l->queryIdx << "  
+       imgIdx: " << l->imgIdx << "   match: " << l->match << endl;
+                if(l->imgIdx < 0) {
+                        match_small_f.at<float>(queryCtr, queryCtr) = (l->match
+      *1.0);
+                        if(storage->kFrames.at(queryCtr).rID == 1) {
+                                matchMatrixRGB.at<Vec3f>(queryCtr, queryCtr).
+      val[0] = l->match*255.0; // .at(col,row)
+                        }
+                        else if(storage->kFrames.at(queryCtr).rID == 2) {
+                                matchMatrixRGB.at<Vec3f>(queryCtr, queryCtr).
+      val[1] = l->match*255.0;
+                        }
+                        queryCtr = queryCtr + 1;
+
+                } else {
+                        match_small_f.at<float>(queryCtr-1, l->imgIdx) = (l->
+      match*1.0);
+                        if(storage->kFrames.at(l->imgIdx).rID == 1) {
+                                matchMatrixRGB.at<Vec3f>(queryCtr-1, l->imgIdx)
+      .val[0] = l->match*255.0;
+                        }
+                        else if(storage->kFrames.at(l->imgIdx).rID == 2) {
+                                matchMatrixRGB.at<Vec3f>(queryCtr-1, l->imgIdx)
+      .val[1] = l->match*255.0;
+                        }
+                }
+        }
+
+        //cout << match_small_f << endl;
+        //Mat match_large_f(10*nbrImgs, 10*nbrImgs, CV_32FC1);
+        Mat matchMatrixRGB_large = Mat::zeros(10*nbrImgs,10*nbrImgs,CV_32FC3);
+
+        //resize(match_small_f, match_large_f, Size(500, 500), 0, 0,
+       CV_INTER_NN);
+        resize(matchMatrixRGB, matchMatrixRGB_large, Size(500, 500), 0, 0, 
+      CV_INTER_NN);
+
+        if(saveMatchMatrix) {
+                HelperFcts::saveImage(matchMatrixRGB_large,matchMatrixNameImg);
+                HelperFcts::saveMatrix(matchMatrixRGB,matchMatrixNameFile);
+        }
+
+        /*
+         *              I0 I1 I2 I3 ... I23 Q
+         * I0
+         * I1
+         * I2
+         * ...
+         *
+         * I23
+         * Q
+         */
+        imshow("Confusion match probab Matrix", matchMatrixRGB_large/255.0);
+
+        waitKey(5);
+}
+\end{DoxyCode}
+\hypertarget{cc__fabmap__node_8cpp_a959fee195cd952ecb7f06befa08f4024}{\index{cc\-\_\-fabmap\-\_\-node.\-cpp@{cc\-\_\-fabmap\-\_\-node.\-cpp}!helper\-Get\-Test\-Data@{helper\-Get\-Test\-Data}}
+\index{helper\-Get\-Test\-Data@{helper\-Get\-Test\-Data}!cc_fabmap_node.cpp@{cc\-\_\-fabmap\-\_\-node.\-cpp}}
+\subsubsection[{helper\-Get\-Test\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf helper\-Get\-Test\-Data} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Central\-Storage} $\ast$}]{storage}
+\end{DoxyParamCaption}
+)}}\label{cc__fabmap__node_8cpp_a959fee195cd952ecb7f06befa08f4024}
+
+
+\-Definition at line 100 of file cc\-\_\-fabmap\-\_\-node.\-cpp.
+
+
+\begin{DoxyCode}
+                                                {
+
+        //std::vector<keyFrame>::iterator itKF;
+        std::map<int,keyFrame>::iterator itKF;
+        for(itKF = storage->kFrames.begin(); itKF != storage->kFrames.end(); ++
+      itKF) {
+                storage->testBOWDescriptors_allRobots.push_back((*itKF).second.
+      bowDescriptor);
+        }
+
+}
+\end{DoxyCode}
+\hypertarget{cc__fabmap__node_8cpp_a9665aef254686f428f555d32c1b30fa8}{\index{cc\-\_\-fabmap\-\_\-node.\-cpp@{cc\-\_\-fabmap\-\_\-node.\-cpp}!helper\-Publish\-Assembled\-Global\-Pt\-Cl@{helper\-Publish\-Assembled\-Global\-Pt\-Cl}}
+\index{helper\-Publish\-Assembled\-Global\-Pt\-Cl@{helper\-Publish\-Assembled\-Global\-Pt\-Cl}!cc_fabmap_node.cpp@{cc\-\_\-fabmap\-\_\-node.\-cpp}}
+\subsubsection[{helper\-Publish\-Assembled\-Global\-Pt\-Cl}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf helper\-Publish\-Assembled\-Global\-Pt\-Cl} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Central\-Storage} $\ast$}]{storage, }
+\item[{ros\-::\-Publisher \&}]{pub, }
+\item[{int}]{skip\-First\-N}
+\end{DoxyParamCaption}
+)}}\label{cc__fabmap__node_8cpp_a9665aef254686f428f555d32c1b30fa8}
+
+
+\-Definition at line 110 of file cc\-\_\-fabmap\-\_\-node.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                               
+                           {
+
+        //vector<int> rIDToUpdate;
+        //typedef std::map<int,bool> ptClUpdatedMap;
+        //for (ptClUpdatedMap::iterator it =
+       storage->ptClsInGlobalWorldCOSUpdated.begin(); it!=storage->ptClsInGlobalWorldCOSUpdated.end(); ++it) {
+        //      if(it->second == true) {
+        //              rIDToUpdate.push_back(it->first);
+        //      }
+        //}
+
+        //if(!rIDToUpdate.empty()) {
+        //      cout << "Not all PtCls up-to-date - no visualization" << endl;
+        //}
+        //else {
+        cout << "       Publishing assembled global PtCl" << endl;
+
+                pcl::PointCloud<pcl::PointXYZ> assembledGlobalPtCl;
+                std::map<int,int> skipCtr;
+                for(int i=1; i<=storage->nbrRobots; ++i) {
+                        skipCtr[i] = 0;
+                }
+                typedef std::map<int,std::pair
+       <int,pcl::PointCloud<pcl::PointXYZ> > > ptClMap;
+                for (ptClMap::iterator it = storage->ptClsInGlobalWorldCOS.
+      begin(); it!=storage->ptClsInGlobalWorldCOS.end(); ++it) {
+                        bool lessThanN = false;
+                        for(int i=1; i<=storage->nbrRobots; ++i) {
+                                if(skipCtr[i] < skipFirstN) {
+                                        lessThanN = true;
+                                }
+                        }
+                        if(lessThanN == false) {
+                                assembledGlobalPtCl += it->second.second;
+                        }
+                        skipCtr[it->second.first] = skipCtr[it->second.first]+1
+      ;
+                }
+                cout << "globptcl: " << assembledGlobalPtCl.width << endl;
+                assembledGlobalPtCl.header.frame_id = "world";
+                assembledGlobalPtCl.header.stamp = 0;
+                pub.publish(assembledGlobalPtCl);
+        //}
+}
+\end{DoxyCode}
+\hypertarget{cc__fabmap__node_8cpp_a085df1b3fc0cf52d21284c92297e891c}{\index{cc\-\_\-fabmap\-\_\-node.\-cpp@{cc\-\_\-fabmap\-\_\-node.\-cpp}!helper\-Publish\-Assembled\-Local\-Pt\-Cl@{helper\-Publish\-Assembled\-Local\-Pt\-Cl}}
+\index{helper\-Publish\-Assembled\-Local\-Pt\-Cl@{helper\-Publish\-Assembled\-Local\-Pt\-Cl}!cc_fabmap_node.cpp@{cc\-\_\-fabmap\-\_\-node.\-cpp}}
+\subsubsection[{helper\-Publish\-Assembled\-Local\-Pt\-Cl}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf helper\-Publish\-Assembled\-Local\-Pt\-Cl} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Central\-Storage} $\ast$}]{storage, }
+\item[{int}]{r\-I\-D, }
+\item[{ros\-::\-Publisher \&}]{pub, }
+\item[{int}]{skip\-First\-N}
+\end{DoxyParamCaption}
+)}}\label{cc__fabmap__node_8cpp_a085df1b3fc0cf52d21284c92297e891c}
+
+
+\-Definition at line 151 of file cc\-\_\-fabmap\-\_\-node.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                               
+                                   {
+
+        //if(storage->ptClsInGlobalWorldCOSUpdated[rID] == false) {
+        //      cout << "PtCl of robot " << rID << " up-to-date - no
+       visualization" << endl;
+        //}
+        //else {
+                cout << "       Publishing assembled local PtCl of Robot with
+       robot ID: " << rID << endl;
+
+                pcl::PointCloud<pcl::PointXYZ> assembledLocalPtCl;// (new
+       pcl::PointCloud<pcl::PointXYZ>());
+
+                int skipCtr = 0;
+                typedef std::map<int,std::pair
+       <int,pcl::PointCloud<pcl::PointXYZ> > > ptClMap;
+                for (ptClMap::iterator it = storage->ptClsInGlobalWorldCOS.
+      begin(); it!=storage->ptClsInGlobalWorldCOS.end(); ++it) {
+                        if( (it->second.first == rID) ) {
+                                if(skipCtr>=skipFirstN) {
+                                        assembledLocalPtCl += it->second.second
+      ;
+                                }
+                        }
+                        skipCtr = skipCtr+1;
+                }
+                assembledLocalPtCl.header.frame_id = "world";
+                assembledLocalPtCl.header.stamp = 0;
+                pub.publish(assembledLocalPtCl);
+        //}
+}
+\end{DoxyCode}
+\hypertarget{cc__fabmap__node_8cpp_aa9b6e90f43cc74d5b9e6a0d4d4304eef}{\index{cc\-\_\-fabmap\-\_\-node.\-cpp@{cc\-\_\-fabmap\-\_\-node.\-cpp}!helper\-Publish\-Pt\-Cl@{helper\-Publish\-Pt\-Cl}}
+\index{helper\-Publish\-Pt\-Cl@{helper\-Publish\-Pt\-Cl}!cc_fabmap_node.cpp@{cc\-\_\-fabmap\-\_\-node.\-cpp}}
+\subsubsection[{helper\-Publish\-Pt\-Cl}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf helper\-Publish\-Pt\-Cl} (
+\begin{DoxyParamCaption}
+\item[{pcl\-::\-Point\-Cloud$<$ pcl\-::\-Point\-X\-Y\-Z $>$}]{pt\-Cl, }
+\item[{ros\-::\-Publisher \&}]{pub}
+\end{DoxyParamCaption}
+)}}\label{cc__fabmap__node_8cpp_aa9b6e90f43cc74d5b9e6a0d4d4304eef}
+
+
+\-Definition at line 177 of file cc\-\_\-fabmap\-\_\-node.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                            {
+        pcl::PointCloud<pcl::PointXYZ> ptClToPublish;
+        ptClToPublish = ptCl;
+
+        ptClToPublish.header.frame_id = "world";
+        ptClToPublish.header.stamp = 0;
+
+        pub.publish(ptClToPublish);
+}
+\end{DoxyCode}
+\hypertarget{cc__fabmap__node_8cpp_a2a2548ab36e98be49fd91e373ee89684}{\index{cc\-\_\-fabmap\-\_\-node.\-cpp@{cc\-\_\-fabmap\-\_\-node.\-cpp}!helper\-Read\-Train\-Data@{helper\-Read\-Train\-Data}}
+\index{helper\-Read\-Train\-Data@{helper\-Read\-Train\-Data}!cc_fabmap_node.cpp@{cc\-\_\-fabmap\-\_\-node.\-cpp}}
+\subsubsection[{helper\-Read\-Train\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf helper\-Read\-Train\-Data} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Central\-Storage} $\ast$}]{storage}
+\end{DoxyParamCaption}
+)}}\label{cc__fabmap__node_8cpp_a2a2548ab36e98be49fd91e373ee89684}
+
+
+\-Definition at line 187 of file cc\-\_\-fabmap\-\_\-node.\-cpp.
+
+
+\begin{DoxyCode}
+                                                  {
+
+/*
+        // load training Images
+//      fs.open(string("trainImgs_allRobots.yml"), FileStorage::READ);
+//      fs["trainImgs_allRobots"] >> storage->trainImgs_allRobots;
+//      if (storage->trainImgs_allRobots.empty()) {
+//              cerr << "trainImgs_allRobots not found" << endl;
+//              return -1;
+//      }
+//      fs.release();
+
+        // load training KeyPoints
+//      fs.open(string("trainKPts_allRobots.yml"), FileStorage::READ);
+//      fs["trainKPts_allRobots"] >> storage->trainKPts_allRobots;
+//      if (storage->trainKPts_allRobots.empty()) {
+//              cerr << "trainKPts_allRobots not found" << endl;
+//              return -1;
+//      }
+//      fs.release();
+
+        // load SURF descriptors of training data
+//      fs.open(string("trainDescriptors_allRobots.yml"), FileStorage::READ);
+//      fs["trainDescriptors_allRobots"] >>
+       storage->trainDescriptors_allRobots;
+//      if (storage->trainDescriptors_allRobots.empty()) {
+//              cerr << "Training Data SURF Descriptors not found" << endl;
+//              return -1;
+//      }
+//      fs.release();
+*/
+
+        FileStorage fs;
+
+        // load vocabulary
+        fs.open(string("vocabulary.yml"), FileStorage::READ);
+        fs["vocabulary"] >> storage->vocabulary;
+        if (storage->vocabulary.empty()) {
+                cerr << "Vocabulary not found" << endl;
+//              return -1;
+        }
+        fs.release();
+
+        // load trainBOWDescriptors_allRobots
+        fs.open(string("trainBOWDescriptors_allRobots.yml"), FileStorage::READ)
+      ;
+        fs["trainBOWDescriptors_allRobots"] >> storage->
+      trainBOWDescriptors_allRobots;
+        if (storage->trainBOWDescriptors_allRobots.empty()) {
+                cerr << "trainBOWDescriptors_allRobots not found" << endl;
+//              return -1;
+        }
+        fs.release();
+
+        // load clTree
+        fs.open(string("clTree.yml"), FileStorage::READ);
+        fs["clTree"] >> storage->clTree;
+        if (storage->clTree.empty()) {
+                cerr << "clTree not found" << endl;
+//              return -1;
+        }
+        fs.release();
+}
+\end{DoxyCode}
+\hypertarget{cc__fabmap__node_8cpp_a8254506cb42ab9e85d3123dbbea7ce49}{\index{cc\-\_\-fabmap\-\_\-node.\-cpp@{cc\-\_\-fabmap\-\_\-node.\-cpp}!helper\-Save\-Test\-Imgs@{helper\-Save\-Test\-Imgs}}
+\index{helper\-Save\-Test\-Imgs@{helper\-Save\-Test\-Imgs}!cc_fabmap_node.cpp@{cc\-\_\-fabmap\-\_\-node.\-cpp}}
+\subsubsection[{helper\-Save\-Test\-Imgs}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf helper\-Save\-Test\-Imgs} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Central\-Storage} $\ast$}]{storage, }
+\item[{{\bf \-Sync\-Listener} \&}]{listener\-\_\-r1, }
+\item[{{\bf \-Sync\-Listener} \&}]{listener\-\_\-r2}
+\end{DoxyParamCaption}
+)}}\label{cc__fabmap__node_8cpp_a8254506cb42ab9e85d3123dbbea7ce49}
+
+
+\-Definition at line 248 of file cc\-\_\-fabmap\-\_\-node.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                               
+                                {
+        // NO IMPLEMENTATION YET
+}
+\end{DoxyCode}
+\hypertarget{cc__fabmap__node_8cpp_a060e73dd74d1e5d07b42755cd9ffb1e2}{\index{cc\-\_\-fabmap\-\_\-node.\-cpp@{cc\-\_\-fabmap\-\_\-node.\-cpp}!helper\-Save\-Train\-Data@{helper\-Save\-Train\-Data}}
+\index{helper\-Save\-Train\-Data@{helper\-Save\-Train\-Data}!cc_fabmap_node.cpp@{cc\-\_\-fabmap\-\_\-node.\-cpp}}
+\subsubsection[{helper\-Save\-Train\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf helper\-Save\-Train\-Data} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Central\-Storage} $\ast$}]{storage}
+\end{DoxyParamCaption}
+)}}\label{cc__fabmap__node_8cpp_a060e73dd74d1e5d07b42755cd9ffb1e2}
+
+
+\-Definition at line 252 of file cc\-\_\-fabmap\-\_\-node.\-cpp.
+
+
+\begin{DoxyCode}
+                                                  {
+
+        FileStorage fs1("vocabulary.yml", FileStorage::WRITE);
+        fs1 << "vocabulary" << storage->vocabulary;
+        fs1.release();
+
+        FileStorage fs2("trainBOWDescriptors_allRobots.yml", FileStorage::WRITE
+      );
+        fs2 << "trainBOWDescriptors_allRobots" << storage->
+      trainBOWDescriptors_allRobots;
+        fs2.release();
+
+        FileStorage fs3("clTree.yml", FileStorage::WRITE);
+        fs3 << "clTree" << storage->clTree;
+        fs3.release();
+
+}
+\end{DoxyCode}
+\hypertarget{cc__fabmap__node_8cpp_af41fb2ed487a54eae76961955d42190b}{\index{cc\-\_\-fabmap\-\_\-node.\-cpp@{cc\-\_\-fabmap\-\_\-node.\-cpp}!helper\-Store\-Train\-Data@{helper\-Store\-Train\-Data}}
+\index{helper\-Store\-Train\-Data@{helper\-Store\-Train\-Data}!cc_fabmap_node.cpp@{cc\-\_\-fabmap\-\_\-node.\-cpp}}
+\subsubsection[{helper\-Store\-Train\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf helper\-Store\-Train\-Data} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Central\-Storage} $\ast$}]{storage, }
+\item[{{\bf \-Key\-Frame\-Listener\-Training} \&}]{listener\-R1, }
+\item[{{\bf \-Key\-Frame\-Listener\-Training} \&}]{listener\-R2}
+\end{DoxyParamCaption}
+)}}\label{cc__fabmap__node_8cpp_af41fb2ed487a54eae76961955d42190b}
+
+
+\-Definition at line 268 of file cc\-\_\-fabmap\-\_\-node.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                               
+                                                        {
+
+        storage->trainDescriptors_allRobots.push_back(listenerR1.m_trainImgDescr
+      );
+        storage->trainDescriptors_allRobots.push_back(listenerR2.m_trainImgDescr
+      );
+
+        std::vector<cv::Mat>::iterator itImg1;
+        for(itImg1 = listenerR1.m_trainImgs.begin(); itImg1 != listenerR1.
+      m_trainImgs.end(); ++itImg1) {
+                storage->trainImgs_allRobots.push_back(*itImg1);
+        }
+        std::vector<cv::Mat>::iterator itImg2;
+        for(itImg2 = listenerR2.m_trainImgs.begin(); itImg2 != listenerR2.
+      m_trainImgs.end(); ++itImg2) {
+                storage->trainImgs_allRobots.push_back(*itImg2);
+        }
+
+
+        std::vector<vector<KeyPoint> >::iterator itKPts1;
+        for(itKPts1 = listenerR1.m_trainKPts.begin(); itKPts1 != listenerR1.
+      m_trainKPts.end(); ++itKPts1) {
+                storage->trainKPts_allRobots.push_back(*itKPts1);
+        }
+        std::vector<vector<KeyPoint> >::iterator itKPts2;
+        for(itKPts2 = listenerR2.m_trainKPts.begin(); itKPts2 != listenerR2.
+      m_trainKPts.end(); ++itKPts2) {
+                storage->trainKPts_allRobots.push_back(*itKPts2);
+        }
+}
+\end{DoxyCode}
+\hypertarget{cc__fabmap__node_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{\index{cc\-\_\-fabmap\-\_\-node.\-cpp@{cc\-\_\-fabmap\-\_\-node.\-cpp}!main@{main}}
+\index{main@{main}!cc_fabmap_node.cpp@{cc\-\_\-fabmap\-\_\-node.\-cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}}\label{cc__fabmap__node_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+-\/-\/-\/-\/ \-I\-N\-I\-T\-I\-A\-L\-I\-Z\-E -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/
+
+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/
+
+\-T\-R\-A\-I\-N\-I\-N\-G -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/
+
+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/
+
+-\/-\/-\/-\/ \-Generate vocabulary (visual words) -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/
+
+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/
+
+\-T\-E\-S\-T\-I\-N\-G -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/
+
+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ 
+
+\-Definition at line 306 of file cc\-\_\-fabmap\-\_\-node.\-cpp.
+
+
+\begin{DoxyCode}
+                                {
+        system("exec rm -r
+       /home/daniel/ROS_HKUST_project/CCFabMap_catkin_ws/testImgs/*");
+        system("exec rm -r
+       /home/daniel/ROS_HKUST_project/CCFabMap_catkin_ws/matchingImgs/*");
+        initModule_nonfree();
+
+        bool doTraining = false; // enable training (vocabulary, chow-liu tree,
+       create file with training data BOW Img descriptors)
+        bool doTesting = true; // enable testing (gathering ptcls and check for
+       loop closures between different robots and loop closures concerning one robot
+        bool boolSaveTestImgs = true; // enable to save the received keyframes
+        bool boolNewKF = false; // will be set to true whenever a new keyframe
+       with enough information (enough keypoints) was sent to central computer
+        bool boolEndAfterFound1Match = false; // enable to stop looking for
+       further loop closures after the first match - just for verification of the code
+        bool boolVisualizePtCl = true; // enable to visualize the local ptcls
+       of the different robots in RVIZ
+        bool boolVisualizedOnce = false;
+        int nbrRobots = 2; // Number of robots in the system - aim to be set
+       during runtime
+        int nbrVisWords = 700;
+        int nbrTrainImgs = 1500;
+
+        ros::init(argc, argv, "cc_fabmap");
+        ros::NodeHandle nh;
+
+        CentralStorage* storage = new CentralStorage(nbrRobots, nbrVisWords);
+
+
+
+        if(doTraining) {
+
+                KeyFrameListenerTraining kFListenerTrainingR1(1, nbrTrainImgs, 
+      "/usb_cam_training/image_rect", nh, storage);
+                KeyFrameListenerTraining kFListenerTrainingR2(2, nbrTrainImgs, 
+      "/usb_cam_training_robot2/image_raw", nh, storage);
+
+                // spinning
+                cout << endl << "TRAINING --------------------------------" << 
+      endl;
+
+
+                ros::Rate rTrain(20);
+                while(storage->stopDataCollection==false && ros::ok())
+                {
+                        ros::spinOnce();
+                        rTrain.sleep();
+                }
+
+
+                if(storage->stopDataCollection==true)
+                {
+                        cout << endl << "store all Training Data in instance of
+       CentralStorage" << endl;
+                        helperStoreTrainData(storage, kFListenerTrainingR1, 
+      kFListenerTrainingR2);
+
+                        cout << "Generate Vocabulary" << endl;
+                        storage->generateVocabulary();
+        
+                        cout << "Set Vocabulary for BOW Descriptor extractor" <
+      < endl;
+                        (storage->bide)->setVocabulary(storage->vocabulary);
+
+                        cout << "Compute BOW Descriptors for Training Images" <
+      < endl;
+                        storage->computeTrainBOWDescriptors();
+
+                        cout << "Compute Chow Liu Tree based on Training Data" 
+      << endl;
+                        storage->generateCLTree();
+
+                        cout << "save all necessary Training Data on harddisk" 
+      << endl;
+                        helperSaveTrainData(storage);
+
+                        cout << "Initialize FabMap instance" << endl << endl;
+                        storage->fabmap = new of2::FabMap2(storage->clTree, 0.2
+      , 0, of2::FabMap::SAMPLED | of2::FabMap::CHOW_LIU);
+                        storage->fabmap->addTraining(storage->
+      trainBOWDescriptors_allRobots);
+                }
+        }
+        else {
+                storage->stopDataCollection = true;
+
+                helperReadTrainData(storage);
+
+                cout << "Set Vocabulary for BOW Descriptor extractor" << endl;
+                (storage->bide)->setVocabulary(storage->vocabulary);
+
+                cout << "Initialize FabMap instance" << endl << endl;
+                storage->fabmap = new of2::FabMap2(storage->clTree, 0.4, 0, 
+      of2::FabMap::SAMPLED | of2::FabMap::CHOW_LIU);
+                storage->fabmap->addTraining(storage->
+      trainBOWDescriptors_allRobots);
+
+        }
+        cout << "TRAINING OR LOADING finished --------------------------------"
+       << endl << endl;
+
+
+        
+
+
+        if(doTesting) {
+
+                cout << "Initialize synchronized ROS topic listener" << endl;
+                SyncListener syncListenerR1(1, "/usb_cam_r1/camera_info",
+                                "/slave_robot1/pointcloud2Filtered",
+                                "/slave_robot1/kFMsgStamped",
+                                "/slave_robot1/kFGraphMsgStamped",
+                                nh, storage);
+                SyncListener syncListenerR2(2, "/usb_cam_r2/camera_info",
+                                "/slave_robot2/pointcloud2Filtered",
+                                "/slave_robot2/kFMsgStamped",
+                                "/slave_robot2/kFGraphMsgStamped",
+                                nh, storage);
+
+
+
+
+
+                // ONLY FOR CHECKING IN RVIZ (RUN RVIZ IN GDB MODE IF rosrun
+       rviz rviz does not work: gdb /opt/ros/hydro/lib/rviz/rviz)
+                ros::Publisher pub1 = nh.advertise< 
+      pcl::PointCloud<pcl::PointXYZ> > ("ptClCheck1", 1);
+                ros::Publisher pub2 = nh.advertise< 
+      pcl::PointCloud<pcl::PointXYZ> > ("ptClCheck2", 1);
+                ros::Publisher pub3 = nh.advertise< 
+      pcl::PointCloud<pcl::PointXYZ> > ("ptClCheck3", 1);
+                ros::Publisher pub4 = nh.advertise< 
+      pcl::PointCloud<pcl::PointXYZ> > ("ptClCheck4", 1);
+                ros::Publisher pub5 = nh.advertise< 
+      pcl::PointCloud<pcl::PointXYZ> > ("ptClCheck5", 1);
+                static tf::TransformBroadcaster br1, br2, br3, br4;
+                tf::Transform trafoROSMsgR1,trafoROSMsgR2,
+                        trafoROSMsgR1C1, trafoROSMsgC1R1,
+                        trafoROSMsgR2C2, trafoROSMsgC2R2, 
+      trafoROSMsgR2FromSyncListener,
+                        trafoROSMsgC2C1, trafoROSMsgC1C2;
+                HelperFcts::eigenMatrix4fToROSTrafoMsg(
+      Eigen::Matrix4f::Identity(4,4), trafoROSMsgR1);
+                HelperFcts::eigenMatrix4fToROSTrafoMsg(
+      Eigen::Matrix4f::Identity(4,4), trafoROSMsgR2);
+                HelperFcts::eigenMatrix4fToROSTrafoMsg(
+      Eigen::Matrix4f::Identity(4,4), trafoROSMsgR1C1);
+                HelperFcts::eigenMatrix4fToROSTrafoMsg(
+      Eigen::Matrix4f::Identity(4,4), trafoROSMsgC1R1);
+                HelperFcts::eigenMatrix4fToROSTrafoMsg(
+      Eigen::Matrix4f::Identity(4,4), trafoROSMsgR2C2);
+                HelperFcts::eigenMatrix4fToROSTrafoMsg(
+      Eigen::Matrix4f::Identity(4,4), trafoROSMsgC2R2);
+                HelperFcts::eigenMatrix4fToROSTrafoMsg(
+      Eigen::Matrix4f::Identity(4,4), trafoROSMsgC2C1);
+                HelperFcts::eigenMatrix4fToROSTrafoMsg(
+      Eigen::Matrix4f::Identity(4,4), trafoROSMsgC1C2);
+                // END ONLY FOR CHECKING IN RVIZ
+       --------------------------------------
+
+                // string variables to save imgs, files
+                ostringstream convImgName, convMatchMatrixNameImg, 
+      convMatchMatrixNameFile;
+                string imgName, matchMatrixNameImg, matchMatrixNameFile;
+
+                cout << endl << "TESTING --------------------------------" << 
+      endl << endl;
+                ros::Rate rTest(5); // adequate spinning frequency???
+
+                while(ros::ok() && storage->testImgCtr < 2000)
+                {
+
+                        ros::spinOnce();
+
+                        // Robot 1 received a nonempty keyframe with enough
+       keypts
+                        if(!syncListenerR1.m_kFrame.img.empty() && 
+      syncListenerR1.m_kFrame.KPts.size()>=15 ) {
+
+                                cout << "
+      ---------------------------------------------" << endl << "ROBOT 1 has received a keyframe" << endl;
+                                if(boolSaveTestImgs) {
+                                        // Defining strings to save imgs,
+       files, ...
+                                        convImgName.clear(); convImgName.str(""
+      );
+                                        convMatchMatrixNameImg.clear(); 
+      convMatchMatrixNameImg.str("");
+                                        convMatchMatrixNameFile.clear(); 
+      convMatchMatrixNameFile.str("");
+                                        convImgName << "testImgs/robot" << 
+      syncListenerR1.m_rID << "TestImg" << storage->testImgCtr << ".jpg";
+                                        convMatchMatrixNameImg << "
+      testImgs/robot" << syncListenerR1.m_rID << "MatchMatrix" << storage->testImgCtr << ".jpg";
+                                        convMatchMatrixNameFile << "
+      testImgs/robot" << syncListenerR1.m_rID << "MatchMatrix" << storage->testImgCtr << ".yml";
+                                        imgName = convImgName.str();
+                                        matchMatrixNameImg = 
+      convMatchMatrixNameImg.str();
+                                        matchMatrixNameFile = 
+      convMatchMatrixNameFile.str();
+                                        HelperFcts::saveImage(syncListenerR1.
+      m_kFrame.img, imgName);
+                                }
+
+
+                                // Compute BOW descriptor of current query
+       image
+                                syncListenerR1.m_kFrame.fID = storage->
+      testImgCtr;
+                                storage->bide->compute(syncListenerR1.m_kFrame.
+      img, syncListenerR1.m_kFrame.KPts, syncListenerR1.m_kFrame.bowDescriptor);
+
+                                // Add Keyframe to storage
+                                storage->kFrames[storage->testImgCtr] = 
+      syncListenerR1.m_kFrame;
+
+                                // Add ptcl to storage
+                                storage->ptCls[storage->testImgCtr] = 
+      std::make_pair( syncListenerR1.m_rID, *(syncListenerR1.m_localPtCl) );
+                                syncListenerR1.m_localPtCl->clear();
+
+                                // Add keyframe pose in initial robot COS to
+       storage
+                                storage->localPoses[storage->testImgCtr] = 
+      std::make_pair(syncListenerR1.m_rID,syncListenerR1.m_localPose);
+                                storage->localScales[storage->testImgCtr] = 
+      std::make_pair(syncListenerR1.m_rID,syncListenerR1.m_sim3LocalPoseScale);
+
+                                // RUN FABMAP ROBOT 1
+                                cout << "       Run FABMAP" << endl;
+                                storage->testBOWDescriptors_allRobots.push_back
+      (syncListenerR1.m_kFrame.bowDescriptor);
+                                storage->fabmap->compare(syncListenerR1.
+      m_kFrame.bowDescriptor, storage->matches, true);
+
+                                if(!boolEndAfterFound1Match) {
+
+                                        // SEARCH FOR BEST MATCH
+                                        storage->searchForGoodMatch();
+                                        // Compute transformation between
+       matched Images and subsequently between PtCls
+                                        if(storage->boolMatch == true) {
+                                                cout << "       Robot1 found a
+       loop-closure" << endl;
+
+                                                skipmatch++;
+                                                storage->findTrafoInitialGuess(
+      );
+                                                //
+      storage->findTrafo(storage->iGMap[storage->testImgCtr].first, storage->iGMap[storage->testImgCtr].first)
+                                                //storage->estimateScale();
+
+                                                if(skipmatch == 1) {
+                                                        
+      HelperFcts::eigenMatrix4fToROSTrafoMsg( storage->iGMap[storage->testImgCtr].
+      first, trafoROSMsgC2C1 );
+                                                        boolEndAfterFound1Match
+       = true;
+                                                }
+                                                storage->boolMatch = false;
+                                        }
+                                }
+                                storage->updatePosesOfRobots();
+                                storage->updatePtCls();
+
+                                Eigen::Matrix4f pCam1Robot1(
+      Eigen::Matrix4f::Identity(4,4)), pRobot1Cam1(Eigen::Matrix4f::Identity(4,4));
+                                HelperFcts::poseStampedROSToMatrix4f(storage->
+      localPoses[storage->testImgCtr].second, pCam1Robot1);
+                                HelperFcts::eigenMatrix4fToROSTrafoMsg(
+      pCam1Robot1, trafoROSMsgC1R1);
+                                br1.sendTransform(tf::StampedTransform( 
+      trafoROSMsgC1R1, ros::Time::now(), "world", "cam1") );
+
+
+                                boolNewKF = true;
+                                storage->testImgCtr = storage->testImgCtr + 1;
+                                cout << "
+      ---------------------------------------------" << endl << endl << endl;
+                        }
+
+                        // Robot 2 received a nonempty keyframe with enough
+       keypts
+                        if(!syncListenerR2.m_kFrame.img.empty()  && 
+      syncListenerR2.m_kFrame.KPts.size()>=15 ) {
+
+                                cout << "
+      ---------------------------------------------" << endl << "ROBOT 2 has received a keyframe" << endl;
+                                if(boolSaveTestImgs) {
+                                        // Defining strings to save imgs,
+       files, ...
+                                        convImgName.clear(); convImgName.str(""
+      );
+                                        convMatchMatrixNameImg.clear(); 
+      convMatchMatrixNameImg.str("");
+                                        convMatchMatrixNameFile.clear(); 
+      convMatchMatrixNameFile.str("");
+                                        convImgName << "testImgs/robot" << 
+      syncListenerR2.m_rID << "TestImg" << storage->testImgCtr << ".jpg";
+                                        convMatchMatrixNameImg << "
+      testImgs/robot" << syncListenerR2.m_rID << "MatchMatrix" << storage->testImgCtr << ".jpg";
+                                        convMatchMatrixNameFile << "
+      testImgs/robot" << syncListenerR2.m_rID << "MatchMatrix" << storage->testImgCtr << ".yml";
+                                        imgName = convImgName.str();
+                                        matchMatrixNameImg = 
+      convMatchMatrixNameImg.str();
+                                        matchMatrixNameFile = 
+      convMatchMatrixNameFile.str();
+                                        HelperFcts::saveImage(syncListenerR2.
+      m_kFrame.img, imgName);
+                                }
+
+                                // Compute BOW descriptor of current query
+       image
+                                storage->bide->compute( syncListenerR2.m_kFrame
+      .img, syncListenerR2.m_kFrame.KPts, syncListenerR2.m_kFrame.bowDescriptor );
+                                syncListenerR2.m_kFrame.fID = storage->
+      testImgCtr;
+
+                                // Add keyframe to storage
+                                storage->kFrames[storage->testImgCtr] = 
+      syncListenerR2.m_kFrame;
+                                // Add ptcl to storage
+                                storage->ptCls[storage->testImgCtr] = 
+      std::make_pair( syncListenerR2.m_rID, *(syncListenerR2.m_localPtCl) );
+                                syncListenerR2.m_localPtCl->clear();
+
+                                // Add keyframe pose in initial robot COS to
+       storage
+                                storage->localPoses[storage->testImgCtr] = 
+      std::make_pair(syncListenerR2.m_rID,syncListenerR2.m_localPose);
+                                storage->localScales[storage->testImgCtr] = 
+      std::make_pair(syncListenerR2.m_rID,syncListenerR2.m_sim3LocalPoseScale);
+
+                                // RUN FABMAP ROBOT 2
+                                cout << "       Run FABMAP" << endl;
+                                storage->testBOWDescriptors_allRobots.push_back
+      (syncListenerR2.m_kFrame.bowDescriptor);
+                                storage->fabmap->compare(syncListenerR2.
+      m_kFrame.bowDescriptor, storage->matches, true);
+
+
+                                if(!boolEndAfterFound1Match) {
+
+                                        // SEARCH FOR GOOD MATCHES
+                                        storage->searchForGoodMatch(); // if
+       found a good match resulting from FABMAP storage->boolMatch will be set to true
+
+                                        if(storage->boolMatch == true) {
+                                                cout << "       Robot2 found a
+       loop-closure" << endl;
+                                                skipmatch++;
+                                                storage->findTrafoInitialGuess(
+      );
+                                                //
+      storage->findTrafo(storage->iGMap[storage->testImgCtr].first, storage->iGMap[storage->testImgCtr].first)
+                                                //storage->estimateScale();
+                                                if(skipmatch == 1) {
+                                                        
+      HelperFcts::eigenMatrix4fToROSTrafoMsg( storage->iGMap[storage->testImgCtr].
+      first, trafoROSMsgC1C2 );
+                                                        boolEndAfterFound1Match
+       = true;
+                                                }
+                                                storage->boolMatch = false;
+                                        }
+                                }
+                                // Update Poses of robots and PtCls relative to
+       global world COS
+                                storage->updatePosesOfRobots();
+                                storage->updatePtCls();
+
+                                Eigen::Matrix4f pCam2Robot2(
+      Eigen::Matrix4f::Identity(4,4)), pRobot2Cam2(Eigen::Matrix4f::Identity(4,4));
+                                HelperFcts::poseStampedROSToMatrix4f(storage->
+      localPoses[storage->testImgCtr].second, pCam2Robot2);
+                                HelperFcts::eigenMatrix4fToROSTrafoMsg(
+      pCam2Robot2, trafoROSMsgC2R2);
+                                br2.sendTransform(tf::StampedTransform( 
+      trafoROSMsgC2R2, ros::Time::now(), "world", "cam2") );
+
+
+                                boolNewKF = true;
+                                storage->testImgCtr = storage->testImgCtr + 1; 
+      // testImgCtr contains nbr of testing Imgs + query Img
+                                cout << "
+      ---------------------------------------------" << endl << endl << endl;
+                        }
+
+
+
+
+                        // visualize local ptcl
+                        if(boolEndAfterFound1Match == true && boolVisualizePtCl
+       == true && boolVisualizedOnce == false) {
+                                cout << "
+      ---------------------------------------------" << endl;
+                                cout << "Visualize Local PtCl" << endl;
+
+
+
+                                pcl::PointCloud<pcl::PointXYZ> 
+      assembledLocalPtClUntransformed;// (new pcl::PointCloud<pcl::PointXYZ>());
+                                typedef std::map<int,std::pair
+       <int,pcl::PointCloud<pcl::PointXYZ> > > ptClMap;
+                                for (ptClMap::iterator it = storage->ptCls.
+      begin(); it!=storage->ptCls.end(); ++it) {
+                                        if( (it->second.first == 2) ) {
+                                                assembledLocalPtClUntransformed
+       += it->second.second;
+                                        }
+                                }
+
+                                helperPublishPtCl(
+      assembledLocalPtClUntransformed, pub3);
+                                helperPublishAssembledLocalPtCl(storage, 2, 
+      pub2, 2);
+                                helperPublishAssembledLocalPtCl(storage, 1, 
+      pub1, 4);
+                                helperPublishAssembledGlobalPtCl(storage, pub4,
+       3);
+
+                                boolNewKF = false;
+                                boolVisualizedOnce = true;
+                                cout << "
+      ---------------------------------------------" << endl << endl << endl;
+                        }
+
+                        // clear central storage
+                        bool boolClear = false;
+
+                        if( ( ((storage->testImgCtr % 60) == 0) || ((storage->
+      testImgCtr % 60) == 1) ) && boolClear == true && (storage->testImgCtr != 0) && 
+      (storage->testImgCtr != 1) ) {
+                                cout << "
+      ---------------------------------------------" << endl;
+                                cout << "Clear Storage Data" << endl;
+                                storage->clearData();
+                                cout << "
+      ---------------------------------------------" << endl << endl << endl;
+                        }
+
+
+                        //HelperFcts::poseROSToTrafoROSMsg(
+       syncListenerR2.m_localPose.pose, trafoROSMsgR2FromSyncListener);
+                        //
+      helperPoseToROSTrafoMsg(syncListenerR2.m_localPose.pose,trafoROSMsgR2);
+                        //br1.sendTransform(tf::StampedTransform(
+       trafoROSMsgC2C1, ros::Time::now(), "world", "cam2") );
+                        //br2.sendTransform(tf::StampedTransform(
+       trafoROSMsgC1C2, ros::Time::now(), "world", "cam1") );
+                        //
+      br.sendTransform(tf::StampedTransform(trafoROSMsgR2FromSyncListener, ros::Time::now(), "cam2", "world"));
+
+                        if(!storage->testBOWDescriptors_allRobots.empty()) {
+                                helperDispOutput(storage, true, "
+      testImgs/robot1MatchMatrixEnd.jpg", "testImgs/robot1MatchMatrixFileEnd.yml");
+                        }
+
+                        boolNewKF = false;
+                        rTest.sleep();
+                        syncListenerR1.clearData();
+                        syncListenerR2.clearData();
+                        cout << endl << endl << endl;
+
+                } // END if (ros::ok())
+        } // END if(doTesting)
+
+/*
+        if(doTesting) {
+                Ptr<of2::FabMap> fabmap2;
+                vector<of2::IMatch> matches2;
+                fabmap2 = new of2::FabMap2(storage->clTree, 0.4, 0,
+       of2::FabMap::SAMPLED | of2::FabMap::CHOW_LIU);
+                fabmap2->addTraining(storage->trainBOWDescriptors_allRobots);
+
+                CentralStorage* storage2 =  new CentralStorage(2);
+                storage2->testBOWDescriptors_allRobots =
+       storage->testBOWDescriptors_allRobots;
+                storage2->kFrames = storage->kFrames;
+
+                fabmap2->compare(storage2->testBOWDescriptors_allRobots,
+       storage2->matches, true);
+
+                cout << endl<<endl<< "FABMAP FINAL: " << endl;
+                helperDispOutput(storage2,true,"testImgs/
+      robot1MatchMatrixEnd.jpg","testImgs/robot1MatchMatrixFileEnd.yml");
+                waitKey(100);
+        }
+*/
+        storage->~CentralStorage();
+        cout << "END OF PROGRAM --------------------------------" << endl;
+}
+\end{DoxyCode}
+
+
+\subsection{\-Variable \-Documentation}
+\hypertarget{cc__fabmap__node_8cpp_a86ca509bae31acb2c5b5d1e0326cabe8}{\index{cc\-\_\-fabmap\-\_\-node.\-cpp@{cc\-\_\-fabmap\-\_\-node.\-cpp}!skipmatch@{skipmatch}}
+\index{skipmatch@{skipmatch}!cc_fabmap_node.cpp@{cc\-\_\-fabmap\-\_\-node.\-cpp}}
+\subsubsection[{skipmatch}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf skipmatch} = 0}}\label{cc__fabmap__node_8cpp_a86ca509bae31acb2c5b5d1e0326cabe8}
+
+
+\-Definition at line 39 of file cc\-\_\-fabmap\-\_\-node.\-cpp.
+

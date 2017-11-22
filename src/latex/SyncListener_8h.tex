@@ -1,0 +1,48 @@
+\hypertarget{SyncListener_8h}{\section{\-Sync\-Listener.\-h \-File \-Reference}
+\label{SyncListener_8h}\index{\-Sync\-Listener.\-h@{\-Sync\-Listener.\-h}}
+}
+{\ttfamily \#include $<$ros/ros.\-h$>$}\*
+{\ttfamily \#include $<$message\-\_\-filters/subscriber.\-h$>$}\*
+{\ttfamily \#include $<$message\-\_\-filters/synchronizer.\-h$>$}\*
+{\ttfamily \#include $<$message\-\_\-filters/sync\-\_\-policies/approximate\-\_\-time.\-h$>$}\*
+{\ttfamily \#include $<$std\-\_\-msgs/\-Float32.\-h$>$}\*
+{\ttfamily \#include $<$sensor\-\_\-msgs/\-Image.\-h$>$}\*
+{\ttfamily \#include $<$sensor\-\_\-msgs/\-Camera\-Info.\-h$>$}\*
+{\ttfamily \#include $<$sensor\-\_\-msgs/\-Point\-Cloud2.\-h$>$}\*
+{\ttfamily \#include $<$sensor\-\_\-msgs/image\-\_\-encodings.\-h$>$}\*
+{\ttfamily \#include $<$geometry\-\_\-msgs/\-Pose\-Stamped.\-h$>$}\*
+{\ttfamily \#include \char`\"{}cc\-\_\-fabmap/keyframe\-Msg\-Stamped.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}cc\-\_\-fabmap/keyframe\-Graph\-Msg\-Stamped.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}cc\-\_\-fabmap/keyframe\-Msg.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}cc\-\_\-fabmap/keyframe\-Graph\-Msg.\-h\char`\"{}}\*
+{\ttfamily \#include $<$cv\-\_\-bridge/cv\-\_\-bridge.\-h$>$}\*
+{\ttfamily \#include $<$iostream$>$}\*
+{\ttfamily \#include $<$pcl/io/pcd\-\_\-io.\-h$>$}\*
+{\ttfamily \#include $<$pcl/point\-\_\-types.\-h$>$}\*
+{\ttfamily \#include $<$pcl/filters/voxel\-\_\-grid.\-h$>$}\*
+{\ttfamily \#include \char`\"{}\-Central\-Storage.\-h\char`\"{}}\*
+\-Include dependency graph for \-Sync\-Listener.\-h\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{SyncListener_8h__incl}
+\end{center}
+\end{figure}
+\-This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{SyncListener_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structInputPointDense}{\-Input\-Point\-Dense}
+\item 
+struct \hyperlink{structGraphFramePose}{\-Graph\-Frame\-Pose}
+\item 
+struct \hyperlink{structGraphConstraint}{\-Graph\-Constraint}
+\item 
+class \hyperlink{classSyncListener}{\-Sync\-Listener}
+\begin{DoxyCompactList}\small\item\em \-Class listening to incoming \-Msgs and synchronizes them, each instance of the class listens to one robot. \end{DoxyCompactList}\end{DoxyCompactItemize}

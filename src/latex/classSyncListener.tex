@@ -1,0 +1,592 @@
+\hypertarget{classSyncListener}{\section{\-Sync\-Listener \-Class \-Reference}
+\label{classSyncListener}\index{\-Sync\-Listener@{\-Sync\-Listener}}
+}
+
+
+\-Class listening to incoming \-Msgs and synchronizes them, each instance of the class listens to one robot.  
+
+
+
+
+{\ttfamily \#include $<$\-Sync\-Listener.\-h$>$}
+
+
+
+\-Collaboration diagram for \-Sync\-Listener\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classSyncListener__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef \*
+sync\-\_\-policies\-::\-Approximate\-Time\*
+$<$ \-Camera\-Info, \-Point\-Cloud2, \*
+cc\-\_\-fabmap\-::keyframe\-Msg\-Stamped, \*
+cc\-\_\-fabmap\-::keyframe\-Graph\-Msg\-Stamped $>$ \hyperlink{classSyncListener_aff51e417f521f074342bc0344856d01e}{\-My\-Sync\-Policy}
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSyncListener_ae69658445cf77c60360e14748cce3129}{\-Sync\-Listener} (int r\-I\-D, string cam\-Info\-Topic\-Name, string pt\-Cl\-Topic\-Name, string k\-F\-Topic\-Name, string k\-F\-G\-Topic\-Name, ros\-::\-Node\-Handle nh, \hyperlink{classCentralStorage}{\-Central\-Storage} $\ast$storage)
+\begin{DoxyCompactList}\small\item\em \-Constructor initializing member variables. \end{DoxyCompactList}\item 
+\hyperlink{classSyncListener_a3e0b75c3cca66f812fc3eac4f9c4d36c}{$\sim$\-Sync\-Listener} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
+void \hyperlink{classSyncListener_a7eb4b7e88109cb8a2e352bd7454d6af6}{callback\-\_\-\-Sync\-Listener} (const \-Camera\-Info\-Const\-Ptr \&cam\-Info\-Msg, const \-Point\-Cloud2\-Const\-Ptr \&pt\-Cl\-Msg, const cc\-\_\-fabmap\-::keyframe\-Msg\-Stamped\-::\-Const\-Ptr \&k\-F\-Msg, const cc\-\_\-fabmap\-::keyframe\-Graph\-Msg\-Stamped\-::\-Const\-Ptr \&k\-F\-G\-Msg, \hyperlink{classCentralStorage}{\-Central\-Storage} $\ast$storage)
+\begin{DoxyCompactList}\small\item\em \-Member function listening to incoming \-Msgs. \end{DoxyCompactList}\item 
+void \hyperlink{classSyncListener_a2343c140657ed44918b69d4ccfc0f2fc}{readk\-F\-Msg} (const cc\-\_\-fabmap\-::keyframe\-Msg\-Stamped\-::\-Const\-Ptr \&k\-F\-Msg)
+\item 
+void \hyperlink{classSyncListener_a15eba5d8398bbee26167f14498d39a44}{readk\-F\-G\-Msg} (const cc\-\_\-fabmap\-::keyframe\-Graph\-Msg\-Stamped\-::\-Const\-Ptr \&k\-F\-G\-Msg, \hyperlink{classCentralStorage}{\-Central\-Storage} $\ast$storage)
+\item 
+void \hyperlink{classSyncListener_a5b6fc157cbff88f505051895be194580}{voxel\-Filter\-Pt\-Cl} (\hyperlink{classCentralStorage}{\-Central\-Storage} $\ast$storage)
+\item 
+void \hyperlink{classSyncListener_afb1bc8df5e84e851cd63e875222cdaa1}{clear\-Data} ()
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classSyncListener_a8a56de9b7444cfe79845217863f50ac4}{m\-\_\-r\-I\-D}
+\item 
+ros\-::\-Node\-Handle \hyperlink{classSyncListener_a11af18cee056cd6558e11246c86d746c}{m\-\_\-nh}
+\item 
+message\-\_\-filters\-::\-Subscriber\*
+$<$ \-Camera\-Info $>$ \hyperlink{classSyncListener_a8a2f8f014180ef641c4f23edc60f7f65}{m\-\_\-sub\-Fil\-Cam\-Info}
+\item 
+message\-\_\-filters\-::\-Subscriber\*
+$<$ \-Point\-Cloud2 $>$ \hyperlink{classSyncListener_ac23b28241b0e85d1247f3bb116bdfeaf}{m\-\_\-sub\-Fil\-Pt\-Cl}
+\item 
+message\-\_\-filters\-::\-Subscriber\*
+$<$ cc\-\_\-fabmap\-::keyframe\-Msg\-Stamped $>$ \hyperlink{classSyncListener_a283e6f9b1bb60cfe3fdf43787faddbb0}{m\-\_\-k\-F}
+\item 
+message\-\_\-filters\-::\-Subscriber\*
+$<$ cc\-\_\-fabmap\-::keyframe\-Graph\-Msg\-Stamped $>$ \hyperlink{classSyncListener_a80a7b642798ea3441475ab9c57567345}{m\-\_\-k\-F\-G}
+\item 
+\-Synchronizer$<$ \hyperlink{classSyncListener_aff51e417f521f074342bc0344856d01e}{\-My\-Sync\-Policy} $>$ \hyperlink{classSyncListener_a2f352324b76a40e4e7b6cb560f527b2c}{m\-\_\-sync}
+\item 
+pcl\-::\-Point\-Cloud$<$ pcl\-::\-Point\-X\-Y\-Z $>$\*
+\-::\-Ptr \hyperlink{classSyncListener_adf1510f0bffe657a07972b53265462a7}{m\-\_\-local\-Pt\-Cl}
+\item 
+\hyperlink{structkeyFrame}{key\-Frame} \hyperlink{classSyncListener_a4d09eece5d98418ba9f0d5e2b78739db}{m\-\_\-k\-Frame}
+\begin{DoxyCompactList}\small\item\em stores necessary information about one keyframe \end{DoxyCompactList}\item 
+cv\-\_\-bridge\-::\-Cv\-Image\-Ptr \hyperlink{classSyncListener_a86ba5fc553e1a656b7643c09e865aebb}{m\-\_\-test\-Cv\-Ptr}
+\begin{DoxyCompactList}\small\item\em save ros sensor img to opencv img \end{DoxyCompactList}\item 
+vector$<$ \-Key\-Point $>$ \hyperlink{classSyncListener_a6ebc46a18ad7a9acb1d00a7373959572}{m\-\_\-test\-K\-Pts}
+\begin{DoxyCompactList}\small\item\em vec$<$\-K\-Pts$>$\-: all kpts from 1 test\-Img of 1 robot \end{DoxyCompactList}\item 
+geometry\-\_\-msgs\-::\-Pose\-Stamped \hyperlink{classSyncListener_a17fb054f6825f7b44eeab7467938ac81}{m\-\_\-local\-Pose}
+\item 
+\-Eigen\-::\-Translation$<$ float, 3 $>$ \hyperlink{classSyncListener_a1dc58db5a86d88a47fdad97920a31d4c}{m\-\_\-sim3\-Local\-Pose\-Transl}
+\item 
+\-Eigen\-::\-Quaternion$<$ float $>$ \hyperlink{classSyncListener_ab56ff407af05f490da548a5e7150a726}{m\-\_\-sim3\-Local\-Pose\-Quat}
+\item 
+float \hyperlink{classSyncListener_aaf3e2d41bade5563773335eb7dcea484}{m\-\_\-sim3\-Local\-Pose\-Scale}
+\item 
+\hyperlink{structInputPointDense}{\-Input\-Point\-Dense} $\ast$ \hyperlink{classSyncListener_a143bf4683b219a962032a3b711820850}{m\-\_\-original\-Input}
+\item 
+std\-::map$<$ int, \hyperlink{classNode}{\-Node} $>$ \hyperlink{classSyncListener_a8f72710aa41f9f4b48c23ac1d5f37e23}{nodes}
+\item 
+std\-::map$<$ int, \hyperlink{classEdge}{\-Edge} $>$ \hyperlink{classSyncListener_a681672fb8569101a794d8c7d8a8c1448}{edges}
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Class listening to incoming \-Msgs and synchronizes them, each instance of the class listens to one robot. 
+
+\-Definition at line 64 of file \-Sync\-Listener.\-h.
+
+
+
+\subsection{\-Member \-Typedef \-Documentation}
+\hypertarget{classSyncListener_aff51e417f521f074342bc0344856d01e}{\index{\-Sync\-Listener@{\-Sync\-Listener}!\-My\-Sync\-Policy@{\-My\-Sync\-Policy}}
+\index{\-My\-Sync\-Policy@{\-My\-Sync\-Policy}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{\-My\-Sync\-Policy}]{\setlength{\rightskip}{0pt plus 5cm}typedef sync\-\_\-policies\-::\-Approximate\-Time$<$ \-Camera\-Info, \-Point\-Cloud2, cc\-\_\-fabmap\-::keyframe\-Msg\-Stamped, cc\-\_\-fabmap\-::keyframe\-Graph\-Msg\-Stamped$>$ {\bf \-Sync\-Listener\-::\-My\-Sync\-Policy}}}\label{classSyncListener_aff51e417f521f074342bc0344856d01e}
+
+
+\-Definition at line 80 of file \-Sync\-Listener.\-h.
+
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classSyncListener_ae69658445cf77c60360e14748cce3129}{\index{\-Sync\-Listener@{\-Sync\-Listener}!\-Sync\-Listener@{\-Sync\-Listener}}
+\index{\-Sync\-Listener@{\-Sync\-Listener}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{\-Sync\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}const char {\bf \-Sync\-Listener\-::\-Sync\-Listener} (
+\begin{DoxyParamCaption}
+\item[{int}]{r\-I\-D, }
+\item[{string}]{cam\-Info\-Topic\-Name, }
+\item[{string}]{pt\-Cl\-Topic\-Name, }
+\item[{string}]{k\-F\-Topic\-Name, }
+\item[{string}]{k\-F\-G\-Topic\-Name, }
+\item[{ros\-::\-Node\-Handle}]{nh, }
+\item[{{\bf \-Central\-Storage} $\ast$}]{storage}
+\end{DoxyParamCaption}
+)}}\label{classSyncListener_ae69658445cf77c60360e14748cce3129}
+
+
+\-Constructor initializing member variables. 
+
+
+
+\-Definition at line 23 of file \-Sync\-Listener.\-cpp.
+
+
+\begin{DoxyCode}
+                                                           :
+                m_rID(rID),
+                m_nh(nh),
+                m_subFilCamInfo(nh,camInfoTopicName,100),
+                m_subFilPtCl(nh,ptClTopicName,100),
+                m_kF(nh,kFTopicName,100),
+                m_kFG(nh,kFGTopicName,100),
+                m_sync(MySyncPolicy(100), m_subFilCamInfo, m_subFilPtCl, m_kF, 
+      m_kFG),
+                m_localPtCl(new pcl::PointCloud<pcl::PointXYZ>)
+{
+        m_sync.registerCallback(boost::bind(&SyncListener::callback_SyncListener
+      , this, _1, _2, _3, _4, storage));
+        m_originalInput = NULL;
+        m_kFrame.img =  cv::Mat(480,640,CV_8UC3, Scalar(0,0,255));
+}
+\end{DoxyCode}
+\hypertarget{classSyncListener_a3e0b75c3cca66f812fc3eac4f9c4d36c}{\index{\-Sync\-Listener@{\-Sync\-Listener}!$\sim$\-Sync\-Listener@{$\sim$\-Sync\-Listener}}
+\index{$\sim$\-Sync\-Listener@{$\sim$\-Sync\-Listener}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{$\sim$\-Sync\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Sync\-Listener\-::$\sim$\-Sync\-Listener} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSyncListener_a3e0b75c3cca66f812fc3eac4f9c4d36c}
+
+
+destructor 
+
+
+
+\-Definition at line 43 of file \-Sync\-Listener.\-cpp.
+
+
+\begin{DoxyCode}
+{}
+\end{DoxyCode}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classSyncListener_a7eb4b7e88109cb8a2e352bd7454d6af6}{\index{\-Sync\-Listener@{\-Sync\-Listener}!callback\-\_\-\-Sync\-Listener@{callback\-\_\-\-Sync\-Listener}}
+\index{callback\-\_\-\-Sync\-Listener@{callback\-\_\-\-Sync\-Listener}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{callback\-\_\-\-Sync\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}const char {\bf \-Sync\-Listener\-::callback\-\_\-\-Sync\-Listener} (
+\begin{DoxyParamCaption}
+\item[{const \-Camera\-Info\-Const\-Ptr \&}]{cam\-Info\-Msg, }
+\item[{const \-Point\-Cloud2\-Const\-Ptr \&}]{pt\-Cl\-Msg, }
+\item[{const cc\-\_\-fabmap\-::keyframe\-Msg\-Stamped\-::\-Const\-Ptr \&}]{k\-F\-Msg, }
+\item[{const cc\-\_\-fabmap\-::keyframe\-Graph\-Msg\-Stamped\-::\-Const\-Ptr \&}]{k\-F\-G\-Msg, }
+\item[{{\bf \-Central\-Storage} $\ast$}]{storage}
+\end{DoxyParamCaption}
+)}}\label{classSyncListener_a7eb4b7e88109cb8a2e352bd7454d6af6}
+
+
+\-Member function listening to incoming \-Msgs. 
+
+
+
+\-Definition at line 46 of file \-Sync\-Listener.\-cpp.
+
+
+\begin{DoxyCode}
+                                         {
+
+        // Cam Info Listener
+        // cam mat stays constant --> no need to process anything
+        storage->camModel.fromCameraInfo(camInfoMsg);
+
+        // PtCl Listener
+        pcl::fromROSMsg( *ptClMsg, *this->m_localPtCl );
+        // Downsample PtCl
+        //this->voxelFilterPtCl(storage);
+
+        // kFMsg Listener
+        // kFMsg contains the coordinate Transformation from Camera Frame of
+       the corresponding robot to the initial robot frame
+        // By taking the inverse, the pose of the Frame is revealed
+        this->readkFMsg(kFMsg);
+        this->m_kFrame.rID = this->m_rID;
+
+        //kFGraphMsg Listener
+        this->readkFGMsg(kFGMsg, storage);
+
+        (storage->detector)->detect(this->m_kFrame.img,this->m_kFrame.KPts);
+
+        // this->m_kFrame.camToRobot = tRobotCam = pCamRobot
+        // m_localPose = pCamRobot =
+        HelperFcts::trafoFloat7ToQuatTranslScale(this->m_kFrame.camToRobot, 
+      this->m_sim3LocalPoseQuat, this->m_sim3LocalPoseTransl, this->m_sim3LocalPoseScale)
+      ;
+        // get Pose from coordinate transformation (message contains a
+       coordinate transformation!!!)
+        //HelperFcts::invQuatTranslScale(this->m_sim3LocalPoseQuat,
+       this->m_sim3LocalPoseQuat, this->m_sim3LocalPoseTransl, this->m_sim3LocalPoseTransl,
+       this->m_sim3LocalPoseScale, this->m_sim3LocalPoseScale);
+        HelperFcts::eigenQuatTranslPoseToROSPose(this->m_sim3LocalPoseQuat, 
+      this->m_sim3LocalPoseTransl, this->m_localPose);
+
+
+        // JUST FOR CHECKING IF SOPHUS EQUAL OWN IMPLEMENTATION
+//      memcpy(m_sim3LocalPose.data(), simTrafoMsg->sim3f.data(),
+       7*sizeof(float));
+//      cout << endl << endl<< endl;
+//      cout << "Sophus: " << this->m_sim3LocalPose.translation() << endl;
+//      cout << this->m_sim3LocalPose.quaternion().w() << " " <<
+       this->m_sim3LocalPose.quaternion().x() << " " << this->m_sim3LocalPose.quaternion().y() << " "
+       << this->m_sim3LocalPose.quaternion().z() << endl;
+//      cout << "scale: " << this->m_sim3LocalPose.scale() << endl;
+//      cout <<
+       this->m_sim3LocalPose.quaternion().w()/this->m_sim3LocalPose.scale() << " " <<
+       this->m_sim3LocalPose.quaternion().x()/this->m_sim3LocalPose.scale() << " " << this->m_sim3LocalPose.quaternion().y() << " " <<
+       this->m_sim3LocalPose.quaternion().z()/this->m_sim3LocalPose.scale() << endl << endl;
+//      cout << "Eigen: " << this->m_localPose.pose.position.x << " " <<
+       this->m_localPose.pose.position.y << " " << this->m_localPose.pose.position.z << endl;
+//      cout << this->m_localPose.pose.orientation.w << " " <<
+       this->m_localPose.pose.orientation.x << " " << this->m_localPose.pose.orientation.y << " " <<
+       this->m_localPose.pose.orientation.z << endl;
+//      cout << "scale: " << this->m_sim3LocalPoseScale << endl;
+//      cout << endl << endl<< endl;
+
+}
+\end{DoxyCode}
+\hypertarget{classSyncListener_afb1bc8df5e84e851cd63e875222cdaa1}{\index{\-Sync\-Listener@{\-Sync\-Listener}!clear\-Data@{clear\-Data}}
+\index{clear\-Data@{clear\-Data}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{clear\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Sync\-Listener\-::clear\-Data} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSyncListener_afb1bc8df5e84e851cd63e875222cdaa1}
+
+
+\-Definition at line 180 of file \-Sync\-Listener.\-cpp.
+
+
+\begin{DoxyCode}
+                             {
+
+        for( int i=0; i<7; ++i ) {
+                this->m_kFrame.camToRobot[i] = 0.0;
+                if(i==3) {
+                        this->m_kFrame.camToRobot[i] = 1.0;
+                }
+        }
+        this->m_kFrame.cx = 0;
+        this->m_kFrame.cy = 0;
+        this->m_kFrame.fx = 0;
+        this->m_kFrame.fy = 0;
+        this->m_kFrame.height = 0;
+        this->m_kFrame.width = 0;
+        this->m_kFrame.idepth.release();
+        this->m_kFrame.idepthVar.release();
+        this->m_kFrame.img.release();
+        this->m_kFrame.KPts.clear();
+        this->m_kFrame.bowDescriptor.release();
+        this->m_kFrame.fID = 0;
+        this->m_kFrame.rID = 0;
+        this->m_kFrame.lsdSLAMID = 0;
+
+        this->m_testKPts.clear();
+        this->m_localPtCl->clear();
+        this->m_sim3LocalPoseTransl.x() = this->m_sim3LocalPoseTransl.y() = 
+      this->m_sim3LocalPoseTransl.z() = 0.0;
+        this->m_sim3LocalPoseQuat.setIdentity();
+        this->m_sim3LocalPoseScale = 0.0;
+
+        this->m_originalInput = NULL;
+
+        this->nodes.clear();
+        this->edges.clear();
+}
+\end{DoxyCode}
+\hypertarget{classSyncListener_a15eba5d8398bbee26167f14498d39a44}{\index{\-Sync\-Listener@{\-Sync\-Listener}!readk\-F\-G\-Msg@{readk\-F\-G\-Msg}}
+\index{readk\-F\-G\-Msg@{readk\-F\-G\-Msg}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{readk\-F\-G\-Msg}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Sync\-Listener\-::readk\-F\-G\-Msg} (
+\begin{DoxyParamCaption}
+\item[{const cc\-\_\-fabmap\-::keyframe\-Graph\-Msg\-Stamped\-::\-Const\-Ptr \&}]{k\-F\-G\-Msg, }
+\item[{{\bf \-Central\-Storage} $\ast$}]{storage}
+\end{DoxyParamCaption}
+)}}\label{classSyncListener_a15eba5d8398bbee26167f14498d39a44}
+
+
+\-Definition at line 145 of file \-Sync\-Listener.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                               
+                                     {
+        // Get information for graph
+        GraphFramePose* graphPoses = (GraphFramePose*)kFGMsg->frameData.data();
+        int numGraphPoses = kFGMsg->numFrames;
+
+        //cout << "numFrames" << kFGMsg->numFrames << endl;
+        //cout << "numConstraints" << kFGMsg->numConstraints << endl;
+
+        for( int nbrNode=0 ; nbrNode<numGraphPoses ; nbrNode++ ) {
+                int fID = -1000;
+                lsdSLAMIDToFID(storage, graphPoses[nbrNode].id, fID);
+                //cout << "graphPoses[nbrNode].id: " << graphPoses[nbrNode].id
+       << " fID: " << fID << endl;
+
+                if(fID == -1000) {
+                //      printf("ERROR: graph update contains pose for frame %d,
+       but I dont have a frame %d!\n", graphPoses[nbrNode].id,
+       graphPoses[nbrNode].id);
+                }
+                else {
+                        for(int i=0; i<7; ++i) {
+                                nodes[fID].camToOrigin[i] = graphPoses[nbrNode]
+      .camToWorld[i];
+                        }
+                }
+        }
+}
+\end{DoxyCode}
+\hypertarget{classSyncListener_a2343c140657ed44918b69d4ccfc0f2fc}{\index{\-Sync\-Listener@{\-Sync\-Listener}!readk\-F\-Msg@{readk\-F\-Msg}}
+\index{readk\-F\-Msg@{readk\-F\-Msg}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{readk\-F\-Msg}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Sync\-Listener\-::readk\-F\-Msg} (
+\begin{DoxyParamCaption}
+\item[{const cc\-\_\-fabmap\-::keyframe\-Msg\-Stamped\-::\-Const\-Ptr \&}]{k\-F\-Msg}
+\end{DoxyParamCaption}
+)}}\label{classSyncListener_a2343c140657ed44918b69d4ccfc0f2fc}
+
+
+\-Definition at line 94 of file \-Sync\-Listener.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                             {
+
+        for(int i=0 ; i<7 ; ++i) {
+                this->m_kFrame.camToRobot[i] = kFMsg->camToWorld[i];
+        }
+
+        this->m_kFrame.width = kFMsg->width;
+        this->m_kFrame.height = kFMsg->height;
+        this->m_kFrame.fx = kFMsg->fx;
+        this->m_kFrame.fy = kFMsg->fy;
+        this->m_kFrame.cx = kFMsg->cx;
+        this->m_kFrame.cy = kFMsg->cy;
+        this->m_kFrame.lsdSLAMID = kFMsg->id;
+
+        if(this->m_originalInput != 0) {
+                delete[] this->m_originalInput;
+        }
+
+        this->m_originalInput=0;
+
+        if(kFMsg->pointcloud.size() != this->m_kFrame.width*this->m_kFrame.
+      height*sizeof(InputPointDense)) {
+                if(kFMsg->pointcloud.size() != 0)
+                {
+                        cout << "WARNING" << endl;
+                        //printf("WARNING: PC with points, but number of points
+       not right! (is %zu, should be %u*%dx%d=%u)\n",
+                                        //kFMsg->pointcloud.size(),
+       sizeof(InputPointDense), this->m_kFrame.width, this->m_kFrame.height,
+       this->m_kFrame.width*this->m_kFrame.height*sizeof(InputPointDense));
+                }
+        }
+        else {
+                this->m_originalInput = new InputPointDense[this->m_kFrame.width
+      * this->m_kFrame.height];
+                memcpy( this->m_originalInput, kFMsg->pointcloud.data(), this->
+      m_kFrame.width* this->m_kFrame.height*sizeof(InputPointDense));
+        }
+
+        this->m_kFrame.img = cv::Mat(480,640,CV_8UC3, Scalar(0,0,255));
+        this->m_kFrame.idepth = cv::Mat(480,640,CV_32FC1, Scalar(0,0,255));
+        this->m_kFrame.idepthVar = cv::Mat(480,640,CV_32FC1, Scalar(0,0,255));
+        for( int y=0 ; y<this->m_kFrame.height-1 ; y++ ) {
+                for( int x=0 ; x<this->m_kFrame.width-1 ; x++) {
+                        cv::Vec3b bgr;
+
+                        bgr[0] = this->m_originalInput[x+y*this->m_kFrame.width
+      ].color[0];
+                        bgr[1] = this->m_originalInput[x+y*this->m_kFrame.width
+      ].color[1];
+                        bgr[2] = this->m_originalInput[x+y*this->m_kFrame.width
+      ].color[2];
+
+                        this->m_kFrame.img.at< Vec3b >( cv::Point(x,y) ) = bgr;
+                        this->m_kFrame.idepth.at< float >(y,x) = this->
+      m_originalInput->idepth;
+                        this->m_kFrame.idepthVar.at< float >(y,x) = this->
+      m_originalInput->idepth_var;
+                }
+        }
+}
+\end{DoxyCode}
+\hypertarget{classSyncListener_a5b6fc157cbff88f505051895be194580}{\index{\-Sync\-Listener@{\-Sync\-Listener}!voxel\-Filter\-Pt\-Cl@{voxel\-Filter\-Pt\-Cl}}
+\index{voxel\-Filter\-Pt\-Cl@{voxel\-Filter\-Pt\-Cl}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{voxel\-Filter\-Pt\-Cl}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Sync\-Listener\-::voxel\-Filter\-Pt\-Cl} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Central\-Storage} $\ast$}]{storage}
+\end{DoxyParamCaption}
+)}}\label{classSyncListener_a5b6fc157cbff88f505051895be194580}
+
+
+\-Definition at line 169 of file \-Sync\-Listener.\-cpp.
+
+
+\begin{DoxyCode}
+                                                          {
+
+        // Create the filtering object
+        pcl::VoxelGrid< pcl::PointXYZ > sor;
+
+        sor.setInputCloud ( (this->m_localPtCl) );
+        sor.setLeafSize (0.001f, 0.001f, 0.001f);
+        sor.filter ( *(this->m_localPtCl) );
+
+}
+\end{DoxyCode}
+
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{classSyncListener_a681672fb8569101a794d8c7d8a8c1448}{\index{\-Sync\-Listener@{\-Sync\-Listener}!edges@{edges}}
+\index{edges@{edges}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{edges}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$int,{\bf \-Edge}$>$ {\bf \-Sync\-Listener\-::edges}}}\label{classSyncListener_a681672fb8569101a794d8c7d8a8c1448}
+
+
+\-Definition at line 103 of file \-Sync\-Listener.\-h.
+
+\hypertarget{classSyncListener_a283e6f9b1bb60cfe3fdf43787faddbb0}{\index{\-Sync\-Listener@{\-Sync\-Listener}!m\-\_\-k\-F@{m\-\_\-k\-F}}
+\index{m\-\_\-k\-F@{m\-\_\-k\-F}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{m\-\_\-k\-F}]{\setlength{\rightskip}{0pt plus 5cm}message\-\_\-filters\-::\-Subscriber$<$cc\-\_\-fabmap\-::keyframe\-Msg\-Stamped$>$ {\bf \-Sync\-Listener\-::m\-\_\-k\-F}}}\label{classSyncListener_a283e6f9b1bb60cfe3fdf43787faddbb0}
+
+
+\-Definition at line 74 of file \-Sync\-Listener.\-h.
+
+\hypertarget{classSyncListener_a80a7b642798ea3441475ab9c57567345}{\index{\-Sync\-Listener@{\-Sync\-Listener}!m\-\_\-k\-F\-G@{m\-\_\-k\-F\-G}}
+\index{m\-\_\-k\-F\-G@{m\-\_\-k\-F\-G}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{m\-\_\-k\-F\-G}]{\setlength{\rightskip}{0pt plus 5cm}message\-\_\-filters\-::\-Subscriber$<$cc\-\_\-fabmap\-::keyframe\-Graph\-Msg\-Stamped$>$ {\bf \-Sync\-Listener\-::m\-\_\-k\-F\-G}}}\label{classSyncListener_a80a7b642798ea3441475ab9c57567345}
+
+
+\-Definition at line 75 of file \-Sync\-Listener.\-h.
+
+\hypertarget{classSyncListener_a4d09eece5d98418ba9f0d5e2b78739db}{\index{\-Sync\-Listener@{\-Sync\-Listener}!m\-\_\-k\-Frame@{m\-\_\-k\-Frame}}
+\index{m\-\_\-k\-Frame@{m\-\_\-k\-Frame}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{m\-\_\-k\-Frame}]{\setlength{\rightskip}{0pt plus 5cm}{\bf key\-Frame} {\bf \-Sync\-Listener\-::m\-\_\-k\-Frame}}}\label{classSyncListener_a4d09eece5d98418ba9f0d5e2b78739db}
+
+
+stores necessary information about one keyframe 
+
+
+
+\-Definition at line 89 of file \-Sync\-Listener.\-h.
+
+\hypertarget{classSyncListener_a17fb054f6825f7b44eeab7467938ac81}{\index{\-Sync\-Listener@{\-Sync\-Listener}!m\-\_\-local\-Pose@{m\-\_\-local\-Pose}}
+\index{m\-\_\-local\-Pose@{m\-\_\-local\-Pose}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{m\-\_\-local\-Pose}]{\setlength{\rightskip}{0pt plus 5cm}geometry\-\_\-msgs\-::\-Pose\-Stamped {\bf \-Sync\-Listener\-::m\-\_\-local\-Pose}}}\label{classSyncListener_a17fb054f6825f7b44eeab7467938ac81}
+
+
+\-Definition at line 93 of file \-Sync\-Listener.\-h.
+
+\hypertarget{classSyncListener_adf1510f0bffe657a07972b53265462a7}{\index{\-Sync\-Listener@{\-Sync\-Listener}!m\-\_\-local\-Pt\-Cl@{m\-\_\-local\-Pt\-Cl}}
+\index{m\-\_\-local\-Pt\-Cl@{m\-\_\-local\-Pt\-Cl}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{m\-\_\-local\-Pt\-Cl}]{\setlength{\rightskip}{0pt plus 5cm}pcl\-::\-Point\-Cloud$<$pcl\-::\-Point\-X\-Y\-Z$>$\-::\-Ptr {\bf \-Sync\-Listener\-::m\-\_\-local\-Pt\-Cl}}}\label{classSyncListener_adf1510f0bffe657a07972b53265462a7}
+
+
+\-Definition at line 86 of file \-Sync\-Listener.\-h.
+
+\hypertarget{classSyncListener_a11af18cee056cd6558e11246c86d746c}{\index{\-Sync\-Listener@{\-Sync\-Listener}!m\-\_\-nh@{m\-\_\-nh}}
+\index{m\-\_\-nh@{m\-\_\-nh}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{m\-\_\-nh}]{\setlength{\rightskip}{0pt plus 5cm}ros\-::\-Node\-Handle {\bf \-Sync\-Listener\-::m\-\_\-nh}}}\label{classSyncListener_a11af18cee056cd6558e11246c86d746c}
+
+
+\-Definition at line 70 of file \-Sync\-Listener.\-h.
+
+\hypertarget{classSyncListener_a143bf4683b219a962032a3b711820850}{\index{\-Sync\-Listener@{\-Sync\-Listener}!m\-\_\-original\-Input@{m\-\_\-original\-Input}}
+\index{m\-\_\-original\-Input@{m\-\_\-original\-Input}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{m\-\_\-original\-Input}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Input\-Point\-Dense}$\ast$ {\bf \-Sync\-Listener\-::m\-\_\-original\-Input}}}\label{classSyncListener_a143bf4683b219a962032a3b711820850}
+
+
+\-Definition at line 99 of file \-Sync\-Listener.\-h.
+
+\hypertarget{classSyncListener_a8a56de9b7444cfe79845217863f50ac4}{\index{\-Sync\-Listener@{\-Sync\-Listener}!m\-\_\-r\-I\-D@{m\-\_\-r\-I\-D}}
+\index{m\-\_\-r\-I\-D@{m\-\_\-r\-I\-D}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{m\-\_\-r\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Sync\-Listener\-::m\-\_\-r\-I\-D}}}\label{classSyncListener_a8a56de9b7444cfe79845217863f50ac4}
+
+
+\-Definition at line 68 of file \-Sync\-Listener.\-h.
+
+\hypertarget{classSyncListener_ab56ff407af05f490da548a5e7150a726}{\index{\-Sync\-Listener@{\-Sync\-Listener}!m\-\_\-sim3\-Local\-Pose\-Quat@{m\-\_\-sim3\-Local\-Pose\-Quat}}
+\index{m\-\_\-sim3\-Local\-Pose\-Quat@{m\-\_\-sim3\-Local\-Pose\-Quat}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{m\-\_\-sim3\-Local\-Pose\-Quat}]{\setlength{\rightskip}{0pt plus 5cm}\-Eigen\-::\-Quaternion$<$float$>$ {\bf \-Sync\-Listener\-::m\-\_\-sim3\-Local\-Pose\-Quat}}}\label{classSyncListener_ab56ff407af05f490da548a5e7150a726}
+
+
+\-Definition at line 96 of file \-Sync\-Listener.\-h.
+
+\hypertarget{classSyncListener_aaf3e2d41bade5563773335eb7dcea484}{\index{\-Sync\-Listener@{\-Sync\-Listener}!m\-\_\-sim3\-Local\-Pose\-Scale@{m\-\_\-sim3\-Local\-Pose\-Scale}}
+\index{m\-\_\-sim3\-Local\-Pose\-Scale@{m\-\_\-sim3\-Local\-Pose\-Scale}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{m\-\_\-sim3\-Local\-Pose\-Scale}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Sync\-Listener\-::m\-\_\-sim3\-Local\-Pose\-Scale}}}\label{classSyncListener_aaf3e2d41bade5563773335eb7dcea484}
+
+
+\-Definition at line 97 of file \-Sync\-Listener.\-h.
+
+\hypertarget{classSyncListener_a1dc58db5a86d88a47fdad97920a31d4c}{\index{\-Sync\-Listener@{\-Sync\-Listener}!m\-\_\-sim3\-Local\-Pose\-Transl@{m\-\_\-sim3\-Local\-Pose\-Transl}}
+\index{m\-\_\-sim3\-Local\-Pose\-Transl@{m\-\_\-sim3\-Local\-Pose\-Transl}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{m\-\_\-sim3\-Local\-Pose\-Transl}]{\setlength{\rightskip}{0pt plus 5cm}\-Eigen\-::\-Translation$<$float,3$>$ {\bf \-Sync\-Listener\-::m\-\_\-sim3\-Local\-Pose\-Transl}}}\label{classSyncListener_a1dc58db5a86d88a47fdad97920a31d4c}
+
+
+\-Definition at line 95 of file \-Sync\-Listener.\-h.
+
+\hypertarget{classSyncListener_a8a2f8f014180ef641c4f23edc60f7f65}{\index{\-Sync\-Listener@{\-Sync\-Listener}!m\-\_\-sub\-Fil\-Cam\-Info@{m\-\_\-sub\-Fil\-Cam\-Info}}
+\index{m\-\_\-sub\-Fil\-Cam\-Info@{m\-\_\-sub\-Fil\-Cam\-Info}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{m\-\_\-sub\-Fil\-Cam\-Info}]{\setlength{\rightskip}{0pt plus 5cm}message\-\_\-filters\-::\-Subscriber$<$\-Camera\-Info$>$ {\bf \-Sync\-Listener\-::m\-\_\-sub\-Fil\-Cam\-Info}}}\label{classSyncListener_a8a2f8f014180ef641c4f23edc60f7f65}
+
+
+\-Definition at line 72 of file \-Sync\-Listener.\-h.
+
+\hypertarget{classSyncListener_ac23b28241b0e85d1247f3bb116bdfeaf}{\index{\-Sync\-Listener@{\-Sync\-Listener}!m\-\_\-sub\-Fil\-Pt\-Cl@{m\-\_\-sub\-Fil\-Pt\-Cl}}
+\index{m\-\_\-sub\-Fil\-Pt\-Cl@{m\-\_\-sub\-Fil\-Pt\-Cl}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{m\-\_\-sub\-Fil\-Pt\-Cl}]{\setlength{\rightskip}{0pt plus 5cm}message\-\_\-filters\-::\-Subscriber$<$\-Point\-Cloud2$>$ {\bf \-Sync\-Listener\-::m\-\_\-sub\-Fil\-Pt\-Cl}}}\label{classSyncListener_ac23b28241b0e85d1247f3bb116bdfeaf}
+
+
+\-Definition at line 73 of file \-Sync\-Listener.\-h.
+
+\hypertarget{classSyncListener_a2f352324b76a40e4e7b6cb560f527b2c}{\index{\-Sync\-Listener@{\-Sync\-Listener}!m\-\_\-sync@{m\-\_\-sync}}
+\index{m\-\_\-sync@{m\-\_\-sync}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{m\-\_\-sync}]{\setlength{\rightskip}{0pt plus 5cm}\-Synchronizer$<${\bf \-My\-Sync\-Policy}$>$ {\bf \-Sync\-Listener\-::m\-\_\-sync}}}\label{classSyncListener_a2f352324b76a40e4e7b6cb560f527b2c}
+
+
+\-Definition at line 81 of file \-Sync\-Listener.\-h.
+
+\hypertarget{classSyncListener_a86ba5fc553e1a656b7643c09e865aebb}{\index{\-Sync\-Listener@{\-Sync\-Listener}!m\-\_\-test\-Cv\-Ptr@{m\-\_\-test\-Cv\-Ptr}}
+\index{m\-\_\-test\-Cv\-Ptr@{m\-\_\-test\-Cv\-Ptr}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{m\-\_\-test\-Cv\-Ptr}]{\setlength{\rightskip}{0pt plus 5cm}cv\-\_\-bridge\-::\-Cv\-Image\-Ptr {\bf \-Sync\-Listener\-::m\-\_\-test\-Cv\-Ptr}}}\label{classSyncListener_a86ba5fc553e1a656b7643c09e865aebb}
+
+
+save ros sensor img to opencv img 
+
+
+
+\-Definition at line 90 of file \-Sync\-Listener.\-h.
+
+\hypertarget{classSyncListener_a6ebc46a18ad7a9acb1d00a7373959572}{\index{\-Sync\-Listener@{\-Sync\-Listener}!m\-\_\-test\-K\-Pts@{m\-\_\-test\-K\-Pts}}
+\index{m\-\_\-test\-K\-Pts@{m\-\_\-test\-K\-Pts}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{m\-\_\-test\-K\-Pts}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$\-Key\-Point$>$ {\bf \-Sync\-Listener\-::m\-\_\-test\-K\-Pts}}}\label{classSyncListener_a6ebc46a18ad7a9acb1d00a7373959572}
+
+
+vec$<$\-K\-Pts$>$\-: all kpts from 1 test\-Img of 1 robot 
+
+
+
+\-Definition at line 91 of file \-Sync\-Listener.\-h.
+
+\hypertarget{classSyncListener_a8f72710aa41f9f4b48c23ac1d5f37e23}{\index{\-Sync\-Listener@{\-Sync\-Listener}!nodes@{nodes}}
+\index{nodes@{nodes}!SyncListener@{\-Sync\-Listener}}
+\subsubsection[{nodes}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$int,{\bf \-Node}$>$ {\bf \-Sync\-Listener\-::nodes}}}\label{classSyncListener_a8f72710aa41f9f4b48c23ac1d5f37e23}
+
+
+\-Definition at line 102 of file \-Sync\-Listener.\-h.
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{SyncListener_8h}{\-Sync\-Listener.\-h}\item 
+\hyperlink{SyncListener_8cpp}{\-Sync\-Listener.\-cpp}\end{DoxyCompactItemize}

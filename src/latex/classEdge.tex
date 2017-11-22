@@ -1,0 +1,136 @@
+\hypertarget{classEdge}{\section{\-Edge \-Class \-Reference}
+\label{classEdge}\index{\-Edge@{\-Edge}}
+}
+
+
+{\ttfamily \#include $<$\-Pose\-Graph.\-h$>$}
+
+
+
+\-Collaboration diagram for \-Edge\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{classEdge__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classEdge_a3106b11d60125009dbf7a738ce540fdf}{\-Edge} ()
+\item 
+\hyperlink{classEdge_a2f37b72f044427961d6730943daf10e0}{$\sim$\-Edge} ()
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{classEdge_ac612d1d9593c51a94b24d4c602289e3d}{sim\-From\-To} \mbox{[}7\mbox{]}
+\item 
+\-Eigen\-::\-Matrix4f \hyperlink{classEdge_af0f27040f602b9c69ca1f961d9d5fb6c}{p\-Node2\-Node1}
+\item 
+float \hyperlink{classEdge_a7c93e09bb582c2044e1db881bd55627b}{scale\-Node2\-Node1}
+\item 
+\hyperlink{classNode}{\-Node} $\ast$ \hyperlink{classEdge_ab333b0c09db333edb0b19b115893b736}{from}
+\item 
+\hyperlink{classNode}{\-Node} $\ast$ \hyperlink{classEdge_a7a09acfaaccec8241ee0c00a3b5c1354}{to}
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+
+
+\-Definition at line 31 of file \-Pose\-Graph.\-h.
+
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classEdge_a3106b11d60125009dbf7a738ce540fdf}{\index{\-Edge@{\-Edge}!\-Edge@{\-Edge}}
+\index{\-Edge@{\-Edge}!Edge@{\-Edge}}
+\subsubsection[{\-Edge}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Edge\-::\-Edge} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classEdge_a3106b11d60125009dbf7a738ce540fdf}
+
+
+\-Definition at line 24 of file \-Pose\-Graph.\-cpp.
+
+
+\begin{DoxyCode}
+           {
+        // quat.x() = trafoFloat[0]; quat.y() = trafoFloat[1]; quat.z() =
+       trafoFloat[2]; quat.w() = trafoFloat[3];
+        // transl.x() = trafoFloat[4]; transl.y() = trafoFloat[5]; transl.z() =
+       trafoFloat[6];
+        for(int i=0; i<7; ++i) {
+                simFromTo[i] = 0.0;
+                if(i==3) {
+                        simFromTo[i] = 1.0;
+                }
+        }
+        pNode2Node1 = Eigen::Matrix4f::Identity(4,4);
+        scaleNode2Node1 = 1.0;
+
+        from = NULL;
+        to = NULL;
+}
+\end{DoxyCode}
+\hypertarget{classEdge_a2f37b72f044427961d6730943daf10e0}{\index{\-Edge@{\-Edge}!$\sim$\-Edge@{$\sim$\-Edge}}
+\index{$\sim$\-Edge@{$\sim$\-Edge}!Edge@{\-Edge}}
+\subsubsection[{$\sim$\-Edge}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Edge\-::$\sim$\-Edge} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classEdge_a2f37b72f044427961d6730943daf10e0}
+
+
+\-Definition at line 40 of file \-Pose\-Graph.\-cpp.
+
+
+\begin{DoxyCode}
+{}
+\end{DoxyCode}
+
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{classEdge_ab333b0c09db333edb0b19b115893b736}{\index{\-Edge@{\-Edge}!from@{from}}
+\index{from@{from}!Edge@{\-Edge}}
+\subsubsection[{from}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Node}$\ast$ {\bf \-Edge\-::from}}}\label{classEdge_ab333b0c09db333edb0b19b115893b736}
+
+
+\-Definition at line 39 of file \-Pose\-Graph.\-h.
+
+\hypertarget{classEdge_af0f27040f602b9c69ca1f961d9d5fb6c}{\index{\-Edge@{\-Edge}!p\-Node2\-Node1@{p\-Node2\-Node1}}
+\index{p\-Node2\-Node1@{p\-Node2\-Node1}!Edge@{\-Edge}}
+\subsubsection[{p\-Node2\-Node1}]{\setlength{\rightskip}{0pt plus 5cm}\-Eigen\-::\-Matrix4f {\bf \-Edge\-::p\-Node2\-Node1}}}\label{classEdge_af0f27040f602b9c69ca1f961d9d5fb6c}
+
+
+\-Definition at line 36 of file \-Pose\-Graph.\-h.
+
+\hypertarget{classEdge_a7c93e09bb582c2044e1db881bd55627b}{\index{\-Edge@{\-Edge}!scale\-Node2\-Node1@{scale\-Node2\-Node1}}
+\index{scale\-Node2\-Node1@{scale\-Node2\-Node1}!Edge@{\-Edge}}
+\subsubsection[{scale\-Node2\-Node1}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Edge\-::scale\-Node2\-Node1}}}\label{classEdge_a7c93e09bb582c2044e1db881bd55627b}
+
+
+\-Definition at line 37 of file \-Pose\-Graph.\-h.
+
+\hypertarget{classEdge_ac612d1d9593c51a94b24d4c602289e3d}{\index{\-Edge@{\-Edge}!sim\-From\-To@{sim\-From\-To}}
+\index{sim\-From\-To@{sim\-From\-To}!Edge@{\-Edge}}
+\subsubsection[{sim\-From\-To}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf \-Edge\-::sim\-From\-To}\mbox{[}7\mbox{]}}}\label{classEdge_ac612d1d9593c51a94b24d4c602289e3d}
+
+
+\-Definition at line 35 of file \-Pose\-Graph.\-h.
+
+\hypertarget{classEdge_a7a09acfaaccec8241ee0c00a3b5c1354}{\index{\-Edge@{\-Edge}!to@{to}}
+\index{to@{to}!Edge@{\-Edge}}
+\subsubsection[{to}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Node} $\ast$ {\bf \-Edge\-::to}}}\label{classEdge_a7a09acfaaccec8241ee0c00a3b5c1354}
+
+
+\-Definition at line 39 of file \-Pose\-Graph.\-h.
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{PoseGraph_8h}{\-Pose\-Graph.\-h}\item 
+\hyperlink{PoseGraph_8cpp}{\-Pose\-Graph.\-cpp}\end{DoxyCompactItemize}

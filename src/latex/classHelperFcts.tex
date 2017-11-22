@@ -1,0 +1,590 @@
+\hypertarget{classHelperFcts}{\section{\-Helper\-Fcts \-Class \-Reference}
+\label{classHelperFcts}\index{\-Helper\-Fcts@{\-Helper\-Fcts}}
+}
+
+
+{\ttfamily \#include $<$\-Helper\-Fcts.\-h$>$}
+
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classHelperFcts_a2077e86e8be5241c948108f3d128659a}{\-Helper\-Fcts} ()
+\item 
+\hyperlink{classHelperFcts_af4bf4fc5be60e0dd14b54a308b38fee9}{$\sim$\-Helper\-Fcts} ()
+\end{DoxyCompactItemize}
+\subsection*{\-Static \-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classHelperFcts_a78ecd5fc1beee4ac69e27e0a07258b50}{calc3\-D\-Pt} (\-Point2f pt2\-D, float fx, float fy, float cx, float cy, \-Mat idepth, \-Eigen\-::\-Vector3f \&pt3\-D)
+\item 
+static void \hyperlink{classHelperFcts_a3ebc81e09f781348d15f4f1898d7fb05}{display\-Image} (string window\-Name, \-Mat img)
+\item 
+static void \hyperlink{classHelperFcts_ac6ef7c94a83c9c7e79d83002528943de}{display\-Image\-K\-Pts} (string window\-Name, \-Mat img, vector$<$ \-Key\-Point $>$ k\-Pts)
+\item 
+static void \hyperlink{classHelperFcts_a604ec2c5d85568f3b51a08c268e9578c}{display\-Matches} (string window\-Name, \-Mat img1, \-Mat img2, vector$<$ \-Key\-Point $>$ k\-Pts1, vector$<$ \-Key\-Point $>$ k\-Pts2, vector$<$ \-D\-Match $>$ matches1to2, bool bool\-Save\-Img)
+\item 
+static void \hyperlink{classHelperFcts_a30131b3e45462ea3574240002efc9888}{display\-Save\-Image} (string window\-Name, \-Mat img, string name\-Incling\-Dir)
+\item 
+static void \hyperlink{classHelperFcts_aa8536f7744cd1ed6acba4fd7fe5fe8e8}{eigen\-Matrix4f\-To\-R\-O\-S\-Trafo\-Msg} (\-Eigen\-::\-Matrix4f trafo, tf\-::\-Transform \&trafo\-R\-O\-S\-Msg)
+\item 
+static void \hyperlink{classHelperFcts_ab7e012afc5fa512ff3f0961acac28f2e}{eigen\-Quat\-Transl\-Pose\-To\-R\-O\-S\-Pose} (\-Eigen\-::\-Quaternion$<$ float $>$ quat, \-Eigen\-::\-Translation$<$ float, 3 $>$ transl, geometry\-\_\-msgs\-::\-Pose\-Stamped \&pose)
+\item 
+static void \hyperlink{classHelperFcts_a987a1fd70323c857815e75b44dc432d9}{inv\-Quat\-Transl\-Scale} (\-Eigen\-::\-Quaternion$<$ float $>$ quat, \-Eigen\-::\-Quaternion$<$ float $>$ \&quat\-Inv, \-Eigen\-::\-Translation$<$ float, 3 $>$ transl, \-Eigen\-::\-Translation$<$ float, 3 $>$ \&transl\-Inv, float sc, float \&sc\-Inv)
+\item 
+static void \hyperlink{classHelperFcts_a92f54d3196a89e988323e73ebe14e106}{inv\-Trafo} (\-Eigen\-::\-Matrix4f trafo, \-Eigen\-::\-Matrix4f \&trafo\-Inv)
+\item 
+static void \hyperlink{classHelperFcts_ad8c1a028f297ea395c9d8239f64a74e2}{pose\-Stamped\-R\-O\-S\-To\-Matrix4f} (geometry\-\_\-msgs\-::\-Pose\-Stamped pose\-R\-O\-S, \-Eigen\-::\-Matrix4f \&pose\-Mat)
+\item 
+static void \hyperlink{classHelperFcts_aa89f2cb609374b9846dcc312a4d05212}{pose\-R\-O\-S\-To\-Trafo\-R\-O\-S\-Msg} (geometry\-\_\-msgs\-::\-Pose trafo, tf\-::\-Transform \&trafo\-R\-O\-S\-Msg)
+\item 
+static void \hyperlink{classHelperFcts_acb1b3fdb2752c224b2323a836f5d29ab}{custom\-Ransac} (vector$<$ \-Point2f $>$ matched\-Pts\-Query, vector$<$ \-Point2f $>$ matched\-Pts\-Test, int dim\-Model, int max\-Iter, float thresh\-Dist, float inl\-Ratio)
+\item 
+static void \hyperlink{classHelperFcts_a62a2cbe4631785fe2e85c9131153d8f6}{save\-Image} (\-Mat img, string name\-Incling\-Dir)
+\item 
+static void \hyperlink{classHelperFcts_a64c4237c737ffe6a9f06194d65a762bc}{save\-Matrix} (\-Mat matrix, string name\-Incling\-Dir)
+\item 
+static void \hyperlink{classHelperFcts_a496060ba1f925b932814bdaafde769d5}{save\-String\-To\-File} (string content, string name\-Incling\-Dir)
+\item 
+static void \hyperlink{classHelperFcts_a06b2c2707f3a2172820946196a282d8a}{trafo\-Float7\-Matrix4f} (float trafo\-Float\mbox{[}7\mbox{]}, \-Eigen\-::\-Matrix4f \&trafo\-Mat)
+\item 
+static void \hyperlink{classHelperFcts_aca9eeaf896ec92535fbef642133a73fe}{trafo\-Float7\-To\-Quat\-Transl\-Scale} (float sim\-Trafo\mbox{[}7\mbox{]}, \-Eigen\-::\-Quaternion$<$ float $>$ \&quat, \-Eigen\-::\-Translation$<$ float, 3 $>$ \&transl, float \&sc)
+\item 
+static void \hyperlink{classHelperFcts_a63c33b2156813b25f1034b66985984bd}{transform3\-D\-Pt} (float sim\-Trafo\mbox{[}7\mbox{]}, \-Eigen\-::\-Vector3f pt3\-D, \-Eigen\-::\-Vector3f \&pt3\-D\-Transformed)
+\item 
+static void \hyperlink{classHelperFcts_a9145127a1996c642db5ffbf188238108}{transform3\-D\-Pt} (\-Eigen\-::\-Matrix4f sim\-Trafo, \-Eigen\-::\-Vector3f pt3\-D, \-Eigen\-::\-Vector3f \&pt3\-D\-Transformed)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+
+
+\-Definition at line 19 of file \-Helper\-Fcts.\-h.
+
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classHelperFcts_a2077e86e8be5241c948108f3d128659a}{\index{\-Helper\-Fcts@{\-Helper\-Fcts}!\-Helper\-Fcts@{\-Helper\-Fcts}}
+\index{\-Helper\-Fcts@{\-Helper\-Fcts}!HelperFcts@{\-Helper\-Fcts}}
+\subsubsection[{\-Helper\-Fcts}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Helper\-Fcts\-::\-Helper\-Fcts} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classHelperFcts_a2077e86e8be5241c948108f3d128659a}
+
+
+\-Definition at line 7 of file \-Helper\-Fcts.\-cpp.
+
+
+\begin{DoxyCode}
+{}
+\end{DoxyCode}
+\hypertarget{classHelperFcts_af4bf4fc5be60e0dd14b54a308b38fee9}{\index{\-Helper\-Fcts@{\-Helper\-Fcts}!$\sim$\-Helper\-Fcts@{$\sim$\-Helper\-Fcts}}
+\index{$\sim$\-Helper\-Fcts@{$\sim$\-Helper\-Fcts}!HelperFcts@{\-Helper\-Fcts}}
+\subsubsection[{$\sim$\-Helper\-Fcts}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Helper\-Fcts\-::$\sim$\-Helper\-Fcts} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classHelperFcts_af4bf4fc5be60e0dd14b54a308b38fee9}
+
+
+\-Definition at line 8 of file \-Helper\-Fcts.\-cpp.
+
+
+\begin{DoxyCode}
+{}
+\end{DoxyCode}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classHelperFcts_a78ecd5fc1beee4ac69e27e0a07258b50}{\index{\-Helper\-Fcts@{\-Helper\-Fcts}!calc3\-D\-Pt@{calc3\-D\-Pt}}
+\index{calc3\-D\-Pt@{calc3\-D\-Pt}!HelperFcts@{\-Helper\-Fcts}}
+\subsubsection[{calc3\-D\-Pt}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Helper\-Fcts\-::calc3\-D\-Pt} (
+\begin{DoxyParamCaption}
+\item[{\-Point2f}]{pt2\-D, }
+\item[{float}]{fx, }
+\item[{float}]{fy, }
+\item[{float}]{cx, }
+\item[{float}]{cy, }
+\item[{\-Mat}]{idepth, }
+\item[{\-Eigen\-::\-Vector3f \&}]{pt3\-D}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classHelperFcts_a78ecd5fc1beee4ac69e27e0a07258b50}
+
+
+\-Definition at line 10 of file \-Helper\-Fcts.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                               
+                                       {
+        pt3D << pt2D.x*1/fx + (-cx/fx), pt2D.y*1/fy + (-cy/fy), 1.0;
+        float depth = 1/idepth.at<float>(pt2D.x,pt2D.y);
+
+        pt3D = pt3D*depth;
+}
+\end{DoxyCode}
+\hypertarget{classHelperFcts_acb1b3fdb2752c224b2323a836f5d29ab}{\index{\-Helper\-Fcts@{\-Helper\-Fcts}!custom\-Ransac@{custom\-Ransac}}
+\index{custom\-Ransac@{custom\-Ransac}!HelperFcts@{\-Helper\-Fcts}}
+\subsubsection[{custom\-Ransac}]{\setlength{\rightskip}{0pt plus 5cm}static void {\bf \-Helper\-Fcts\-::custom\-Ransac} (
+\begin{DoxyParamCaption}
+\item[{vector$<$ \-Point2f $>$}]{matched\-Pts\-Query, }
+\item[{vector$<$ \-Point2f $>$}]{matched\-Pts\-Test, }
+\item[{int}]{dim\-Model, }
+\item[{int}]{max\-Iter, }
+\item[{float}]{thresh\-Dist, }
+\item[{float}]{inl\-Ratio}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classHelperFcts_acb1b3fdb2752c224b2323a836f5d29ab}
+\hypertarget{classHelperFcts_a3ebc81e09f781348d15f4f1898d7fb05}{\index{\-Helper\-Fcts@{\-Helper\-Fcts}!display\-Image@{display\-Image}}
+\index{display\-Image@{display\-Image}!HelperFcts@{\-Helper\-Fcts}}
+\subsubsection[{display\-Image}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Helper\-Fcts\-::display\-Image} (
+\begin{DoxyParamCaption}
+\item[{string}]{window\-Name, }
+\item[{\-Mat}]{img}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classHelperFcts_a3ebc81e09f781348d15f4f1898d7fb05}
+
+
+\-Definition at line 17 of file \-Helper\-Fcts.\-cpp.
+
+
+\begin{DoxyCode}
+                                                        {
+    imshow(windowName, img);
+    waitKey(10);
+}
+\end{DoxyCode}
+\hypertarget{classHelperFcts_ac6ef7c94a83c9c7e79d83002528943de}{\index{\-Helper\-Fcts@{\-Helper\-Fcts}!display\-Image\-K\-Pts@{display\-Image\-K\-Pts}}
+\index{display\-Image\-K\-Pts@{display\-Image\-K\-Pts}!HelperFcts@{\-Helper\-Fcts}}
+\subsubsection[{display\-Image\-K\-Pts}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Helper\-Fcts\-::display\-Image\-K\-Pts} (
+\begin{DoxyParamCaption}
+\item[{string}]{window\-Name, }
+\item[{\-Mat}]{img, }
+\item[{vector$<$ \-Key\-Point $>$}]{k\-Pts}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classHelperFcts_ac6ef7c94a83c9c7e79d83002528943de}
+
+
+\-Definition at line 22 of file \-Helper\-Fcts.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                               
+          {
+        Mat imgModified;
+        drawKeypoints(img, kPts, imgModified);
+    imshow(windowName, imgModified);
+    waitKey(10);
+}
+\end{DoxyCode}
+\hypertarget{classHelperFcts_a604ec2c5d85568f3b51a08c268e9578c}{\index{\-Helper\-Fcts@{\-Helper\-Fcts}!display\-Matches@{display\-Matches}}
+\index{display\-Matches@{display\-Matches}!HelperFcts@{\-Helper\-Fcts}}
+\subsubsection[{display\-Matches}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Helper\-Fcts\-::display\-Matches} (
+\begin{DoxyParamCaption}
+\item[{string}]{window\-Name, }
+\item[{\-Mat}]{img1, }
+\item[{\-Mat}]{img2, }
+\item[{vector$<$ \-Key\-Point $>$}]{k\-Pts1, }
+\item[{vector$<$ \-Key\-Point $>$}]{k\-Pts2, }
+\item[{vector$<$ \-D\-Match $>$}]{matches1to2, }
+\item[{bool}]{bool\-Save\-Img}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classHelperFcts_a604ec2c5d85568f3b51a08c268e9578c}
+
+
+\-Definition at line 29 of file \-Helper\-Fcts.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                               
+                                                                                      
+          {
+        Mat imgModified;
+        drawMatches(img1, kPts1, img2, kPts2, matches1to2, imgModified);
+    imshow(windowName, imgModified);
+    waitKey(10);
+    if(boolSaveImg == true) {
+        HelperFcts::saveImage(imgModified,"testImgs/displayMatches.jpg");
+    }
+}
+\end{DoxyCode}
+\hypertarget{classHelperFcts_a30131b3e45462ea3574240002efc9888}{\index{\-Helper\-Fcts@{\-Helper\-Fcts}!display\-Save\-Image@{display\-Save\-Image}}
+\index{display\-Save\-Image@{display\-Save\-Image}!HelperFcts@{\-Helper\-Fcts}}
+\subsubsection[{display\-Save\-Image}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Helper\-Fcts\-::display\-Save\-Image} (
+\begin{DoxyParamCaption}
+\item[{string}]{window\-Name, }
+\item[{\-Mat}]{img, }
+\item[{string}]{name\-Incling\-Dir}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classHelperFcts_a30131b3e45462ea3574240002efc9888}
+
+
+\-Definition at line 39 of file \-Helper\-Fcts.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                               
+          {
+    imshow(windowName, img);
+    waitKey(10);
+    imwrite(nameInclingDir, img);
+}
+\end{DoxyCode}
+\hypertarget{classHelperFcts_aa8536f7744cd1ed6acba4fd7fe5fe8e8}{\index{\-Helper\-Fcts@{\-Helper\-Fcts}!eigen\-Matrix4f\-To\-R\-O\-S\-Trafo\-Msg@{eigen\-Matrix4f\-To\-R\-O\-S\-Trafo\-Msg}}
+\index{eigen\-Matrix4f\-To\-R\-O\-S\-Trafo\-Msg@{eigen\-Matrix4f\-To\-R\-O\-S\-Trafo\-Msg}!HelperFcts@{\-Helper\-Fcts}}
+\subsubsection[{eigen\-Matrix4f\-To\-R\-O\-S\-Trafo\-Msg}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Helper\-Fcts\-::eigen\-Matrix4f\-To\-R\-O\-S\-Trafo\-Msg} (
+\begin{DoxyParamCaption}
+\item[{\-Eigen\-::\-Matrix4f}]{trafo, }
+\item[{tf\-::\-Transform \&}]{trafo\-R\-O\-S\-Msg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classHelperFcts_aa8536f7744cd1ed6acba4fd7fe5fe8e8}
+
+
+\-Definition at line 45 of file \-Helper\-Fcts.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                               
+                 {
+        tf::Vector3 origin( trafo(0,3), trafo(1,3), trafo(2,3) );
+
+        Eigen::Matrix3f rot = trafo.block(0,0,3,3);
+        Eigen::Quaternion<float> qEigen(rot);
+        tf::Quaternion q( qEigen.x(), qEigen.y(), qEigen.z() ,qEigen.w() );
+        q.normalize();
+
+        trafoROSMsg.setOrigin(origin);
+        trafoROSMsg.setRotation(q);
+}
+\end{DoxyCode}
+\hypertarget{classHelperFcts_ab7e012afc5fa512ff3f0961acac28f2e}{\index{\-Helper\-Fcts@{\-Helper\-Fcts}!eigen\-Quat\-Transl\-Pose\-To\-R\-O\-S\-Pose@{eigen\-Quat\-Transl\-Pose\-To\-R\-O\-S\-Pose}}
+\index{eigen\-Quat\-Transl\-Pose\-To\-R\-O\-S\-Pose@{eigen\-Quat\-Transl\-Pose\-To\-R\-O\-S\-Pose}!HelperFcts@{\-Helper\-Fcts}}
+\subsubsection[{eigen\-Quat\-Transl\-Pose\-To\-R\-O\-S\-Pose}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Helper\-Fcts\-::eigen\-Quat\-Transl\-Pose\-To\-R\-O\-S\-Pose} (
+\begin{DoxyParamCaption}
+\item[{\-Eigen\-::\-Quaternion$<$ float $>$}]{quat, }
+\item[{\-Eigen\-::\-Translation$<$ float, 3 $>$}]{transl, }
+\item[{geometry\-\_\-msgs\-::\-Pose\-Stamped \&}]{pose}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classHelperFcts_ab7e012afc5fa512ff3f0961acac28f2e}
+
+
+\-Definition at line 57 of file \-Helper\-Fcts.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                               
+                                                                   {
+        pose.pose.position.x = transl.x();
+        pose.pose.position.y = transl.y();
+        pose.pose.position.z = transl.z();
+
+        quat.normalize();
+        pose.pose.orientation.w = quat.w();
+        pose.pose.orientation.x = quat.x();
+        pose.pose.orientation.y = quat.y();
+        pose.pose.orientation.z = quat.z();
+}
+\end{DoxyCode}
+\hypertarget{classHelperFcts_a987a1fd70323c857815e75b44dc432d9}{\index{\-Helper\-Fcts@{\-Helper\-Fcts}!inv\-Quat\-Transl\-Scale@{inv\-Quat\-Transl\-Scale}}
+\index{inv\-Quat\-Transl\-Scale@{inv\-Quat\-Transl\-Scale}!HelperFcts@{\-Helper\-Fcts}}
+\subsubsection[{inv\-Quat\-Transl\-Scale}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Helper\-Fcts\-::inv\-Quat\-Transl\-Scale} (
+\begin{DoxyParamCaption}
+\item[{\-Eigen\-::\-Quaternion$<$ float $>$}]{quat, }
+\item[{\-Eigen\-::\-Quaternion$<$ float $>$ \&}]{quat\-Inv, }
+\item[{\-Eigen\-::\-Translation$<$ float, 3 $>$}]{transl, }
+\item[{\-Eigen\-::\-Translation$<$ float, 3 $>$ \&}]{transl\-Inv, }
+\item[{float}]{sc, }
+\item[{float \&}]{sc\-Inv}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classHelperFcts_a987a1fd70323c857815e75b44dc432d9}
+
+
+\-Definition at line 69 of file \-Helper\-Fcts.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                               
+                                                                                      
+                                          {
+        quatInv = quat.inverse();
+
+        Eigen::Vector3f translTmp1,translTmp2;
+        translTmp1[0] = transl.x();
+        translTmp1[1] = transl.y();
+        translTmp1[2] = transl.z();
+        translTmp2 = -quatInv.toRotationMatrix()*translTmp1;
+
+        translInv.x() = translTmp2[0];
+        translInv.y() = translTmp2[1];
+        translInv.z() = translTmp2[2];
+
+        scInv = 1/sc;
+}
+\end{DoxyCode}
+\hypertarget{classHelperFcts_a92f54d3196a89e988323e73ebe14e106}{\index{\-Helper\-Fcts@{\-Helper\-Fcts}!inv\-Trafo@{inv\-Trafo}}
+\index{inv\-Trafo@{inv\-Trafo}!HelperFcts@{\-Helper\-Fcts}}
+\subsubsection[{inv\-Trafo}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Helper\-Fcts\-::inv\-Trafo} (
+\begin{DoxyParamCaption}
+\item[{\-Eigen\-::\-Matrix4f}]{trafo, }
+\item[{\-Eigen\-::\-Matrix4f \&}]{trafo\-Inv}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classHelperFcts_a92f54d3196a89e988323e73ebe14e106}
+
+
+\-Definition at line 85 of file \-Helper\-Fcts.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                       {
+        trafoInv.block(0,0,3,3) = trafo.block(0,0,3,3).transpose();
+        trafoInv.block(0,3,3,1) = -trafo.block(0,0,3,3).transpose()*trafo.block
+      (0,3,3,1);
+}
+\end{DoxyCode}
+\hypertarget{classHelperFcts_aa89f2cb609374b9846dcc312a4d05212}{\index{\-Helper\-Fcts@{\-Helper\-Fcts}!pose\-R\-O\-S\-To\-Trafo\-R\-O\-S\-Msg@{pose\-R\-O\-S\-To\-Trafo\-R\-O\-S\-Msg}}
+\index{pose\-R\-O\-S\-To\-Trafo\-R\-O\-S\-Msg@{pose\-R\-O\-S\-To\-Trafo\-R\-O\-S\-Msg}!HelperFcts@{\-Helper\-Fcts}}
+\subsubsection[{pose\-R\-O\-S\-To\-Trafo\-R\-O\-S\-Msg}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Helper\-Fcts\-::pose\-R\-O\-S\-To\-Trafo\-R\-O\-S\-Msg} (
+\begin{DoxyParamCaption}
+\item[{geometry\-\_\-msgs\-::\-Pose}]{trafo, }
+\item[{tf\-::\-Transform \&}]{trafo\-R\-O\-S\-Msg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classHelperFcts_aa89f2cb609374b9846dcc312a4d05212}
+
+
+\-Definition at line 104 of file \-Helper\-Fcts.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                               
+              {
+        tf::Vector3 origin(trafo.position.x, trafo.position.y, trafo.position.z
+      );
+        tf::Quaternion q;
+        q.setW(trafo.orientation.w);
+        q.setX(trafo.orientation.x);
+        q.setY(trafo.orientation.y);
+        q.setZ(trafo.orientation.z);
+        q.normalize();
+
+        trafoROSMsg.setOrigin(origin);
+        trafoROSMsg.setRotation(q);
+}
+\end{DoxyCode}
+\hypertarget{classHelperFcts_ad8c1a028f297ea395c9d8239f64a74e2}{\index{\-Helper\-Fcts@{\-Helper\-Fcts}!pose\-Stamped\-R\-O\-S\-To\-Matrix4f@{pose\-Stamped\-R\-O\-S\-To\-Matrix4f}}
+\index{pose\-Stamped\-R\-O\-S\-To\-Matrix4f@{pose\-Stamped\-R\-O\-S\-To\-Matrix4f}!HelperFcts@{\-Helper\-Fcts}}
+\subsubsection[{pose\-Stamped\-R\-O\-S\-To\-Matrix4f}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Helper\-Fcts\-::pose\-Stamped\-R\-O\-S\-To\-Matrix4f} (
+\begin{DoxyParamCaption}
+\item[{geometry\-\_\-msgs\-::\-Pose\-Stamped}]{pose\-R\-O\-S, }
+\item[{\-Eigen\-::\-Matrix4f \&}]{pose\-Mat}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classHelperFcts_ad8c1a028f297ea395c9d8239f64a74e2}
+
+
+\-Definition at line 90 of file \-Helper\-Fcts.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                               
+                          {
+        poseMat.setIdentity(4,4);
+
+        Eigen::Quaternion<float> quat;
+        quat.w() = poseROS.pose.orientation.w;
+        quat.x() = poseROS.pose.orientation.x;
+        quat.y() = poseROS.pose.orientation.y;
+        quat.z() = poseROS.pose.orientation.z;
+
+
+        poseMat.block(0,0,3,3) = quat.toRotationMatrix();
+        poseMat.block(0,3,3,1) << poseROS.pose.position.x, poseROS.pose.
+      position.y, poseROS.pose.position.z;
+}
+\end{DoxyCode}
+\hypertarget{classHelperFcts_a62a2cbe4631785fe2e85c9131153d8f6}{\index{\-Helper\-Fcts@{\-Helper\-Fcts}!save\-Image@{save\-Image}}
+\index{save\-Image@{save\-Image}!HelperFcts@{\-Helper\-Fcts}}
+\subsubsection[{save\-Image}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Helper\-Fcts\-::save\-Image} (
+\begin{DoxyParamCaption}
+\item[{\-Mat}]{img, }
+\item[{string}]{name\-Incling\-Dir}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classHelperFcts_a62a2cbe4631785fe2e85c9131153d8f6}
+
+
+\-Definition at line 117 of file \-Helper\-Fcts.\-cpp.
+
+
+\begin{DoxyCode}
+                                                         {
+    imwrite(nameInclingDir, img);
+}
+\end{DoxyCode}
+\hypertarget{classHelperFcts_a64c4237c737ffe6a9f06194d65a762bc}{\index{\-Helper\-Fcts@{\-Helper\-Fcts}!save\-Matrix@{save\-Matrix}}
+\index{save\-Matrix@{save\-Matrix}!HelperFcts@{\-Helper\-Fcts}}
+\subsubsection[{save\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Helper\-Fcts\-::save\-Matrix} (
+\begin{DoxyParamCaption}
+\item[{\-Mat}]{matrix, }
+\item[{string}]{name\-Incling\-Dir}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classHelperFcts_a64c4237c737ffe6a9f06194d65a762bc}
+
+
+\-Definition at line 121 of file \-Helper\-Fcts.\-cpp.
+
+
+\begin{DoxyCode}
+                                                             {
+        cv::FileStorage fs(nameInclingDir, cv::FileStorage::WRITE);
+        // Write to file!
+        fs << "matchMatrix" << matrix;
+        fs.release();
+}
+\end{DoxyCode}
+\hypertarget{classHelperFcts_a496060ba1f925b932814bdaafde769d5}{\index{\-Helper\-Fcts@{\-Helper\-Fcts}!save\-String\-To\-File@{save\-String\-To\-File}}
+\index{save\-String\-To\-File@{save\-String\-To\-File}!HelperFcts@{\-Helper\-Fcts}}
+\subsubsection[{save\-String\-To\-File}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Helper\-Fcts\-::save\-String\-To\-File} (
+\begin{DoxyParamCaption}
+\item[{string}]{content, }
+\item[{string}]{name\-Incling\-Dir}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classHelperFcts_a496060ba1f925b932814bdaafde769d5}
+
+
+\-Definition at line 128 of file \-Helper\-Fcts.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                       {
+        cv::FileStorage fs(nameInclingDir, cv::FileStorage::WRITE);
+        // Write to file!
+        fs << "CONTENT" << content;
+        fs.release();
+}
+\end{DoxyCode}
+\hypertarget{classHelperFcts_a06b2c2707f3a2172820946196a282d8a}{\index{\-Helper\-Fcts@{\-Helper\-Fcts}!trafo\-Float7\-Matrix4f@{trafo\-Float7\-Matrix4f}}
+\index{trafo\-Float7\-Matrix4f@{trafo\-Float7\-Matrix4f}!HelperFcts@{\-Helper\-Fcts}}
+\subsubsection[{trafo\-Float7\-Matrix4f}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Helper\-Fcts\-::trafo\-Float7\-Matrix4f} (
+\begin{DoxyParamCaption}
+\item[{float}]{trafo\-Float\mbox{[}7\mbox{]}, }
+\item[{\-Eigen\-::\-Matrix4f \&}]{trafo\-Mat}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classHelperFcts_a06b2c2707f3a2172820946196a282d8a}
+
+
+\-Definition at line 135 of file \-Helper\-Fcts.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                               
+         {
+        trafoMat.setIdentity(4,4);
+
+        Eigen::Quaternion<float> quat;
+        quat.x() = trafoFloat[0];
+        quat.y() = trafoFloat[1];
+        quat.z() = trafoFloat[2];
+        quat.w() = trafoFloat[3];
+
+        float sc = quat.norm();
+        quat.normalize();
+
+        trafoMat.block(0,0,3,3) = quat.toRotationMatrix();
+        trafoMat.block(0,3,3,1) << trafoFloat[4], trafoFloat[5], trafoFloat[6];
+}
+\end{DoxyCode}
+\hypertarget{classHelperFcts_aca9eeaf896ec92535fbef642133a73fe}{\index{\-Helper\-Fcts@{\-Helper\-Fcts}!trafo\-Float7\-To\-Quat\-Transl\-Scale@{trafo\-Float7\-To\-Quat\-Transl\-Scale}}
+\index{trafo\-Float7\-To\-Quat\-Transl\-Scale@{trafo\-Float7\-To\-Quat\-Transl\-Scale}!HelperFcts@{\-Helper\-Fcts}}
+\subsubsection[{trafo\-Float7\-To\-Quat\-Transl\-Scale}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Helper\-Fcts\-::trafo\-Float7\-To\-Quat\-Transl\-Scale} (
+\begin{DoxyParamCaption}
+\item[{float}]{sim\-Trafo\mbox{[}7\mbox{]}, }
+\item[{\-Eigen\-::\-Quaternion$<$ float $>$ \&}]{quat, }
+\item[{\-Eigen\-::\-Translation$<$ float, 3 $>$ \&}]{transl, }
+\item[{float \&}]{sc}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classHelperFcts_aca9eeaf896ec92535fbef642133a73fe}
+
+
+\-Definition at line 151 of file \-Helper\-Fcts.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                               
+                                                                       {
+        quat.x() = trafoFloat[0];
+        quat.y() = trafoFloat[1];
+        quat.z() = trafoFloat[2];
+        quat.w() = trafoFloat[3];
+
+        sc = quat.norm();
+
+        quat.normalize();
+
+        transl.x() = trafoFloat[4];
+        transl.y() = trafoFloat[5];
+        transl.z() = trafoFloat[6];
+}
+\end{DoxyCode}
+\hypertarget{classHelperFcts_a63c33b2156813b25f1034b66985984bd}{\index{\-Helper\-Fcts@{\-Helper\-Fcts}!transform3\-D\-Pt@{transform3\-D\-Pt}}
+\index{transform3\-D\-Pt@{transform3\-D\-Pt}!HelperFcts@{\-Helper\-Fcts}}
+\subsubsection[{transform3\-D\-Pt}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Helper\-Fcts\-::transform3\-D\-Pt} (
+\begin{DoxyParamCaption}
+\item[{float}]{sim\-Trafo\mbox{[}7\mbox{]}, }
+\item[{\-Eigen\-::\-Vector3f}]{pt3\-D, }
+\item[{\-Eigen\-::\-Vector3f \&}]{pt3\-D\-Transformed}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classHelperFcts_a63c33b2156813b25f1034b66985984bd}
+
+
+\-Definition at line 166 of file \-Helper\-Fcts.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                               
+                            {
+        Eigen::Matrix4f trafoTmp(Eigen::Matrix4f::Identity(4,4));
+        Eigen::Vector4f pt3DTmp;
+
+        HelperFcts::trafoFloat7Matrix4f(simTrafo,trafoTmp);
+
+        pt3DTmp << pt3D(0), pt3D(1), pt3D(2), 1.0;
+        pt3DTmp = trafoTmp*pt3DTmp;
+        pt3DTmp = pt3DTmp/pt3DTmp(3);
+
+        pt3DTransformed(0) = pt3DTmp(0);
+        pt3DTransformed(1) = pt3DTmp(1);
+        pt3DTransformed(2) = pt3DTmp(2);
+}
+\end{DoxyCode}
+\hypertarget{classHelperFcts_a9145127a1996c642db5ffbf188238108}{\index{\-Helper\-Fcts@{\-Helper\-Fcts}!transform3\-D\-Pt@{transform3\-D\-Pt}}
+\index{transform3\-D\-Pt@{transform3\-D\-Pt}!HelperFcts@{\-Helper\-Fcts}}
+\subsubsection[{transform3\-D\-Pt}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Helper\-Fcts\-::transform3\-D\-Pt} (
+\begin{DoxyParamCaption}
+\item[{\-Eigen\-::\-Matrix4f}]{sim\-Trafo, }
+\item[{\-Eigen\-::\-Vector3f}]{pt3\-D, }
+\item[{\-Eigen\-::\-Vector3f \&}]{pt3\-D\-Transformed}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classHelperFcts_a9145127a1996c642db5ffbf188238108}
+
+
+\-Definition at line 181 of file \-Helper\-Fcts.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                               
+                                 {
+        Eigen::Vector4f pt3DTmp;
+
+        pt3DTmp << pt3D(0), pt3D(1), pt3D(2), 1.0;
+        pt3DTmp = simTrafo*pt3DTmp;
+        pt3DTmp = pt3DTmp/pt3DTmp(3);
+
+        pt3DTransformed(0) = pt3DTmp(0);
+        pt3DTransformed(1) = pt3DTmp(1);
+        pt3DTransformed(2) = pt3DTmp(2);
+}
+\end{DoxyCode}
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{HelperFcts_8h}{\-Helper\-Fcts.\-h}\item 
+\hyperlink{HelperFcts_8cpp}{\-Helper\-Fcts.\-cpp}\end{DoxyCompactItemize}

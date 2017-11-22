@@ -1,0 +1,8 @@
+prefix=/home/leo/new_cat/src/cc_fabmap/build/devel
+
+Name: cc_fabmap
+Description: Description of cc_fabmap
+Version: 0.0.0
+Cflags: -I/home/leo/new_cat/src/cc_fabmap/build/devel/include
+Libs: -L/home/leo/new_cat/src/cc_fabmap/build/devel/lib 
+Requires: cv_bridge image_transport roscpp rospy sensor_msgs std_msgs geometry_msgs pcl_conversions pcl_ros image_geometry visualization_msgs

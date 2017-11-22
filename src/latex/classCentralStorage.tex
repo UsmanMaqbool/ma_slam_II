@@ -1,0 +1,1207 @@
+\hypertarget{classCentralStorage}{\section{\-Central\-Storage \-Class \-Reference}
+\label{classCentralStorage}\index{\-Central\-Storage@{\-Central\-Storage}}
+}
+
+
+\-Class storing all images of all robots, global maps (pose graph and point cloud)  
+
+
+
+
+{\ttfamily \#include $<$\-Central\-Storage.\-h$>$}
+
+
+
+\-Collaboration diagram for \-Central\-Storage\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classCentralStorage__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCentralStorage_a25eac5394f0f460badecfda39c287249}{\-Central\-Storage} (int nbr\-Robots\-Input, int nbr\-Vis\-Words\-Input)
+\begin{DoxyCompactList}\small\item\em \-Constructor setting initial values to member variables and initializing detector, extractor, matcher and \-B\-O\-W\-K\-Means\-Trainer. \end{DoxyCompactList}\item 
+\hyperlink{classCentralStorage_a02c77a753e14f274385b5df7cfee2f1f}{$\sim$\-Central\-Storage} ()
+\item 
+void \hyperlink{classCentralStorage_aed7b4357ce0cb743a5c8074b805b51a5}{generate\-Vocabulary} ()
+\begin{DoxyCompactList}\small\item\em \-Member function generating vocabulatory (dictionary/ visual words/ ...) and outputting it in \char`\"{}vocab.\-yml\char`\"{}, also saves all descriptors (\-S\-U\-R\-F) of all robots in \char`\"{}train\-Descriptors\-\_\-all\-Robots.\-yml\char`\"{}. \end{DoxyCompactList}\item 
+void \hyperlink{classCentralStorage_a925c5d072478a869cc511e11cbe9248d}{compute\-Train\-B\-O\-W\-Descriptors} ()
+\item 
+void \hyperlink{classCentralStorage_a76ea5d6aa74f139a4db824b679958ce2}{generate\-C\-L\-Tree} ()
+\begin{DoxyCompactList}\small\item\em \-Member function generating chow liu tree and outputting it in \char`\"{}cltree.\-yml\char`\"{}. \end{DoxyCompactList}\item 
+void \hyperlink{classCentralStorage_a7e6a32a86c37de7871884670cf97d598}{search\-For\-Good\-Match} ()
+\item 
+void \hyperlink{classCentralStorage_a76c399f09dc7d0083508c1a14f8dd8f3}{find\-Trafo\-Initial\-Guess} ()
+\begin{DoxyCompactList}\small\item\em \-Member function calculating an initial guess for the pose of one camera relative to the other camera of two matched images based on matched keypoints \-The result of running, namely p\-Test\-Query (p2nd1st), is stored in storage-\/$>$i\-G\-Map\mbox{[}query\-Img\-Ctr\mbox{]}. \end{DoxyCompactList}\item 
+void \hyperlink{classCentralStorage_aac60399a1652a2e63e3efd01d4758a1e}{find\-Trafo} (\-Eigen\-::\-Matrix4f i\-G, \-Eigen\-::\-Matrix4f \&final\-Trafo)
+\begin{DoxyCompactList}\small\item\em \-Member function calculating an the pose of one camera relative to the other camera of two matched images based icp with the initial \-Guess calculated in find\-Trafo\-Initial\-Guess \-The result of running, namely p\-Test\-Query (p2nd1st), is stored in ???? \end{DoxyCompactList}\item 
+void \hyperlink{classCentralStorage_a250829100ab52dc84a71997246870a69}{estimate\-Scale} ()
+\item 
+void \hyperlink{classCentralStorage_ac065c164a68a24bb1d5e0ff0b9a41f84}{update\-Pt\-Cls} ()
+\item 
+void \hyperlink{classCentralStorage_ad0e2f8a4581fe0e61a49b07141442dd2}{update\-Poses\-Of\-Robots} ()
+\item 
+void \hyperlink{classCentralStorage_a90df91c64ab74dfa7d557f08a27a9cdf}{clear\-Data} ()
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classCentralStorage_a83a67f52de30d339d872138243d42764}{nbr\-Robots}
+\item 
+image\-\_\-geometry\-::\-Pinhole\-Camera\-Model \hyperlink{classCentralStorage_adfcd7e35336daa5d959f783c9180460f}{cam\-Model}
+\item 
+bool \hyperlink{classCentralStorage_ac721895aafa60a4fb37c9659aabaed7a}{stop\-Data\-Collection}
+\item 
+cv\-::\-Mat \hyperlink{classCentralStorage_ad574732df5058d95d650c1187a9ba4f6}{train\-Descriptors\-\_\-all\-Robots}
+\item 
+vector$<$ vector$<$ \-Key\-Point $>$ $>$ \hyperlink{classCentralStorage_a6eba28072f558f36c2b3a08170f9db74}{train\-K\-Pts\-\_\-all\-Robots}
+\item 
+vector$<$ cv\-::\-Mat $>$ \hyperlink{classCentralStorage_a673208fa43bab02c4e53077ae45a38e7}{train\-Imgs\-\_\-all\-Robots}
+\item 
+int \hyperlink{classCentralStorage_a6830253bfbd8a4c03cc317820358d25a}{nbr\-Vis\-Words}
+\item 
+cv\-::\-Mat \hyperlink{classCentralStorage_a50f04d43d8c1f26725bb2e2e560a494c}{vocabulary}
+\item 
+cv\-::\-Mat \hyperlink{classCentralStorage_ad22679ec76d8fc9c99226a1bfdd4c410}{train\-B\-O\-W\-Descriptors\-\_\-all\-Robots}
+\item 
+cv\-::\-Mat \hyperlink{classCentralStorage_a5d9e98c4102f50187f6a034a99ef9793}{cl\-Tree}
+\item 
+\-B\-O\-W\-K\-Means\-Trainer $\ast$ \hyperlink{classCentralStorage_aa30a8d753544480abd495023cbf62a2f}{\-B\-O\-W\-Trainer}
+\item 
+\-Ptr$<$ \-Feature\-Detector $>$ \hyperlink{classCentralStorage_a3853e38f8eadbe09da6a1855b29704f7}{detector}
+\item 
+\-Ptr$<$ \-Descriptor\-Extractor $>$ \hyperlink{classCentralStorage_a8c18048b9cf9171a16d6d9e2fa8f8754}{extractor}
+\item 
+\-Ptr$<$ \-Descriptor\-Matcher $>$ \hyperlink{classCentralStorage_a8ff5fb67a41c196b5677015e09ff33be}{matcher}
+\item 
+\-B\-O\-W\-Img\-Descriptor\-Extractor $\ast$ \hyperlink{classCentralStorage_ab1828f1368902fab93265328a6e53063}{bide}
+\item 
+\-Ptr$<$ of2\-::\-Fab\-Map $>$ \hyperlink{classCentralStorage_a4172d4d2a8509cb0bfbdb4edc8a3707b}{fabmap}
+\item 
+std\-::map$<$ int, \hyperlink{structkeyFrame}{key\-Frame} $>$ \hyperlink{classCentralStorage_ab477c78726c58cba1b5b14255700ff64}{k\-Frames}
+\item 
+std\-::map$<$ int, std\-::pair$<$ int, \*
+pcl\-::\-Point\-Cloud$<$ pcl\-::\-Point\-X\-Y\-Z $>$ $>$ $>$ \hyperlink{classCentralStorage_a98df05b89e7956601eeff266fbef0754}{pt\-Cls}
+\begin{DoxyCompactList}\small\item\em the key for accessing a pt\-Cls corresponds to the the k\-Frames identity number (\-Img\-Ctr), the std\-::pair contains the associated r\-I\-D and the actual \-Pt\-Cl \end{DoxyCompactList}\item 
+std\-::map$<$ int, std\-::pair$<$ int, \*
+pcl\-::\-Point\-Cloud$<$ pcl\-::\-Point\-X\-Y\-Z $>$ $>$ $>$ \hyperlink{classCentralStorage_ac162077a92cd58a58d19ae7404719490}{pt\-Cls\-In\-Global\-World\-C\-O\-S}
+\item 
+std\-::map$<$ int, bool $>$ \hyperlink{classCentralStorage_a6b25259119c01d07da15d4e5c9f806f8}{pt\-Cls\-In\-Global\-World\-C\-O\-S\-Updated}
+\item 
+std\-::map$<$ int, std\-::pair$<$ int, \*
+geometry\-\_\-msgs\-::\-Pose\-Stamped $>$ $>$ \hyperlink{classCentralStorage_a9f86101c4abfa538b14ecafbbffb49e8}{local\-Poses}
+\item 
+std\-::map$<$ int, std\-::pair$<$ int, \*
+float $>$ $>$ \hyperlink{classCentralStorage_a77f707a32dbf4d3b76668d2bdb2db060}{local\-Scales}
+\begin{DoxyCompactList}\small\item\em \-Saves the scales for all robots and all images. \-I\-M\-P\-O\-R\-T\-A\-N\-T \-N\-O\-T\-E\-: only the latest scale is needed for each robot!!!! (current storage-\/$>$test\-Img\-Ctr!!!) $<$-\/-\/ \-Maybe not true (see \-L\-S\-D \-S\-L\-A\-M 3.\-5 scale for each keyframe) \end{DoxyCompactList}\item 
+\hyperlink{classKalmanFilterScale}{\-Kalman\-Filter\-Scale} \hyperlink{classCentralStorage_af952071a5b552f94e01d8667227bfa57}{filter}
+\item 
+std\-::map$<$ int, float $>$ \hyperlink{classCentralStorage_a017fa3b55ed277d63df2a0937be0ead7}{robot\-Scales}
+\item 
+std\-::map$<$ int, \-Eigen\-::\-Matrix4f $>$ \hyperlink{classCentralStorage_ae701316885fe7f1366f17ec44393b84b}{p\-Robots\-World}
+\item 
+std\-::map$<$ int, \hyperlink{classPoseGraph}{\-Pose\-Graph} $>$ \hyperlink{classCentralStorage_a872f54468c1ac5aa5438d3c820cfc5bd}{local\-Pose\-Graphs}
+\begin{DoxyCompactList}\small\item\em the key for accessing the local\-Pose\-Graph corresponding to a robot is the corresponding robot \-I\-D r\-I\-D \end{DoxyCompactList}\item 
+\hyperlink{classPoseGraph}{\-Pose\-Graph} \hyperlink{classCentralStorage_a710a94a5fbcb985594717f0864405872}{global\-Pose\-Graph}
+\begin{DoxyCompactList}\small\item\em all local \-Pose\-Graphs added together \end{DoxyCompactList}\item 
+cv\-::\-Mat \hyperlink{classCentralStorage_ab3aae9d93bbccd2a646330cb8812824f}{test\-B\-O\-W\-Descriptors\-\_\-all\-Robots}
+\item 
+int \hyperlink{classCentralStorage_ac6ecd35e9f6a9d0145f87fb98c6fb923}{test\-Img\-Ctr}
+\item 
+vector$<$ of2\-::\-I\-Match $>$ \hyperlink{classCentralStorage_af2ce7451320774bb90db744fa46493bd}{matches}
+\item 
+bool \hyperlink{classCentralStorage_a311e52441ce3ca79a2eac623c58221cc}{bool\-Match}
+\item 
+std\-::pair$<$ int, int $>$ \hyperlink{classCentralStorage_a393e5d052d921122176d0ebf0a6cfadb}{matched\-Key\-Frames}
+\item 
+std\-::map$<$ int, std\-::pair$<$ int, \*
+int $>$ $>$ \hyperlink{classCentralStorage_a8382babfd80ae718d4f15ddfa5ef5017}{matched\-Key\-Frames\-Map}
+\begin{DoxyCompactList}\small\item\em key is the nbr of the query\-Img (\-Img\-Ctr) -\/-\/$>$ access k\-Frame\-: storage-\/$>$k\-Frames\mbox{[} matched\-Key\-Frames\-Map\mbox{[}nbr\mbox{]}.first \mbox{]}, storage-\/$>$k\-Frames\mbox{[} matched\-Key\-Frames\-Map\mbox{[}nbr\mbox{]}.second \mbox{]} \end{DoxyCompactList}\item 
+std\-::map$<$ int, std\-::pair\*
+$<$ \-Eigen\-::\-Matrix4f, int $>$ $>$ \hyperlink{classCentralStorage_a3ae59bfa3849b3dd984c636e0a9af23a}{i\-G\-Map}
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Class storing all images of all robots, global maps (pose graph and point cloud) 
+
+\-Definition at line 78 of file \-Central\-Storage.\-h.
+
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classCentralStorage_a25eac5394f0f460badecfda39c287249}{\index{\-Central\-Storage@{\-Central\-Storage}!\-Central\-Storage@{\-Central\-Storage}}
+\index{\-Central\-Storage@{\-Central\-Storage}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{\-Central\-Storage}]{\setlength{\rightskip}{0pt plus 5cm}const char {\bf \-Central\-Storage\-::\-Central\-Storage} (
+\begin{DoxyParamCaption}
+\item[{int}]{nbr\-Robots\-Input, }
+\item[{int}]{nbr\-Vis\-Words\-Input}
+\end{DoxyParamCaption}
+)}}\label{classCentralStorage_a25eac5394f0f460badecfda39c287249}
+
+
+\-Constructor setting initial values to member variables and initializing detector, extractor, matcher and \-B\-O\-W\-K\-Means\-Trainer. 
+
+
+
+\-Definition at line 8 of file \-Central\-Storage.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                       :
+                nbrRobots(nbrRobotsInput),
+                nbrVisWords(nbrVisWordsInput),
+                testImgCtr(0),
+                stopDataCollection(false)
+                {
+//      // Init camera Matrix and distortion coefficients
+//      //float camMatArr[3][3] = {{442.777026, 0, 291.591624},{0, 444.581889,
+       207.395871},{0, 0, 1}};
+//      //float distCoeffsArr[5] = {-0.343887, 0.100088, -0.001316, -0.000163,
+       0};
+//      //camMat = Mat(3,3,CV_32FC1,camMatArr);
+//      //distCoeffs = Mat(5,1,CV_32FC1,distCoeffsArr);
+
+
+
+        // Detector, Extractor, Matcher, BOW Img Descriptor, BOW KMeans trainer
+    //detector = new
+       DynamicAdaptedFeatureDetector(AdjusterAdapter::create("SURF"),150,250,4); //
+        //detector = new
+       DynamicAdaptedFeatureDetector(AdjusterAdapter::create("SIFT"),400,500,5); //
+        //detector = new SiftFeatureDetector(0, 1, 1, 5, 0.9); // nfeatures,
+       noctavelayers,contrastthreshold (higher->less features), edgethreshold
+       (higher->more features) ,sigma
+        detector = new SiftFeatureDetector(0, 4, 0.04, 10, 1.0); // nfeatures,
+       noctavelayers,contrastthreshold (higher->less features), edgethreshold
+       (higher->more features) ,sigma
+
+//detector = new SiftFeatureDetector(0, 3, 0.15, 5, 0.9);0, 3, 0.15, 5, 0.9
+
+        //extractor = new SurfDescriptorExtractor(500,4,2,false,true);
+       //hessian threshold, noctave,noctavelayers,extended,upright
+        extractor = new SiftDescriptorExtractor(); //hessian threshold,
+       noctave,noctavelayers,extended,upright
+        matcher = DescriptorMatcher::create("FlannBased");
+        bide =  new BOWImgDescriptorExtractor(extractor, matcher);
+        // clustering (nbr clusters = nbr vis words)
+        //define Term Criteria
+        TermCriteria tc(CV_TERMCRIT_ITER,100,0.001);
+        //retries number
+        int retries=1;
+        //necessary flags
+        int flags=KMEANS_PP_CENTERS;
+        BOWTrainer = new BOWKMeansTrainer(nbrVisWords,tc,retries,flags);
+
+        // Initializing Kalman Filter for scale estimation
+        KalmanFilterScale::Vector x(1);
+        x(1) = 1.0;
+        static const float _P0[] = {10.0};
+        KalmanFilterScale::Matrix P0(1,1,_P0);
+        filter.init(x,P0);
+
+        // Initialize global Transforms with identity transform and initialize
+       ptClsUpdated to true
+        for(int i=1; i<=nbrRobots; ++i) {
+                pRobotsWorld[i] = Eigen::Matrix4f::Identity(4,4);
+                ptClsInGlobalWorldCOSUpdated[i] = false;
+                robotScales[i] = 1.0;
+        }
+
+}
+\end{DoxyCode}
+\hypertarget{classCentralStorage_a02c77a753e14f274385b5df7cfee2f1f}{\index{\-Central\-Storage@{\-Central\-Storage}!$\sim$\-Central\-Storage@{$\sim$\-Central\-Storage}}
+\index{$\sim$\-Central\-Storage@{$\sim$\-Central\-Storage}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{$\sim$\-Central\-Storage}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Central\-Storage\-::$\sim$\-Central\-Storage} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCentralStorage_a02c77a753e14f274385b5df7cfee2f1f}
+
+
+\-Definition at line 59 of file \-Central\-Storage.\-cpp.
+
+
+\begin{DoxyCode}
+{}
+\end{DoxyCode}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classCentralStorage_a90df91c64ab74dfa7d557f08a27a9cdf}{\index{\-Central\-Storage@{\-Central\-Storage}!clear\-Data@{clear\-Data}}
+\index{clear\-Data@{clear\-Data}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{clear\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Central\-Storage\-::clear\-Data} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCentralStorage_a90df91c64ab74dfa7d557f08a27a9cdf}
+
+
+\-Definition at line 479 of file \-Central\-Storage.\-cpp.
+
+
+\begin{DoxyCode}
+                               {
+        this->kFrames.clear();
+
+        this->ptCls.clear();
+        this->ptClsInGlobalWorldCOS.clear();
+        this->ptClsInGlobalWorldCOSUpdated.clear();
+
+        this->localPoses.clear();
+        this->localScales.clear();
+        this->robotScales.clear();
+
+        this->pRobotsWorld.clear();
+        this->localPoseGraphs.clear();
+
+        globalPoseGraph.clear();
+
+        this->testBOWDescriptors_allRobots.release();
+        this->testImgCtr = 0;
+
+        this->matches.clear();
+        this->boolMatch = false;
+        this->matchedKeyFrames = std::make_pair(-1,-1);
+        this->matchedKeyFramesMap.clear();
+
+        this->iGMap.clear();
+}
+\end{DoxyCode}
+\hypertarget{classCentralStorage_a925c5d072478a869cc511e11cbe9248d}{\index{\-Central\-Storage@{\-Central\-Storage}!compute\-Train\-B\-O\-W\-Descriptors@{compute\-Train\-B\-O\-W\-Descriptors}}
+\index{compute\-Train\-B\-O\-W\-Descriptors@{compute\-Train\-B\-O\-W\-Descriptors}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{compute\-Train\-B\-O\-W\-Descriptors}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Central\-Storage\-::compute\-Train\-B\-O\-W\-Descriptors} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCentralStorage_a925c5d072478a869cc511e11cbe9248d}
+
+
+\-Definition at line 67 of file \-Central\-Storage.\-cpp.
+
+
+\begin{DoxyCode}
+                                                {
+        int imgCtr = 0;
+        cv::Mat BOWDescriptors;
+
+        std::vector<cv::Mat>::iterator itImg;
+        for(itImg = this->trainImgs_allRobots.begin(); itImg != this->
+      trainImgs_allRobots.end(); ++itImg) {
+                this->bide->compute(*itImg, this->trainKPts_allRobots[imgCtr], 
+      BOWDescriptors);
+                this->trainBOWDescriptors_allRobots.push_back(BOWDescriptors);
+                imgCtr = imgCtr + 1;
+        }
+}
+\end{DoxyCode}
+\hypertarget{classCentralStorage_a250829100ab52dc84a71997246870a69}{\index{\-Central\-Storage@{\-Central\-Storage}!estimate\-Scale@{estimate\-Scale}}
+\index{estimate\-Scale@{estimate\-Scale}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{estimate\-Scale}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Central\-Storage\-::estimate\-Scale} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCentralStorage_a250829100ab52dc84a71997246870a69}
+
+
+\-Definition at line 265 of file \-Central\-Storage.\-cpp.
+
+
+\begin{DoxyCode}
+                                   {
+        cout << "       estimate scale " << endl;
+
+        // if query = robot 2
+        // iGTrafo = pC1C2 = tC2C1
+        int queryImgNbr = this->testImgCtr;
+        int testImgNbr = matchedKeyFramesMap[queryImgNbr].second;
+        Eigen::Matrix4f iGTrafo = this->iGMap[queryImgNbr].first;
+        keyFrame queryKF, testKF;
+
+
+        queryKF = this->kFrames[queryImgNbr];
+        testKF = this->kFrames[testImgNbr];
+        int queryRID = queryKF.rID;
+        int testRID = testKF.rID;
+
+        // Extract descriptors from imgs
+        Mat queryImgDescr, testImgDescr;
+        this->extractor->compute( queryKF.img, queryKF.KPts, queryImgDescr );
+        this->extractor->compute( testKF.img, testKF.KPts, testImgDescr );
+
+        // match descriptors
+        std::vector< DMatch > resultingMatches;
+        this->matcher->match(queryImgDescr,testImgDescr,resultingMatches);
+
+        vector<Point2f> matched2DPtsQuery, matched2DPtsTest;
+        vector<Eigen::Vector3f> matched3DPtsQuery, matched3DPtsTest;
+        //vector<float> measurements;
+        Eigen::Vector3f matched3DPtQuery(0.0,0.0,0.0), matched3DPtTest(0.0,0.0,
+      0.0);
+
+        vector<KeyPoint> matchedQueryKPts, matchedTestKPts;
+        for (int i = 0; i < resultingMatches.size(); ++i)       {
+                matchedQueryKPts.push_back(queryKF.KPts[resultingMatches[i].
+      queryIdx]);
+                matchedTestKPts.push_back(testKF.KPts[resultingMatches[i].
+      trainIdx]);
+        }
+//      HelperFcts::displayImageKPts("queryImg", queryKF.img,
+       matchedQueryKPts);
+//      HelperFcts::displayImageKPts("testImg", testKF.img, matchedTestKPts);
+//      HelperFcts::displayMatches("matches", queryKF.img, testKF.img,
+       queryKF.KPts, testKF.KPts, resultingMatches);
+//      waitKey(10000);
+
+        for (int i = 0; i < resultingMatches.size(); ++i)       {
+                Point2f matched2DPtQuery = queryKF.KPts[resultingMatches[i].
+      queryIdx].pt;
+                Point2f matched2DPtTest = testKF.KPts[resultingMatches[i].
+      trainIdx].pt;
+
+                HelperFcts::calc3DPt(matched2DPtQuery, queryKF.fx, queryKF.fy, 
+      queryKF.cx, queryKF.cy, queryKF.idepth, matched3DPtQuery);
+                //HelperFcts::transform3DPt(queryKF.camToRobot,
+       matched3DPtQuery, matched3DPtQuery);
+
+
+                HelperFcts::calc3DPt(matched2DPtTest, testKF.fx, testKF.fy, 
+      testKF.cx, testKF.cy, testKF.idepth, matched3DPtTest);
+                // iGTrafo = pC1C2 = tC2C1
+                // iGTrafo = pC2C1 = tC1C2
+                Eigen::Matrix4f iGTrafoInv(Eigen::Matrix4f::Identity(4,4));
+                HelperFcts::invTrafo(iGTrafo, iGTrafoInv);
+                HelperFcts::transform3DPt(iGTrafoInv, matched3DPtQuery, 
+      matched3DPtQuery);
+
+
+                KalmanFilterScale::Vector u(0);
+                KalmanFilterScale::Vector z(3);
+                for(int i=0 ; i<3 ; ++i) {
+
+                        float measurement = matched3DPtTest(i)/matched3DPtQuery
+      (i);
+                        z(i+1) = measurement;
+                }
+                this->filter.step(u,z);
+        }
+        cout << "scale estimate:        " << this->filter.getX()(1) << endl << 
+      "cov:    " << this->filter.calculateP()(1,1) << endl;
+        this->robotScales[queryRID] = this->filter.getX()(1);
+}
+\end{DoxyCode}
+\hypertarget{classCentralStorage_aac60399a1652a2e63e3efd01d4758a1e}{\index{\-Central\-Storage@{\-Central\-Storage}!find\-Trafo@{find\-Trafo}}
+\index{find\-Trafo@{find\-Trafo}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{find\-Trafo}]{\setlength{\rightskip}{0pt plus 5cm}const char {\bf \-Central\-Storage\-::find\-Trafo} (
+\begin{DoxyParamCaption}
+\item[{\-Eigen\-::\-Matrix4f}]{i\-G, }
+\item[{\-Eigen\-::\-Matrix4f \&}]{final\-Trafo}
+\end{DoxyParamCaption}
+)}}\label{classCentralStorage_aac60399a1652a2e63e3efd01d4758a1e}
+
+
+\-Member function calculating an the pose of one camera relative to the other camera of two matched images based icp with the initial \-Guess calculated in find\-Trafo\-Initial\-Guess \-The result of running, namely p\-Test\-Query (p2nd1st), is stored in ???? 
+
+
+
+\-Definition at line 245 of file \-Central\-Storage.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                           {
+
+        int queryImgCtrMatch = this->testImgCtr;
+        int testImgCtrMatch = this->matchedKeyFramesMap[queryImgCtrMatch].
+      second;
+
+        pcl::PointCloud<pcl::PointXYZ>::Ptr ptClToPtrSource(new 
+      pcl::PointCloud<pcl::PointXYZ>());
+        pcl::PointCloud<pcl::PointXYZ>::Ptr ptClToPtrTarget(new 
+      pcl::PointCloud<pcl::PointXYZ>());
+        *ptClToPtrSource = this->ptCls[queryImgCtrMatch].second;
+        *ptClToPtrTarget = this->ptCls[testImgCtrMatch].second;
+
+         pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> icp;
+         icp.setInputSource(ptClToPtrSource);
+         icp.setInputTarget(ptClToPtrTarget);
+
+         pcl::PointCloud<pcl::PointXYZ> Final;
+         icp.align(Final, iG);
+
+         finalTrafo = icp.getFinalTransformation();
+}
+\end{DoxyCode}
+\hypertarget{classCentralStorage_a76c399f09dc7d0083508c1a14f8dd8f3}{\index{\-Central\-Storage@{\-Central\-Storage}!find\-Trafo\-Initial\-Guess@{find\-Trafo\-Initial\-Guess}}
+\index{find\-Trafo\-Initial\-Guess@{find\-Trafo\-Initial\-Guess}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{find\-Trafo\-Initial\-Guess}]{\setlength{\rightskip}{0pt plus 5cm}const char {\bf \-Central\-Storage\-::find\-Trafo\-Initial\-Guess} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCentralStorage_a76c399f09dc7d0083508c1a14f8dd8f3}
+
+
+\-Member function calculating an initial guess for the pose of one camera relative to the other camera of two matched images based on matched keypoints \-The result of running, namely p\-Test\-Query (p2nd1st), is stored in storage-\/$>$i\-G\-Map\mbox{[}query\-Img\-Ctr\mbox{]}. 
+
+
+
+\-Definition at line 156 of file \-Central\-Storage.\-cpp.
+
+
+\begin{DoxyCode}
+                                           {
+
+        cout << "               find IG" << endl;
+        int queryImgNbr = this->testImgCtr;
+        int testImgNbr = matchedKeyFramesMap[queryImgNbr].second;
+
+        keyFrame queryKF, testKF;
+
+        queryKF = this->kFrames[queryImgNbr];
+        testKF = this->kFrames[testImgNbr];
+        int queryRID = queryKF.rID;
+        int testRID = testKF.rID;
+        // Extract descriptors from imgs
+        Mat queryImgDescr, testImgDescr;
+        this->extractor->compute(queryKF.img,queryKF.KPts,queryImgDescr);
+        this->extractor->compute(testKF.img,testKF.KPts,testImgDescr);
+
+        // match descriptors
+        std::vector< DMatch > resultingMatches;
+        this->matcher->match(queryImgDescr,testImgDescr,resultingMatches);
+
+        // Filter out bad matches
+        double max_dist = 0; double min_dist = 100;
+        //-- Quick calculation of max and min distances between keypoints
+        for( int i = 0; i < queryImgDescr.rows; i++ ) {
+                double dist = resultingMatches[i].distance;
+                if( dist < min_dist ) min_dist = dist;
+                if( dist > max_dist ) max_dist = dist;
+        }
+        std::vector< DMatch > good_matches;
+        for( int i = 0; i < queryImgDescr.rows; i++ ) {
+                if( resultingMatches[i].distance <= max(3*min_dist, 10.0) ) {
+                        good_matches.push_back( resultingMatches[i]);
+                }
+        }
+
+
+        HelperFcts::displayMatches("testmatches",queryKF.img,testKF.img,queryKF
+      .KPts,testKF.KPts,good_matches, true);
+
+        //derive correspondences based on random point-cloud
+        bearingVector_t bearingVectorQuery,bearingVectorTest;
+        bearingVectors_t bearingVectorsQuery;
+        bearingVectors_t bearingVectorsTest;
+
+        vector<Point2f> matchedPtsQuery, matchedPtsTest;
+        for (int i = 0; i < good_matches.size(); ++i)
+        {
+                Point2f matchedPtQuery = queryKF.KPts[good_matches[i].queryIdx]
+      .pt;
+                Point2f matchedPtTest = testKF.KPts[good_matches[i].trainIdx].
+      pt;
+
+                matchedPtsQuery.push_back(matchedPtQuery);
+                matchedPtsTest.push_back(matchedPtTest);
+
+                bearingVectorQuery[0] = matchedPtQuery.x/sqrt(matchedPtQuery.x*
+      matchedPtQuery.x + matchedPtQuery.y*matchedPtQuery.y + 1.0);
+                bearingVectorQuery[1] = matchedPtQuery.y/sqrt(matchedPtQuery.x*
+      matchedPtQuery.x + matchedPtQuery.y*matchedPtQuery.y + 1.0);
+                bearingVectorQuery[2] = 1.0;//sqrt(1.0 -
+       matchedPtQuery.x*matchedPtQuery.x - matchedPtQuery.y*matchedPtQuery.y);
+                bearingVectorQuery.normalize();
+
+                bearingVectorTest[0] = matchedPtTest.x/sqrt(matchedPtTest.x*
+      matchedPtTest.x + matchedPtTest.y*matchedPtTest.y + 1.0);
+                bearingVectorTest[1] = matchedPtTest.y/sqrt(matchedPtTest.x*
+      matchedPtTest.x + matchedPtTest.y*matchedPtTest.y + 1.0);
+                //sqrt(1.0 - matchedPtTest.x*matchedPtTest.x -
+       matchedPtTest.y*matchedPtTest.y)
+                bearingVectorTest[2] = 1.0;//sqrt(1.0 -
+       matchedPtTest.x*matchedPtTest.x - matchedPtTest.y*matchedPtTest.y);
+                bearingVectorTest.normalize();
+
+                bearingVectorsQuery.push_back(bearingVectorQuery);
+                bearingVectorsTest.push_back(bearingVectorTest);
+
+        }
+
+        relative_pose::CentralRelativeAdapter adapter(bearingVectorsQuery,
+      bearingVectorsTest);
+        sac::Ransac<sac_problems::relative_pose::CentralRelativePoseSacProblem>
+       ransac;
+        
+      boost::shared_ptr<sac_problems::relative_pose::CentralRelativePoseSacProblem> relposeproblem_ptr(new 
+      sac_problems::relative_pose::CentralRelativePoseSacProblem(adapter,
+      sac_problems::relative_pose::CentralRelativePoseSacProblem::NISTER));
+        ransac.sac_model_ = relposeproblem_ptr;
+        ransac.threshold_ = 2.0*(1.0 - cos(atan(sqrt(2.0)*0.5/800.0)));
+        ransac.max_iterations_ = 50;
+
+        ransac.computeModel();
+        transformation_t pCamTestCamQueryOpenGV = ransac.model_coefficients_;
+
+
+        Eigen::Matrix4f iG(Eigen::Matrix4f::Identity(4,4));
+        Eigen::Matrix4d iGdouble(Eigen::Matrix4d::Identity(4,4));
+        iGdouble.block(0,0,3,4) = pCamTestCamQueryOpenGV;
+        iG = iGdouble.cast<float>();
+
+        this->iGMap[queryImgNbr] = std::make_pair(iG,testImgNbr);
+
+}
+\end{DoxyCode}
+\hypertarget{classCentralStorage_a76ea5d6aa74f139a4db824b679958ce2}{\index{\-Central\-Storage@{\-Central\-Storage}!generate\-C\-L\-Tree@{generate\-C\-L\-Tree}}
+\index{generate\-C\-L\-Tree@{generate\-C\-L\-Tree}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{generate\-C\-L\-Tree}]{\setlength{\rightskip}{0pt plus 5cm}const char {\bf \-Central\-Storage\-::generate\-C\-L\-Tree} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCentralStorage_a76ea5d6aa74f139a4db824b679958ce2}
+
+
+\-Member function generating chow liu tree and outputting it in \char`\"{}cltree.\-yml\char`\"{}. 
+
+
+
+\-Definition at line 79 of file \-Central\-Storage.\-cpp.
+
+
+\begin{DoxyCode}
+                                    {
+        of2::ChowLiuTree treeBuilder;
+        treeBuilder.add(this->trainBOWDescriptors_allRobots);
+        this->clTree = treeBuilder.make();
+}
+\end{DoxyCode}
+\hypertarget{classCentralStorage_aed7b4357ce0cb743a5c8074b805b51a5}{\index{\-Central\-Storage@{\-Central\-Storage}!generate\-Vocabulary@{generate\-Vocabulary}}
+\index{generate\-Vocabulary@{generate\-Vocabulary}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{generate\-Vocabulary}]{\setlength{\rightskip}{0pt plus 5cm}const char {\bf \-Central\-Storage\-::generate\-Vocabulary} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCentralStorage_aed7b4357ce0cb743a5c8074b805b51a5}
+
+
+\-Member function generating vocabulatory (dictionary/ visual words/ ...) and outputting it in \char`\"{}vocab.\-yml\char`\"{}, also saves all descriptors (\-S\-U\-R\-F) of all robots in \char`\"{}train\-Descriptors\-\_\-all\-Robots.\-yml\char`\"{}. 
+
+
+
+\-Definition at line 62 of file \-Central\-Storage.\-cpp.
+
+
+\begin{DoxyCode}
+                                        {
+        this->BOWTrainer->add(this->trainDescriptors_allRobots);
+        this->vocabulary = this->BOWTrainer->cluster(); // Returns the cluster
+       centers (descriptors are clustered into nbr vis words)
+}
+\end{DoxyCode}
+\hypertarget{classCentralStorage_a7e6a32a86c37de7871884670cf97d598}{\index{\-Central\-Storage@{\-Central\-Storage}!search\-For\-Good\-Match@{search\-For\-Good\-Match}}
+\index{search\-For\-Good\-Match@{search\-For\-Good\-Match}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{search\-For\-Good\-Match}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Central\-Storage\-::search\-For\-Good\-Match} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCentralStorage_a7e6a32a86c37de7871884670cf97d598}
+
+
+\-Definition at line 85 of file \-Central\-Storage.\-cpp.
+
+
+\begin{DoxyCode}
+                                        {
+        //FOR TMR
+        // dont consider first several imsg
+        // add consecutive if from other robot
+        // no match if other robot has some there
+        if(this->testImgCtr>0) {
+
+                ostringstream convStringFileName, convStringContent;
+                string matchedImgsFileName, matchedImgsContent;
+                int kFrameNbr = -10000;
+                int rID = this->kFrames[this->testImgCtr].rID;
+                vector<of2::IMatch>::const_iterator it;
+                float maxLikeli = 0;
+                float matchCurrent(0.0), matchLast(0.0), matchSecondLast(0.0);
+                //int nbrImgs = (int) -0.5+(1/4+2*this->matches.size())^(1/2);
+                // for last query Img (last keyframe) loop through all
+       (test)imgs except the query img on its own (query img - query img :
+       this->matches.end()-this->testImgCtr-1)
+                for(it = this->matches.end()-this->testImgCtr; it != this->
+      matches.end(); ++it) {
+
+//                      if(this->testImgCtr < 30) { // dont consider matches
+       among the first 6 keyframes
+//                      if(this->testImgCtr < 8) { // dont consider matches
+       among the first 6 keyframes
+                        if(this->testImgCtr < 45) { // dont consider matches
+       among the first 6 keyframes
+                                continue;
+                        }
+
+
+//                      if(it->match < 0.75) {
+                        if(it->match < 0.75) {
+//                              cout << "               match probability too
+       low" << endl;
+                                continue;
+                        }
+
+                        if(it->imgIdx != -1) { // comparing query Img to
+       testing Img associated with kFrameNbr
+                                kFrameNbr = it->imgIdx;
+                        }
+                        else if(it->imgIdx == -1) { // comparing query Img to
+       itself
+//                              cout << "               compared to its own2"
+       << endl;
+                                kFrameNbr = this->kFrames.size()-1;
+                                continue; // Do not test to itself
+                        }
+
+                        if(this->kFrames[this->testImgCtr].rID == this->kFrames
+      [kFrameNbr].rID) { // No matches of same robot
+//                              cout << "               same robot ID" << endl;
+                                continue;
+                        }
+
+                        // name of file determines queryImg specifications
+                        convStringFileName << "matchingImgs/robot" << this->
+      kFrames[this->testImgCtr].rID << "MatchedImgsQueryImg" << this->kFrames[this->
+      testImgCtr].fID << ".yml";
+                        matchedImgsFileName = convStringFileName.str();
+
+                        convStringContent << "robot: " << this->kFrames[
+      kFrameNbr].rID << "   MatchedImg: " << this->kFrames[kFrameNbr].fID << "   MatchProbab:
+       " << it->match << "     ";
+                        matchedImgsContent = convStringContent.str();
+
+                        this->matchedKeyFrames.first = this->testImgCtr; //
+       query Img
+                        this->matchedKeyFrames.second = kFrameNbr; // matched
+       test Img
+                        this->matchedKeyFramesMap.insert(std::pair<int,
+      std::pair <int,int> >(this->testImgCtr,this->matchedKeyFrames)); // store with key "nbr
+       of query image (= this->testImgCtr)"
+                        if(!matchedImgsContent.empty()) {
+                                cout << "               GOOD MATCH" << endl;
+                                HelperFcts::saveStringToFile(matchedImgsContent
+      , matchedImgsFileName);
+                                this->boolMatch = true;
+
+                                // set bool to update map
+                                typedef std::map<int,bool> ptClUpdatedMap;
+                                for (ptClUpdatedMap::iterator it = this->
+      ptClsInGlobalWorldCOSUpdated.begin(); it!=this->ptClsInGlobalWorldCOSUpdated.
+      end(); ++it) {
+                                        it->second = false;
+                                }
+                        }
+                } // END for loop through matches
+
+        } // END if this->testImgCtr > 0
+}
+\end{DoxyCode}
+\hypertarget{classCentralStorage_ad0e2f8a4581fe0e61a49b07141442dd2}{\index{\-Central\-Storage@{\-Central\-Storage}!update\-Poses\-Of\-Robots@{update\-Poses\-Of\-Robots}}
+\index{update\-Poses\-Of\-Robots@{update\-Poses\-Of\-Robots}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{update\-Poses\-Of\-Robots}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Central\-Storage\-::update\-Poses\-Of\-Robots} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCentralStorage_ad0e2f8a4581fe0e61a49b07141442dd2}
+
+
+\-Definition at line 334 of file \-Central\-Storage.\-cpp.
+
+
+\begin{DoxyCode}
+                                         {
+        cout << "       Update Poses of Robots" << endl;
+
+        // check if any ptcl has update neccessary
+        typedef std::map<int,bool> ptClUpdatedMap;
+        vector<int> rIDToUpdate;
+        for (ptClUpdatedMap::iterator it = this->ptClsInGlobalWorldCOSUpdated.
+      begin(); it!=this->ptClsInGlobalWorldCOSUpdated.end(); ++it) {
+                if(it->second == false) {
+                        rIDToUpdate.push_back(it->first);
+                }
+        }
+
+        if(this->matchedKeyFramesMap.empty()) { // no matches yet
+                cout << "               No matches yet" << endl;
+                this->pRobotsWorld[1] = Eigen::Matrix4f::Identity(4,4);
+
+                Eigen::Matrix4f initTrafo(Eigen::Matrix4f::Identity(4,4));
+                initTrafo.block(0,3,3,1) << 0,0,0;
+                this->pRobotsWorld[2] = initTrafo;
+        }
+        else if( !this->matchedKeyFramesMap.empty() && !rIDToUpdate.empty() ) {
+       // there is a new match
+                for(int i=1; i<=this->nbrRobots; ++i) { // iterate through all
+       robots
+                        if(i == 1) { // update global pose of robot 1
+                                this->pRobotsWorld[i] = 
+      Eigen::Matrix4f::Identity(4,4);
+                                this->ptClsInGlobalWorldCOSUpdated[i] = false;
+                        }
+                        else { // update global pose of robot 2
+                                // pRobotsWorld[2] = pRobot2World =
+       tWorldRobot2
+                                // = tWorldRobot1 * tRobot1Cam1 * tCam1Cam2 *
+       tCam2Robot2
+                                // = Identity     * pCam1Robot1 * pCam2Cam1 *
+       pRobot2Cam2
+                                // = Identity     * pCam1Robot1 * pCam2Cam1 *
+       pCam2Robot2^(-1)
+
+                                int matchQueryImgCtr = this->matchedKeyFramesMap
+      .rbegin()->second.first;
+                                int matchTestImgCtr = this->matchedKeyFramesMap
+      .rbegin()->second.second;
+
+                                if(this->localPoses[matchQueryImgCtr].first == 
+      1) {
+                                        // R1 = Query, R2 = Test
+                                        Eigen::Matrix4f pCam1Robot1(
+      Eigen::Matrix4f::Identity(4,4));
+                                        HelperFcts::poseStampedROSToMatrix4f(
+      this->localPoses[matchQueryImgCtr].second, pCam1Robot1);
+
+                                        Eigen::Matrix4f pCam2Cam1(
+      Eigen::Matrix4f::Identity(4,4));
+                                        pCam2Cam1 = this->iGMap[
+      matchQueryImgCtr].first;
+
+                                        Eigen::Matrix4f pRobot2Cam2(
+      Eigen::Matrix4f::Identity(4,4));
+                                        Eigen::Matrix4f pCam2Robot2(
+      Eigen::Matrix4f::Identity(4,4));
+                                        HelperFcts::poseStampedROSToMatrix4f(
+      this->localPoses[matchTestImgCtr].second, pCam2Robot2);
+                                        HelperFcts::invTrafo(pCam2Robot2, 
+      pRobot2Cam2);
+                                        //this->pRobotsWorld[rID] =
+       Eigen::Matrix4f::Identity(4,4) * pCam1Robot1 * pCam2Cam1 * pRobot2Cam2;
+
+                                        Eigen::Matrix4f scale(
+      Eigen::Matrix4f::Identity(4,4));
+                                        scale.block(0,0,3,3) = 1/this->
+      robotScales[i]*Eigen::Matrix3f::Identity(3,3);
+
+                                        Eigen::Matrix4f invTmp;
+                                        HelperFcts::invTrafo(
+      Eigen::Matrix4f::Identity(4,4) * pCam1Robot1 * pRobot2Cam2 * scale, invTmp);
+
+                                        this->pRobotsWorld[i] = 
+      Eigen::Matrix4f::Identity(4,4) * pCam1Robot1 * pRobot2Cam2 * scale;
+                                        //this->pRobotsWorld[i] =
+       Eigen::Matrix4f::Identity(4,4) * pCam1Robot1 * pRobot2Cam2 * 1;
+                                        cout << "this->pRobotsWorld[i]: " << 
+      this->pRobotsWorld[i] << endl;
+                                }
+                                else if(this->localPoses[matchQueryImgCtr].
+      first == 2) {
+                                        // R2 = Query, R1 = Test
+                                        Eigen::Matrix4f pCam1Robot1(
+      Eigen::Matrix4f::Identity(4,4));
+                                        HelperFcts::poseStampedROSToMatrix4f(
+      this->localPoses[matchTestImgCtr].second, pCam1Robot1);
+
+                                        Eigen::Matrix4f pCam2Cam1(
+      Eigen::Matrix4f::Identity(4,4));
+                                        Eigen::Matrix4f pCam1Cam2(
+      Eigen::Matrix4f::Identity(4,4));
+                                        pCam1Cam2 = this->iGMap[
+      matchQueryImgCtr].first;
+                                        HelperFcts::invTrafo(pCam1Cam2, 
+      pCam2Cam1);
+
+                                        Eigen::Matrix4f pRobot2Cam2(
+      Eigen::Matrix4f::Identity(4,4));
+                                        Eigen::Matrix4f pCam2Robot2(
+      Eigen::Matrix4f::Identity(4,4));
+                                        HelperFcts::poseStampedROSToMatrix4f(
+      this->localPoses[matchQueryImgCtr].second, pCam2Robot2);
+                                        HelperFcts::invTrafo(pCam2Robot2, 
+      pRobot2Cam2);
+                                        //this->pRobotsWorld[rID] =
+       Eigen::Matrix4f::Identity(4,4) * pCam1Robot1 * pCam2Cam1 * pRobot2Cam2;
+
+                                        Eigen::Matrix4f scale(
+      Eigen::Matrix4f::Identity(4,4));
+                                        scale.block(0,0,3,3) = 1/this->
+      robotScales[i]*Eigen::Matrix3f::Identity(3,3);
+
+                                        Eigen::Matrix4f invTmp;
+                                        HelperFcts::invTrafo(
+      Eigen::Matrix4f::Identity(4,4) * pCam1Robot1 * pRobot2Cam2 * scale, invTmp);
+
+                                        this->pRobotsWorld[i] = 
+      Eigen::Matrix4f::Identity(4,4) * pCam1Robot1 * pRobot2Cam2 * scale;
+                                        //this->pRobotsWorld[i] =
+       Eigen::Matrix4f::Identity(4,4) * pCam1Robot1 * pRobot2Cam2 * 1;
+                                        cout << "this->pRobotsWorld[i]: " << 
+      this->pRobotsWorld[i] << endl;
+
+                                }
+                                this->ptClsInGlobalWorldCOSUpdated[i] = false;
+                        }
+                }
+        }
+}
+\end{DoxyCode}
+\hypertarget{classCentralStorage_ac065c164a68a24bb1d5e0ff0b9a41f84}{\index{\-Central\-Storage@{\-Central\-Storage}!update\-Pt\-Cls@{update\-Pt\-Cls}}
+\index{update\-Pt\-Cls@{update\-Pt\-Cls}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{update\-Pt\-Cls}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Central\-Storage\-::update\-Pt\-Cls} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCentralStorage_ac065c164a68a24bb1d5e0ff0b9a41f84}
+
+
+\-Definition at line 426 of file \-Central\-Storage.\-cpp.
+
+
+\begin{DoxyCode}
+                                 {
+        cout << "       Update PtCls" << endl;
+
+        /* Naming conventions:
+         * p: pose
+         * t: coordinate transformation
+         * pCOS2COS1:  pose of COS2 relative to COS1 (expressed in COS1)
+         * tCOS2COS1:  coordinate transformation from COS1 to COS2 (transforms
+       representation of 3D coords in COS1 to representation of same 3D points in COS2)
+         * Robot: initial Robot coordinate system (initial pose of robot at
+       initialization of SLAM robot)
+         * Cam: camera coordinate system of corresponding robot (current pose
+       of camera and robot - transformation between current robot COS and camera COS is
+       assumed to be identity)
+         * World: world coordinate system, equivalent to initial robot
+       coordinate system of robot with robot ID rID=1
+         */
+        Eigen::Matrix4f pRobotWorld(Eigen::Matrix4f::Identity(4,4));
+        Eigen::Matrix4f pWorldRobot(Eigen::Matrix4f::Identity(4,4));
+        Eigen::Matrix4f tWorldRobot(Eigen::Matrix4f::Identity(4,4));
+
+        typedef std::map<int,bool> ptClUpdatedMap;
+        typedef std::vector<int> rIDToUpdateVec;
+        typedef std::map<int,std::pair <int,pcl::PointCloud<pcl::PointXYZ> > > 
+      ptClMap;
+
+        // check robot ID for which ptcls can be updated
+        vector<int> rIDToUpdate;
+        for (ptClUpdatedMap::iterator it = this->ptClsInGlobalWorldCOSUpdated.
+      begin(); it!=this->ptClsInGlobalWorldCOSUpdated.end(); ++it) {
+                if(it->second == false) {
+                        cout << "               PtCls to update: " << it->first
+       << endl;
+                        rIDToUpdate.push_back(it->first);
+                }
+        }
+
+        if(rIDToUpdate.empty()) { // all ptcls up-to-date
+                cout << "               All PtCls up-to-date" << endl;
+        }
+        else { // update ptcls
+                // update all ptcls from all robot IDs in rIDToUpdate
+                for(rIDToUpdateVec::iterator itVec=rIDToUpdate.begin(); itVec<
+      rIDToUpdate.end(); ++itVec) {
+                        // iterate through all robots that need their ptCls to
+       be updated
+
+                        for (ptClMap::iterator it = this->ptCls.begin(); it!=
+      this->ptCls.end(); ++it) {
+                                // iterate through all ptcls
+                                if( (it->second.first == *itVec) ) {
+                                        // check if the corresponding robot
+       needs update
+                                        this->ptClsInGlobalWorldCOS[it->first].
+      first = it->second.first;
+                                        pRobotWorld = this->pRobotsWorld[*itVec
+      ];
+                                        tWorldRobot = pRobotWorld;
+                                        HelperFcts::invTrafo(pRobotWorld,
+      pWorldRobot);
+                                        pcl::transformPointCloud(it->second.
+      second, this->ptClsInGlobalWorldCOS[it->first].second, pRobotWorld);
+                                }
+                        }
+                        this->ptClsInGlobalWorldCOSUpdated[*itVec] = true;
+                }
+        }
+}
+\end{DoxyCode}
+
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{classCentralStorage_ab1828f1368902fab93265328a6e53063}{\index{\-Central\-Storage@{\-Central\-Storage}!bide@{bide}}
+\index{bide@{bide}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{bide}]{\setlength{\rightskip}{0pt plus 5cm}\-B\-O\-W\-Img\-Descriptor\-Extractor$\ast$ {\bf \-Central\-Storage\-::bide}}}\label{classCentralStorage_ab1828f1368902fab93265328a6e53063}
+
+
+\-Definition at line 103 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_a311e52441ce3ca79a2eac623c58221cc}{\index{\-Central\-Storage@{\-Central\-Storage}!bool\-Match@{bool\-Match}}
+\index{bool\-Match@{bool\-Match}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{bool\-Match}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Central\-Storage\-::bool\-Match}}}\label{classCentralStorage_a311e52441ce3ca79a2eac623c58221cc}
+
+
+\-Definition at line 142 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_aa30a8d753544480abd495023cbf62a2f}{\index{\-Central\-Storage@{\-Central\-Storage}!\-B\-O\-W\-Trainer@{\-B\-O\-W\-Trainer}}
+\index{\-B\-O\-W\-Trainer@{\-B\-O\-W\-Trainer}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{\-B\-O\-W\-Trainer}]{\setlength{\rightskip}{0pt plus 5cm}\-B\-O\-W\-K\-Means\-Trainer$\ast$ {\bf \-Central\-Storage\-::\-B\-O\-W\-Trainer}}}\label{classCentralStorage_aa30a8d753544480abd495023cbf62a2f}
+
+
+\-Definition at line 99 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_adfcd7e35336daa5d959f783c9180460f}{\index{\-Central\-Storage@{\-Central\-Storage}!cam\-Model@{cam\-Model}}
+\index{cam\-Model@{cam\-Model}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{cam\-Model}]{\setlength{\rightskip}{0pt plus 5cm}image\-\_\-geometry\-::\-Pinhole\-Camera\-Model {\bf \-Central\-Storage\-::cam\-Model}}}\label{classCentralStorage_adfcd7e35336daa5d959f783c9180460f}
+
+
+\-Definition at line 83 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_a5d9e98c4102f50187f6a034a99ef9793}{\index{\-Central\-Storage@{\-Central\-Storage}!cl\-Tree@{cl\-Tree}}
+\index{cl\-Tree@{cl\-Tree}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{cl\-Tree}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Mat {\bf \-Central\-Storage\-::cl\-Tree}}}\label{classCentralStorage_a5d9e98c4102f50187f6a034a99ef9793}
+
+
+\-Definition at line 94 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_a3853e38f8eadbe09da6a1855b29704f7}{\index{\-Central\-Storage@{\-Central\-Storage}!detector@{detector}}
+\index{detector@{detector}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{detector}]{\setlength{\rightskip}{0pt plus 5cm}\-Ptr$<$\-Feature\-Detector$>$ {\bf \-Central\-Storage\-::detector}}}\label{classCentralStorage_a3853e38f8eadbe09da6a1855b29704f7}
+
+
+\-Definition at line 100 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_a8c18048b9cf9171a16d6d9e2fa8f8754}{\index{\-Central\-Storage@{\-Central\-Storage}!extractor@{extractor}}
+\index{extractor@{extractor}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{extractor}]{\setlength{\rightskip}{0pt plus 5cm}\-Ptr$<$\-Descriptor\-Extractor$>$ {\bf \-Central\-Storage\-::extractor}}}\label{classCentralStorage_a8c18048b9cf9171a16d6d9e2fa8f8754}
+
+
+\-Definition at line 101 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_a4172d4d2a8509cb0bfbdb4edc8a3707b}{\index{\-Central\-Storage@{\-Central\-Storage}!fabmap@{fabmap}}
+\index{fabmap@{fabmap}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{fabmap}]{\setlength{\rightskip}{0pt plus 5cm}\-Ptr$<$of2\-::\-Fab\-Map$>$ {\bf \-Central\-Storage\-::fabmap}}}\label{classCentralStorage_a4172d4d2a8509cb0bfbdb4edc8a3707b}
+
+
+\-Definition at line 105 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_af952071a5b552f94e01d8667227bfa57}{\index{\-Central\-Storage@{\-Central\-Storage}!filter@{filter}}
+\index{filter@{filter}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{filter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Kalman\-Filter\-Scale} {\bf \-Central\-Storage\-::filter}}}\label{classCentralStorage_af952071a5b552f94e01d8667227bfa57}
+
+
+\-Definition at line 122 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_a710a94a5fbcb985594717f0864405872}{\index{\-Central\-Storage@{\-Central\-Storage}!global\-Pose\-Graph@{global\-Pose\-Graph}}
+\index{global\-Pose\-Graph@{global\-Pose\-Graph}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{global\-Pose\-Graph}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Pose\-Graph} {\bf \-Central\-Storage\-::global\-Pose\-Graph}}}\label{classCentralStorage_a710a94a5fbcb985594717f0864405872}
+
+
+all local \-Pose\-Graphs added together 
+
+
+
+\-Definition at line 135 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_a3ae59bfa3849b3dd984c636e0a9af23a}{\index{\-Central\-Storage@{\-Central\-Storage}!i\-G\-Map@{i\-G\-Map}}
+\index{i\-G\-Map@{i\-G\-Map}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{i\-G\-Map}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$int,std\-::pair $<$\-Eigen\-::\-Matrix4f, int$>$ $>$ {\bf \-Central\-Storage\-::i\-G\-Map}}}\label{classCentralStorage_a3ae59bfa3849b3dd984c636e0a9af23a}
+key is the nbr of the query\-Img (\-Img\-Ctr), i\-G\-Map.\-first\-: query\-Img\-Ctr (query\-Img\-Ctr), i\-G\-Map.\-second.\-first\-: \-I\-G between 2 keyframes, i\-G\-Map.\-second.\-second\-: test\-Img\-Ctr (test\-Img\-Ctr of matched k\-Frame) it contains the pose of the \-Test\-Img (2nd) relative to the \-Query\-Img (1st) 
+
+\-Definition at line 148 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_ab477c78726c58cba1b5b14255700ff64}{\index{\-Central\-Storage@{\-Central\-Storage}!k\-Frames@{k\-Frames}}
+\index{k\-Frames@{k\-Frames}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{k\-Frames}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$int,{\bf key\-Frame}$>$ {\bf \-Central\-Storage\-::k\-Frames}}}\label{classCentralStorage_ab477c78726c58cba1b5b14255700ff64}
+k\-Frames stores the \hyperlink{structkeyFrame}{key\-Frame} \-Image, its identity number (f\-I\-D=\-Img\-Ctr), the associated robot (r\-I\-D), the k\-Pts and the bow\-Descriptor of the \hyperlink{structkeyFrame}{key\-Frame} note that the key of the k\-Frames map is identical to k\-Frames\mbox{[}key\mbox{]}.f\-I\-D 
+
+\-Definition at line 109 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_a872f54468c1ac5aa5438d3c820cfc5bd}{\index{\-Central\-Storage@{\-Central\-Storage}!local\-Pose\-Graphs@{local\-Pose\-Graphs}}
+\index{local\-Pose\-Graphs@{local\-Pose\-Graphs}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{local\-Pose\-Graphs}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$int,{\bf \-Pose\-Graph}$>$ {\bf \-Central\-Storage\-::local\-Pose\-Graphs}}}\label{classCentralStorage_a872f54468c1ac5aa5438d3c820cfc5bd}
+
+
+the key for accessing the local\-Pose\-Graph corresponding to a robot is the corresponding robot \-I\-D r\-I\-D 
+
+
+
+\-Definition at line 133 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_a9f86101c4abfa538b14ecafbbffb49e8}{\index{\-Central\-Storage@{\-Central\-Storage}!local\-Poses@{local\-Poses}}
+\index{local\-Poses@{local\-Poses}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{local\-Poses}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$int,std\-::pair $<$int,geometry\-\_\-msgs\-::\-Pose\-Stamped$>$ $>$ {\bf \-Central\-Storage\-::local\-Poses}}}\label{classCentralStorage_a9f86101c4abfa538b14ecafbbffb49e8}
+the key for accessing a local \-Poses (poses of the keyframe concerning the initial pose of the associated robot) corresponds to the the k\-Frames number (\-Img\-Ctr), the std\-::pair contains the associated r\-I\-D and the actual \-Transformation 
+
+\-Definition at line 118 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_a77f707a32dbf4d3b76668d2bdb2db060}{\index{\-Central\-Storage@{\-Central\-Storage}!local\-Scales@{local\-Scales}}
+\index{local\-Scales@{local\-Scales}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{local\-Scales}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$int,std\-::pair $<$int,float$>$ $>$ {\bf \-Central\-Storage\-::local\-Scales}}}\label{classCentralStorage_a77f707a32dbf4d3b76668d2bdb2db060}
+
+
+\-Saves the scales for all robots and all images. \-I\-M\-P\-O\-R\-T\-A\-N\-T \-N\-O\-T\-E\-: only the latest scale is needed for each robot!!!! (current storage-\/$>$test\-Img\-Ctr!!!) $<$-\/-\/ \-Maybe not true (see \-L\-S\-D \-S\-L\-A\-M 3.\-5 scale for each keyframe) 
+
+
+
+\-Definition at line 120 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_a393e5d052d921122176d0ebf0a6cfadb}{\index{\-Central\-Storage@{\-Central\-Storage}!matched\-Key\-Frames@{matched\-Key\-Frames}}
+\index{matched\-Key\-Frames@{matched\-Key\-Frames}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{matched\-Key\-Frames}]{\setlength{\rightskip}{0pt plus 5cm}std\-::pair$<$int,int$>$ {\bf \-Central\-Storage\-::matched\-Key\-Frames}}}\label{classCentralStorage_a393e5d052d921122176d0ebf0a6cfadb}
+
+
+\-Definition at line 143 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_a8382babfd80ae718d4f15ddfa5ef5017}{\index{\-Central\-Storage@{\-Central\-Storage}!matched\-Key\-Frames\-Map@{matched\-Key\-Frames\-Map}}
+\index{matched\-Key\-Frames\-Map@{matched\-Key\-Frames\-Map}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{matched\-Key\-Frames\-Map}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$int,std\-::pair $<$int,int$>$ $>$ {\bf \-Central\-Storage\-::matched\-Key\-Frames\-Map}}}\label{classCentralStorage_a8382babfd80ae718d4f15ddfa5ef5017}
+
+
+key is the nbr of the query\-Img (\-Img\-Ctr) -\/-\/$>$ access k\-Frame\-: storage-\/$>$k\-Frames\mbox{[} matched\-Key\-Frames\-Map\mbox{[}nbr\mbox{]}.first \mbox{]}, storage-\/$>$k\-Frames\mbox{[} matched\-Key\-Frames\-Map\mbox{[}nbr\mbox{]}.second \mbox{]} 
+
+
+
+\-Definition at line 145 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_a8ff5fb67a41c196b5677015e09ff33be}{\index{\-Central\-Storage@{\-Central\-Storage}!matcher@{matcher}}
+\index{matcher@{matcher}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{matcher}]{\setlength{\rightskip}{0pt plus 5cm}\-Ptr$<$\-Descriptor\-Matcher$>$ {\bf \-Central\-Storage\-::matcher}}}\label{classCentralStorage_a8ff5fb67a41c196b5677015e09ff33be}
+
+
+\-Definition at line 102 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_af2ce7451320774bb90db744fa46493bd}{\index{\-Central\-Storage@{\-Central\-Storage}!matches@{matches}}
+\index{matches@{matches}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{matches}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$of2\-::\-I\-Match$>$ {\bf \-Central\-Storage\-::matches}}}\label{classCentralStorage_af2ce7451320774bb90db744fa46493bd}
+
+
+\-Definition at line 140 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_a83a67f52de30d339d872138243d42764}{\index{\-Central\-Storage@{\-Central\-Storage}!nbr\-Robots@{nbr\-Robots}}
+\index{nbr\-Robots@{nbr\-Robots}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{nbr\-Robots}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Central\-Storage\-::nbr\-Robots}}}\label{classCentralStorage_a83a67f52de30d339d872138243d42764}
+
+
+\-Definition at line 82 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_a6830253bfbd8a4c03cc317820358d25a}{\index{\-Central\-Storage@{\-Central\-Storage}!nbr\-Vis\-Words@{nbr\-Vis\-Words}}
+\index{nbr\-Vis\-Words@{nbr\-Vis\-Words}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{nbr\-Vis\-Words}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Central\-Storage\-::nbr\-Vis\-Words}}}\label{classCentralStorage_a6830253bfbd8a4c03cc317820358d25a}
+
+
+\-Definition at line 90 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_ae701316885fe7f1366f17ec44393b84b}{\index{\-Central\-Storage@{\-Central\-Storage}!p\-Robots\-World@{p\-Robots\-World}}
+\index{p\-Robots\-World@{p\-Robots\-World}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{p\-Robots\-World}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$int,\-Eigen\-::\-Matrix4f$>$ {\bf \-Central\-Storage\-::p\-Robots\-World}}}\label{classCentralStorage_ae701316885fe7f1366f17ec44393b84b}
+the key for accessing a global poses of the robots (pose of the initial robot \-C\-O\-S concerning the world \-C\-O\-S) corresponds to the the r\-I\-D, the map contains the transformation of the associated robot relative to the world \-C\-O\-S \-N\-O\-T\-E\-: \-The world \-C\-O\-S is identical with the \-C\-O\-S of the robot with r\-I\-D 1!!!!!!!!!! 
+
+\-Definition at line 130 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_a98df05b89e7956601eeff266fbef0754}{\index{\-Central\-Storage@{\-Central\-Storage}!pt\-Cls@{pt\-Cls}}
+\index{pt\-Cls@{pt\-Cls}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{pt\-Cls}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$int,std\-::pair $<$int,pcl\-::\-Point\-Cloud$<$pcl\-::\-Point\-X\-Y\-Z$>$ $>$ $>$ {\bf \-Central\-Storage\-::pt\-Cls}}}\label{classCentralStorage_a98df05b89e7956601eeff266fbef0754}
+
+
+the key for accessing a pt\-Cls corresponds to the the k\-Frames identity number (\-Img\-Ctr), the std\-::pair contains the associated r\-I\-D and the actual \-Pt\-Cl 
+
+
+
+\-Definition at line 112 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_ac162077a92cd58a58d19ae7404719490}{\index{\-Central\-Storage@{\-Central\-Storage}!pt\-Cls\-In\-Global\-World\-C\-O\-S@{pt\-Cls\-In\-Global\-World\-C\-O\-S}}
+\index{pt\-Cls\-In\-Global\-World\-C\-O\-S@{pt\-Cls\-In\-Global\-World\-C\-O\-S}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{pt\-Cls\-In\-Global\-World\-C\-O\-S}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$int,std\-::pair $<$int,pcl\-::\-Point\-Cloud$<$pcl\-::\-Point\-X\-Y\-Z$>$ $>$ $>$ {\bf \-Central\-Storage\-::pt\-Cls\-In\-Global\-World\-C\-O\-S}}}\label{classCentralStorage_ac162077a92cd58a58d19ae7404719490}
+
+
+\-Definition at line 113 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_a6b25259119c01d07da15d4e5c9f806f8}{\index{\-Central\-Storage@{\-Central\-Storage}!pt\-Cls\-In\-Global\-World\-C\-O\-S\-Updated@{pt\-Cls\-In\-Global\-World\-C\-O\-S\-Updated}}
+\index{pt\-Cls\-In\-Global\-World\-C\-O\-S\-Updated@{pt\-Cls\-In\-Global\-World\-C\-O\-S\-Updated}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{pt\-Cls\-In\-Global\-World\-C\-O\-S\-Updated}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$int,bool$>$ {\bf \-Central\-Storage\-::pt\-Cls\-In\-Global\-World\-C\-O\-S\-Updated}}}\label{classCentralStorage_a6b25259119c01d07da15d4e5c9f806f8}
+
+
+\-Definition at line 114 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_a017fa3b55ed277d63df2a0937be0ead7}{\index{\-Central\-Storage@{\-Central\-Storage}!robot\-Scales@{robot\-Scales}}
+\index{robot\-Scales@{robot\-Scales}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{robot\-Scales}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$int,float$>$ {\bf \-Central\-Storage\-::robot\-Scales}}}\label{classCentralStorage_a017fa3b55ed277d63df2a0937be0ead7}
+
+
+\-Definition at line 124 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_ac721895aafa60a4fb37c9659aabaed7a}{\index{\-Central\-Storage@{\-Central\-Storage}!stop\-Data\-Collection@{stop\-Data\-Collection}}
+\index{stop\-Data\-Collection@{stop\-Data\-Collection}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{stop\-Data\-Collection}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Central\-Storage\-::stop\-Data\-Collection}}}\label{classCentralStorage_ac721895aafa60a4fb37c9659aabaed7a}
+
+
+\-Definition at line 86 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_ab3aae9d93bbccd2a646330cb8812824f}{\index{\-Central\-Storage@{\-Central\-Storage}!test\-B\-O\-W\-Descriptors\-\_\-all\-Robots@{test\-B\-O\-W\-Descriptors\-\_\-all\-Robots}}
+\index{test\-B\-O\-W\-Descriptors\-\_\-all\-Robots@{test\-B\-O\-W\-Descriptors\-\_\-all\-Robots}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{test\-B\-O\-W\-Descriptors\-\_\-all\-Robots}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Mat {\bf \-Central\-Storage\-::test\-B\-O\-W\-Descriptors\-\_\-all\-Robots}}}\label{classCentralStorage_ab3aae9d93bbccd2a646330cb8812824f}
+
+
+\-Definition at line 138 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_ac6ecd35e9f6a9d0145f87fb98c6fb923}{\index{\-Central\-Storage@{\-Central\-Storage}!test\-Img\-Ctr@{test\-Img\-Ctr}}
+\index{test\-Img\-Ctr@{test\-Img\-Ctr}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{test\-Img\-Ctr}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Central\-Storage\-::test\-Img\-Ctr}}}\label{classCentralStorage_ac6ecd35e9f6a9d0145f87fb98c6fb923}
+
+
+\-Definition at line 139 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_ad22679ec76d8fc9c99226a1bfdd4c410}{\index{\-Central\-Storage@{\-Central\-Storage}!train\-B\-O\-W\-Descriptors\-\_\-all\-Robots@{train\-B\-O\-W\-Descriptors\-\_\-all\-Robots}}
+\index{train\-B\-O\-W\-Descriptors\-\_\-all\-Robots@{train\-B\-O\-W\-Descriptors\-\_\-all\-Robots}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{train\-B\-O\-W\-Descriptors\-\_\-all\-Robots}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Mat {\bf \-Central\-Storage\-::train\-B\-O\-W\-Descriptors\-\_\-all\-Robots}}}\label{classCentralStorage_ad22679ec76d8fc9c99226a1bfdd4c410}
+
+
+\-Definition at line 93 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_ad574732df5058d95d650c1187a9ba4f6}{\index{\-Central\-Storage@{\-Central\-Storage}!train\-Descriptors\-\_\-all\-Robots@{train\-Descriptors\-\_\-all\-Robots}}
+\index{train\-Descriptors\-\_\-all\-Robots@{train\-Descriptors\-\_\-all\-Robots}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{train\-Descriptors\-\_\-all\-Robots}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Mat {\bf \-Central\-Storage\-::train\-Descriptors\-\_\-all\-Robots}}}\label{classCentralStorage_ad574732df5058d95d650c1187a9ba4f6}
+
+
+\-Definition at line 87 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_a673208fa43bab02c4e53077ae45a38e7}{\index{\-Central\-Storage@{\-Central\-Storage}!train\-Imgs\-\_\-all\-Robots@{train\-Imgs\-\_\-all\-Robots}}
+\index{train\-Imgs\-\_\-all\-Robots@{train\-Imgs\-\_\-all\-Robots}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{train\-Imgs\-\_\-all\-Robots}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$cv\-::\-Mat$>$ {\bf \-Central\-Storage\-::train\-Imgs\-\_\-all\-Robots}}}\label{classCentralStorage_a673208fa43bab02c4e53077ae45a38e7}
+
+
+\-Definition at line 89 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_a6eba28072f558f36c2b3a08170f9db74}{\index{\-Central\-Storage@{\-Central\-Storage}!train\-K\-Pts\-\_\-all\-Robots@{train\-K\-Pts\-\_\-all\-Robots}}
+\index{train\-K\-Pts\-\_\-all\-Robots@{train\-K\-Pts\-\_\-all\-Robots}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{train\-K\-Pts\-\_\-all\-Robots}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$vector$<$\-Key\-Point$>$ $>$ {\bf \-Central\-Storage\-::train\-K\-Pts\-\_\-all\-Robots}}}\label{classCentralStorage_a6eba28072f558f36c2b3a08170f9db74}
+
+
+\-Definition at line 88 of file \-Central\-Storage.\-h.
+
+\hypertarget{classCentralStorage_a50f04d43d8c1f26725bb2e2e560a494c}{\index{\-Central\-Storage@{\-Central\-Storage}!vocabulary@{vocabulary}}
+\index{vocabulary@{vocabulary}!CentralStorage@{\-Central\-Storage}}
+\subsubsection[{vocabulary}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Mat {\bf \-Central\-Storage\-::vocabulary}}}\label{classCentralStorage_a50f04d43d8c1f26725bb2e2e560a494c}
+
+
+\-Definition at line 92 of file \-Central\-Storage.\-h.
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{CentralStorage_8h}{\-Central\-Storage.\-h}\item 
+\hyperlink{CentralStorage_8cpp}{\-Central\-Storage.\-cpp}\end{DoxyCompactItemize}

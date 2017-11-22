@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: cc_fabmap
+Description: Description of cc_fabmap
+Version: 0.0.0
+Cflags: -I/usr/local/include
+Libs: -L/usr/local/lib 
+Requires: cv_bridge image_transport roscpp rospy sensor_msgs std_msgs geometry_msgs pcl_conversions pcl_ros image_geometry visualization_msgs

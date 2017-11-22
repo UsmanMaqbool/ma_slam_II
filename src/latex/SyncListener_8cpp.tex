@@ -1,0 +1,49 @@
+\hypertarget{SyncListener_8cpp}{\section{\-Sync\-Listener.\-cpp \-File \-Reference}
+\label{SyncListener_8cpp}\index{\-Sync\-Listener.\-cpp@{\-Sync\-Listener.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}\-Sync\-Listener.\-h\char`\"{}}\*
+\-Include dependency graph for \-Sync\-Listener.\-cpp\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{SyncListener_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{SyncListener_8cpp_a45d750f090ea9402b709498a49ecfa25}{lsd\-S\-L\-A\-M\-I\-D\-To\-F\-I\-D} (\hyperlink{classCentralStorage}{\-Central\-Storage} $\ast$storage, int lsd\-S\-L\-A\-M\-I\-D, int \&f\-I\-D)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{SyncListener_8cpp_a45d750f090ea9402b709498a49ecfa25}{\index{\-Sync\-Listener.\-cpp@{\-Sync\-Listener.\-cpp}!lsd\-S\-L\-A\-M\-I\-D\-To\-F\-I\-D@{lsd\-S\-L\-A\-M\-I\-D\-To\-F\-I\-D}}
+\index{lsd\-S\-L\-A\-M\-I\-D\-To\-F\-I\-D@{lsd\-S\-L\-A\-M\-I\-D\-To\-F\-I\-D}!SyncListener.cpp@{\-Sync\-Listener.\-cpp}}
+\subsubsection[{lsd\-S\-L\-A\-M\-I\-D\-To\-F\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf lsd\-S\-L\-A\-M\-I\-D\-To\-F\-I\-D} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Central\-Storage} $\ast$}]{storage, }
+\item[{int}]{lsd\-S\-L\-A\-M\-I\-D, }
+\item[{int \&}]{f\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{SyncListener_8cpp_a45d750f090ea9402b709498a49ecfa25}
+
+
+\-Definition at line 9 of file \-Sync\-Listener.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                       {
+        bool found = false;
+        typedef std::map<int,keyFrame> kFMap;
+        for (kFMap::iterator it=storage->kFrames.begin(); it!=storage->kFrames.
+      end(); ++it) {
+                if(found == true) {
+                        continue;
+                }
+                if(it->second.lsdSLAMID == lsdSLAMID) {
+                        fID = it->second.fID;
+                        found = true;
+                }
+        }
+}
+\end{DoxyCode}
