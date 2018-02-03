@@ -17,15 +17,15 @@
 
 
 ## Record Bag Files
+```
 1. Open new terminal and go to the directory where the vocabluray files to be saved. for example;
    `cd /home/leo/awc_pc_fusion/src/bag_files`
 2. `roslaunch ueye_cam bayer_rggb_image_proc.launch` 
 <! --
 to view;
 rosrun image_view image_view image:=/narrow_stereo/image_raw
+it will show nothing for /narrow_stereo/image_rect, to run and check firslty we have to rectify it
 
-# it will show nothing for /narrow_stereo/image_rect, to run and check firslty we have to rectify it
-```
 ROS_NAMESPACE=narrow_stereo rosrun image_proc image_proc
 rosrun image_view image_view image:=/narrow_stereo/image_rect
  -->
