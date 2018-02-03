@@ -25,7 +25,7 @@ to view;
 rosrun image_view image_view image:=/narrow_stereo/image_raw
 
 # it will show nothing for /narrow_stereo/image_rect, to run and check firslty we have to rectify it
-
+```
 ROS_NAMESPACE=narrow_stereo rosrun image_proc image_proc
 rosrun image_view image_view image:=/narrow_stereo/image_rect
  -->
@@ -56,3 +56,4 @@ rosrun rosbag topic_renamer.py /narrow_stereo/image_rect video12_temp.bag /usb_c
 
 #to confirm, the topic is changed now....
 rosbag info train_video1.bag
+```
